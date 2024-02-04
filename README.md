@@ -8,6 +8,7 @@
 - Laura Cordero Castrillo - UO275955
 - Sandra García Morán - UO283182
 - Yeray Rodríguez Granda - UO284247
+- Pablo López Tamargo - UO287694
 
 This is a base repo for the [Software Architecture course](http://arquisoft.github.io/) in [2023/2024 edition](https://arquisoft.github.io/course2324.html). 
 
