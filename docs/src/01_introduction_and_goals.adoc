@@ -15,6 +15,12 @@ These include
 * relevant stakeholders and their expectations
 ****
 
+Nuestro equipo de desarrollo ha sido contratado por la empresa HappySW para la creación de una aplicación de preguntas y respuestas similar al programa de RTVE "Saber y Ganar". Nuestro objetivo para este proyecto será:
+
+* Crear una aplicación web con preguntas creadas automáticamente, haciendo así un juego mucho más dinámico y actualizado.
+* Los usuarios podrán crear sus propia cuenta para acceder al historial de sus partidas.
+
+
 === Requirements Overview
 
 [role="arc42help"]
