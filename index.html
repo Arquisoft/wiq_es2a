@@ -578,6 +578,19 @@ These include</p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Nuestro equipo de desarrollo ha sido contratado por la empresa HappySW para la creación de una aplicación de preguntas y respuestas similar al programa de RTVE "Saber y Ganar". Nuestro objetivo para este proyecto será:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Crear una aplicación web con preguntas creadas automáticamente, haciendo así un juego mucho más dinámico y actualizado.</p>
+</li>
+<li>
+<p>Los usuarios podrán crear sus propia cuenta para acceder al historial de sus partidas.</p>
+</li>
+</ul>
+</div>
 <div class="sect2">
 <h3 id="_requirements_overview">1.1. Requirements Overview</h3>
 <div class="sidebarblock arc42help">
@@ -606,6 +619,42 @@ If requirements documents exist this overview should refer to these documents.</
 <p>See <a href="https://docs.arc42.org/section-1/">Introduction and Goals</a> in the arc42 documentation.</p>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>A continuación se muestran los requisitos de alto nivel para el desarrollo del juego.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Requisito</th>
+<th class="tableblock halign-left valign-top">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creación de usuarios e historial</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un usuario se podrá registrar en la web y consultar los resultados de sus anteriores partidas.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preguntas creadas automáticamente</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A partir de los datos de Wikidata se crearán las preguntas del juego, asi como sus respuestas.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Condiciones de juego</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Habrá un tiempo limitado de respuesta para cada pregunta</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Acesso a información por parte del Sistema</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">El sistema tendrá acceso a la información de los usuarios, además de las preguntas generadas.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Para información más detallada, se puede consultar el documento completo proporcionado por la empresa <a href="https://docs.google.com/document/d/1pahOfYFY&#8212;&#8203;Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit">aquí</a> .</p>
 </div>
 </div>
 <div class="sect2">
@@ -798,12 +847,40 @@ The title of the table is the name of your system, the three columns contain the
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p><strong>&lt;Diagram or Table&gt;</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Business_Context.png" alt="Contexto de negocio">
 </div>
-<div class="paragraph">
-<p><strong>&lt;optionally: Explanation of external domain interfaces&gt;</strong></p>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Socio de Comunicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entrada</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Salida</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usuario</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uso del juego</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base de Datos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Guarda información relevante de la aplicación (usuarios, preguntas base)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Envía la información requerida a la aplicación</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API Wikidata</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recibe una consulta relacionada con la pregunta a construir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Envía los datos que la aplicación ha pedido para la pregunta</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_technical_context">3.2. Technical Context</h3>
@@ -824,15 +901,39 @@ together with a mapping table showing the relationships between channels and inp
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p><strong>&lt;Diagram or Table&gt;</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Technical_Context.png" alt="Contexto técnico">
 </div>
-<div class="paragraph">
-<p><strong>&lt;optionally: Explanation of technical interfaces&gt;</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>&lt;Mapping Input/Output to Channels&gt;</strong></p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tecnologías utilizadas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decripción de uso</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure Cloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Utilizado para el despliegue de la aplicación</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MongoDB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos NoSQL para guardar la información de la aplicación, como los usuarios y las preguntas base</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navegadores</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Permiten al usuario acceder a la aplicación una vez desplegada</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">React, JavaScript, HTML, CSS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lenguajes utilizados para la creación del juego</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1803,7 +1904,7 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-02-01 16:41:16 +0100
+Last updated 2024-02-11 15:54:08 +0100
 </div>
 </div>
 </body>
