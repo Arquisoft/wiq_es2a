@@ -46,6 +46,21 @@ Keep these excerpts as short as possible. Balance readability of this document w
 See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 documentation.
 
 ****
+A continuación se muestran los requisitos de alto nivel para el desarrollo del juego.
+
+|===
+|Requisito|Descripción
+
+| Creación de usuarios e historial | Un usuario se podrá registrar en la web y consultar los resultados de sus anteriores partidas.
+
+| Preguntas creadas automáticamente | A partir de los datos de Wikidata se crearán las preguntas del juego, asi como sus respuestas.
+
+|Condiciones de juego| Habrá un tiempo limitado de respuesta para cada pregunta
+
+|Acesso a información por parte del Sistema| El sistema tendrá acceso a la información de los usuarios, además de las preguntas generadas.
+|===
+
+Para información más detallada, se puede consultar el documento completo proporcionado por la empresa https://docs.google.com/document/d/1pahOfYFY--Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit[aquí] .
 
 === Quality Goals
 
