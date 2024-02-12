@@ -85,12 +85,12 @@ A table with quality goals and concrete scenarios, ordered by priorities
 ****
 [options="header",cols="1,2"]
 |===
-|Atributo|Descripción
-|Seguridad| Los datos personales del usuario serán guardados de manera segura
+|Atributo de calidad|Descripción
 |Usabilidad| La interfaz de usuario será sencilla de entender y de usar
 |Rendimiento| La aplicación tendrá tiempos de carga rápidos y respuestas ágiles
-|Accesibility| La aplicación se podrá usar en distintos dispositivos
+|Adaptabilidad| La aplicación se podrá usar en distintos dispositivos
 |Disponibilidad| La aplicación estará disponible y funcionando la mayoría del tiempo
+|Seguridad| Los datos personales del usuario serán guardados de manera segura
 |===
 
 === Stakeholders
