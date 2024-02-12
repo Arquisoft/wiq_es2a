@@ -5,23 +5,20 @@ ifndef::imagesdir[:imagesdir: ../images]
 === Decisiones Tecnológicas
 * Microsoft Azure: es una plataforma de computación en la nube que ofrece servicios de infraestructura, plataforma y software como servicio, para poder administrar servicios en línea.
 * MongoDB: es un sistema de bases de datos NoSQL, es decir, una base de datos orientada a documentos. Este almacena datos con formato similar JSON, que no tienen que cumplir con una estructura predefinida.
-* CSS: es un lenguaje utilizado para definir el estilo y diseño de los documentos HTML. Permite controlar aspectos visuales como el color, la tipografía, el espaciado, el diseño de la página, las animaciones...
+* TypeScript: es un lenguaje de programación de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto tipado de JavaScript que compila a JavaScript puro y es compatible con todas las funcionalidades de este último.
 * WikiData: es una base de datos libre, colaborativa y multilingüe, que sirve como una base de datos secundaria y que recopila datos estructurados para dar soporte a Wikipedia, Wikimedia Commons...
+* Docker: se utiliza para hacer el despligue de la aplicación.
  
 
-.Motivation
-These decisions form the cornerstones for your architecture. They are the foundation for many other detailed decisions or implementation rules.
+=== Motivaciones
+Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en su mayoría lo domina. En cuanto React nos basemos en que facilmente se puede crear interfaces. El resto de tecnologías son las más óptimas y las prestablecidas.
 
-.Form
-Keep the explanations of such key decisions short.
+=== Decisiones sobre cómo alcanzar los objetivos clave de calidad
+* Usabilidad: Queremos una aplicación que no cause quebraderos de cabeza al usuario, que sea simple y eficiente. 
+* Utilizaremos el patrón MVC(Modelo, Vista, Controlador: Facilita la modularidad, la reutilización y el mantenimiento del código.
 
-Motivate what was decided and why it was decided that way,
-based upon problem statement, quality goals and key constraints.
-Refer to details in the following sections.
-
-
-.Further Information
-
-See https://docs.arc42.org/section-4/[Solution Strategy] in the arc42 documentation.
+=== Decisiones organizativas:
+* Reparto de tareas: Las tareas se reparten teniendo en cuenta las habilidades de cada uno de los integrantes del equipo.
+* Los miembros del equipo mantenemos comunicación por Whatsup para las dudad que surgen al hacer las tareas.
 
 ****
