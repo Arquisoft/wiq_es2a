@@ -11,14 +11,16 @@ ifndef::imagesdir[:imagesdir: ../images]
  
 
 === Motivaciones
-Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en su mayoría lo domina. En cuanto React nos basemos en que facilmente se puede crear interfaces. El resto de tecnologías son las más óptimas y las prestablecidas.
+Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en su mayoría lo domina. En cuanto React nos basemos en que facilmente se puede crear interfaces. El resto de tecnologías son las más óptimas y las prestablecidas, en el proyecto. Realmente estamos a la espera de los resultados de estas decisiones, ya que en su mayoría son tecnologías desconocidas para el equipo. 
 
 === Decisiones sobre cómo alcanzar los objetivos clave de calidad
 * Usabilidad: Queremos una aplicación que no cause quebraderos de cabeza al usuario, que sea simple y eficiente. 
-* Utilizaremos el patrón MVC(Modelo, Vista, Controlador: Facilita la modularidad, la reutilización y el mantenimiento del código.
+* Seguridad: Autenticación de usuarios y encriptado de contraseñas. 
+* Utilizaremos el patrón MVC(Modelo, Vista, Controlador: Facilita la modularidad, la reutilización y el mantenimiento del código, provocando una aplicación eficiente.
 
 === Decisiones organizativas:
 * Reparto de tareas: Las tareas se reparten teniendo en cuenta las habilidades de cada uno de los integrantes del equipo.
-* Los miembros del equipo mantenemos comunicación por Whatsup para las dudad que surgen al hacer las tareas.
+* Los miembros del equipo mantenemos comunicación por Whatsaap para las dudas que surjan.
+* Si un miembro del equipo tiene problemas con su tarea, entre los integrantes del grupo se resolverá.
 
 ****
