@@ -1,73 +1,63 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
-[[section-concepts]]
-== Cross-cutting Concepts
+=== Modelo de dominio
+Este es el modelo inicial de nuestra aplicación, pero evolucionará con el tiempo.
+
+----
+clase Usuario{
+    id: String
+    nombre: String
+    fecha_registro: String
+}
+
+clase Partida{
+    id: String
+    puntuación: int
+    preguntas: Array<Pregunta>
+    preguntas_acertadas: int
+    preguntas_falladas: int
+}
+
+clase Pregunta{
+    id: String
+    texto: String
+    respuestas: Array<Respuesta>
+}
+
+clase Respuesta{
+    id: String
+    texto: String
+    correcta: boolean
+}
+
+Usuario 1 ---> * Partida
+Partida 1 ---> (5..20) Pregunta
+Pregunta 1---> (2..4) Respuesta
+
+----
+
+=== Arquitectura principal
+
+Hemos decidido utilizar una arquitectura de microservicios, dividiendo la aplicación en módulos. Estos módulos a su vez, se estructurarán con el patrón MVC.
 
 
-[role="arc42help"]
-****
-.Content
-This section describes overall, principal regulations and solution ideas that are relevant in multiple parts (= cross-cutting) of your system.
-Such concepts are often related to multiple building blocks.
-They can include many different topics, such as
+=== Reglas al usar una tecnología específica:
 
-* models, especially domain models
-* architecture or design patterns
-* rules for using specific technology
-* principal, often technical decisions of an overarching (= cross-cutting) nature
-* implementation rules
+Realmente no sabemos demasiado sobre las tecnologías elegigidas, con la evolución del equipo mejoraremos esta sección.
 
 
-.Motivation
-Concepts form the basis for _conceptual integrity_ (consistency, homogeneity) of the architecture. 
-Thus, they are an important contribution to achieve inner qualities of your system.
+=== Reglas de implementación
 
-Some of these concepts cannot be assigned to individual building blocks, e.g. security or safety. 
+Como es un proyecto en equipo creemos que la colaboración es lo más importante, por eso hemos decidido comentar lo máximo posible nuestro propio código para que sea entendible por otras personas/compañeros de equipo.
 
+=== Interfaz de usuario.
 
-.Form
-The form can be varied:
+Queremos crear una aplicación accesible para todos los usuarios, que sea simple de entender y de jugar, que lo máximo que tengas que pensar sean las preguntas del juego.
 
-* concept papers with any kind of structure
-* cross-cutting model excerpts or scenarios using notations of the architecture views
-* sample implementations, especially for technical concepts
-* reference to typical usage of standard frameworks (e.g. using Hibernate for object/relational mapping)
+=== Privacidad 
 
-.Structure
-A potential (but not mandatory) structure for this section could be:
+Los usuarios se tienen que autenticar para poder utilizar la aplicación, además sus contraseñas están encriptadas.
 
-* Domain concepts
-* User Experience concepts (UX)
-* Safety and security concepts
-* Architecture and design patterns
-* "Under-the-hood"
-* development concepts
-* operational concepts
-
-Note: it might be difficult to assign individual concepts to one specific topic
-on this list.
-
-image::08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscutting concepts"]
-
-
-.Further Information
 
 See https://docs.arc42.org/section-8/[Concepts] in the arc42 documentation.
 ****
-
-
-=== _<Concept 1>_
-
-_<explanation>_
-
-
-
-=== _<Concept 2>_
-
-_<explanation>_
-
-...
-
-=== _<Concept n>_
-
-_<explanation>_

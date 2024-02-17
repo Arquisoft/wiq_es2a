@@ -1,32 +1,26 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-solution-strategy]]
-== Solution Strategy
+== Estrategia de solución
+=== Decisiones Tecnológicas
+* Microsoft Azure: es una plataforma de computación en la nube que ofrece servicios de infraestructura, plataforma y software como servicio, para poder administrar servicios en línea.
+* MongoDB: es un sistema de bases de datos NoSQL, es decir, una base de datos orientada a documentos. Este almacena datos con formato similar JSON, que no tienen que cumplir con una estructura predefinida.
+* TypeScript: es un lenguaje de programación de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto tipado de JavaScript que compila a JavaScript puro y es compatible con todas las funcionalidades de este último.
+* WikiData: es una base de datos libre, colaborativa y multilingüe, que sirve como una base de datos secundaria y que recopila datos estructurados para dar soporte a Wikipedia, Wikimedia Commons...
+* Docker: se utiliza para hacer el despligue de la aplicación.
+ 
 
+=== Motivaciones
+Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en su mayoría lo domina. En cuanto React nos basemos en que facilmente se puede crear interfaces. El resto de tecnologías son las más óptimas y las prestablecidas, en el proyecto. Realmente estamos a la espera de los resultados de estas decisiones, ya que en su mayoría son tecnologías desconocidas para el equipo. 
 
-[role="arc42help"]
-****
-.Contents
-A short summary and explanation of the fundamental decisions and solution strategies, that shape system architecture. It includes
+=== Decisiones sobre cómo alcanzar los objetivos clave de calidad
+* Usabilidad: Queremos una aplicación que no cause quebraderos de cabeza al usuario, que sea simple y eficiente. 
+* Seguridad: Autenticación de usuarios y encriptado de contraseñas. 
+* Utilizaremos el patrón MVC(Modelo, Vista, Controlador: Facilita la modularidad, la reutilización y el mantenimiento del código, provocando una aplicación eficiente.
 
-* technology decisions
-* decisions about the top-level decomposition of the system, e.g. usage of an architectural pattern or design pattern
-* decisions on how to achieve key quality goals
-* relevant organizational decisions, e.g. selecting a development process or delegating certain tasks to third parties.
-
-.Motivation
-These decisions form the cornerstones for your architecture. They are the foundation for many other detailed decisions or implementation rules.
-
-.Form
-Keep the explanations of such key decisions short.
-
-Motivate what was decided and why it was decided that way,
-based upon problem statement, quality goals and key constraints.
-Refer to details in the following sections.
-
-
-.Further Information
-
-See https://docs.arc42.org/section-4/[Solution Strategy] in the arc42 documentation.
+=== Decisiones organizativas:
+* Reparto de tareas: Las tareas se reparten teniendo en cuenta las habilidades de cada uno de los integrantes del equipo.
+* Los miembros del equipo mantenemos comunicación por Whatsaap para las dudas que surjan.
+* Si un miembro del equipo tiene problemas con su tarea, entre los integrantes del grupo se resolverá.
 
 ****
