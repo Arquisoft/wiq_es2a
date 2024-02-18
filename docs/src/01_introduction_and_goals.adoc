@@ -86,11 +86,6 @@ A table with quality goals and concrete scenarios, ordered by priorities
 
 === Stakeholders
 
-
-[role="arc42help"]
-
-
-
 [options="header",cols="1,2,2"]
 |===
 |Role/Name|Contact|Expectations
