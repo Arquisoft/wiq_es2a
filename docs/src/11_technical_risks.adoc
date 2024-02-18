@@ -23,3 +23,17 @@ List of risks and/or technical debts, probably including suggested measures to m
 See https://docs.arc42.org/section-11/[Risks and Technical Debt] in the arc42 documentation.
 
 ****
+
+[options="header", cols="1,1"]
+|===
+| Riesgo | Explicación
+
+| Trabajo en equipo | La falta de coodinación y comunicación puede llevar a malos resultados en el trabajo. Tampoco tenemos experiencia trabajando en una aplicación desde 0.
+
+| Falta de experiencia con WikiData | No estamos muy familiarizados con WikiData y su estructura. Tenemos que aprender a hacer queries a la API de WikiData.
+
+| Desconocimiento de React | Nunca hemos trabajado con React.
+
+| Desconocimiento de Node.js | Nunca hemos trabajado con Node.js.
+
+|===
