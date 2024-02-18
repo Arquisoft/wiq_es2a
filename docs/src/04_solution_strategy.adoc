@@ -22,5 +22,3 @@ Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en
 * Reparto de tareas: Las tareas se reparten teniendo en cuenta las habilidades de cada uno de los integrantes del equipo.
 * Los miembros del equipo mantenemos comunicación por Whatsaap para las dudas que surjan.
 * Si un miembro del equipo tiene problemas con su tarea, entre los integrantes del grupo se resolverá.
-
-****

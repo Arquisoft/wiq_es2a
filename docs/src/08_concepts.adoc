@@ -58,6 +58,3 @@ Queremos crear una aplicación accesible para todos los usuarios, que sea simple
 
 Los usuarios se tienen que autenticar para poder utilizar la aplicación, además sus contraseñas están encriptadas.
 
-
-See https://docs.arc42.org/section-8/[Concepts] in the arc42 documentation.
-****
