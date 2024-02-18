@@ -492,7 +492,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_infrastructure_level_1">7.1. Infrastructure Level 1</a></li>
 <li><a href="#_infrastructure_level_2">7.2. Infrastructure Level 2</a></li>
-<li><a href="#_modelo_de_dominio">7.3. Modelo de dominio</a></li>
+<li><a href="#section-concepts">7.3. Modelo de dominio</a></li>
 <li><a href="#_arquitectura_principal">7.4. Arquitectura principal</a></li>
 <li><a href="#_reglas_al_usar_una_tecnología_específica">7.5. Reglas al usar una tecnología específica:</a></li>
 <li><a href="#_reglas_de_implementación">7.6. Reglas de implementación</a></li>
@@ -700,6 +700,40 @@ If you as an architect do not know how the quality of your work will be judged&#
 </div>
 </div>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Atributo de calidad</th>
+<th class="tableblock halign-left valign-top">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usabilidad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La interfaz de usuario será sencilla de entender y de usar</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rendimiento</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación tendrá tiempos de carga rápidos y respuestas ágiles</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adaptabilidad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación se podrá usar en distintos dispositivos</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disponibilidad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación estará disponible y funcionando la mayoría del tiempo</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seguridad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Los datos personales del usuario serán guardados de manera segura</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_stakeholders">1.3. Stakeholders</h3>
@@ -1412,7 +1446,7 @@ when your infrastructure is more complex.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_modelo_de_dominio">7.3. Modelo de dominio</h3>
+<h3 id="section-concepts">7.3. Modelo de dominio</h3>
 <div class="paragraph">
 <p>Este es el modelo inicial de nuestra aplicación, pero evolucionará con el tiempo.</p>
 </div>
@@ -1630,6 +1664,11 @@ concrete and measurable.</p>
 </div>
 </div>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/10_QualityTree.png" alt="Quality Tree">
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_quality_scenarios">9.2. Quality Scenarios</h3>
@@ -1671,6 +1710,45 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 </div>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Descripción</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Atributo de calidad</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Escenario</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación tendrá una interfaz de usuario sencilla, con botones que indiquen que es cada cosa, y colores que harán que se entienda mejor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usabilidad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">El usuario quiere utilizar la aplicación con facilidad</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación tendrá tiempos de ejecución cortos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rendimiento</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cuando el usuario comience una partida en el juego habrá tiempos de espera cortos</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación podrá ser usada en distintos dispositivos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adaptabilidad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un usuario podrá usar la aplicación en móvil, tablet u ordenador</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación estará disponible la mayoría del tiempo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disponibilidad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación no tendrá caídas inesperadas</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Los datos de cada usuario estarán guardados de forma segura</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seguridad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">El usuario quiere que solo él pueda acceder a sus datos</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1780,18 +1858,42 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Term</th>
-<th class="tableblock halign-left valign-top">Definition</th>
+<th class="tableblock halign-left valign-top">Término</th>
+<th class="tableblock halign-left valign-top">Definición</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Term-1&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;definition-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>WikiData</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Base de conocimientos con una gran cantidad de datos. Extraeremos datos de WikiData a través de la API que nos proporciona. Construiremos las preguntas con estos datos.</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Term-2&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;definition-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>MVC</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Modelo de arquitectura de software. Las aplicaciones que siguen este modelo se dividen en 3 capas, Modelo, Vista y Controlador.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>GitHub</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Plataforma de desarrollo colaborativo. Todo el código del equipo, su trabajo realizado y sus reuniones se documentan aquí.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>MongoDB</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es un sistema de base de datos NoSQL, orientado a documentos. La base de datos de nuestra aplicación esta hecha con MongoDB.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>React</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Biblioteca JavaScript diseñada para crear interfaces de usuario. La usaremos para hacer el front-end de la aplicación.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Node.js</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es un entorno en tiempo de ejecución para la capa del servidor basado en JavaScript. La usaremos para gran parte de el back-end de la aplicación.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>TypeScript</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es un lenguaje de programación que esencialmente añade tipos estáticos y objetos basados en clases. Lo usaremos como lenguaje de programación para nuestra aplicación.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Query</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Conjunto de palabras o frase que se utiliza cómo término de búsqueda. Usaremos queries para conseguir información de la base de datos o de WikiData.</em></p></td>
 </tr>
 </tbody>
 </table>
