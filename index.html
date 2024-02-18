@@ -492,23 +492,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_infrastructure_level_1">7.1. Infrastructure Level 1</a></li>
 <li><a href="#_infrastructure_level_2">7.2. Infrastructure Level 2</a></li>
-<li><a href="#section-concepts">7.3. Modelo de dominio</a></li>
-<li><a href="#_arquitectura_principal">7.4. Arquitectura principal</a></li>
-<li><a href="#_reglas_al_usar_una_tecnología_específica">7.5. Reglas al usar una tecnología específica:</a></li>
-<li><a href="#_reglas_de_implementación">7.6. Reglas de implementación</a></li>
-<li><a href="#_interfaz_de_usuario">7.7. Interfaz de usuario.</a></li>
-<li><a href="#_privacidad">7.8. Privacidad</a></li>
 </ul>
 </li>
-<li><a href="#section-design-decisions">8. Decisiones de arquitectura</a></li>
-<li><a href="#section-quality-scenarios">9. Quality Requirements</a>
+<li><a href="#section-concepts">8. Modelo de dominio</a>
 <ul class="sectlevel2">
-<li><a href="#_quality_tree">9.1. Quality Tree</a></li>
-<li><a href="#_quality_scenarios">9.2. Quality Scenarios</a></li>
+<li><a href="#_arquitectura_principal">8.1. Arquitectura principal</a></li>
+<li><a href="#_reglas_al_usar_una_tecnología_específica">8.2. Reglas al usar una tecnología específica:</a></li>
+<li><a href="#_reglas_de_implementación">8.3. Reglas de implementación</a></li>
+<li><a href="#_interfaz_de_usuario">8.4. Interfaz de usuario.</a></li>
+<li><a href="#_privacidad">8.5. Privacidad</a></li>
 </ul>
 </li>
-<li><a href="#section-technical-risks">10. Risks and Technical Debts</a></li>
-<li><a href="#section-glossary">11. Glossary</a></li>
+<li><a href="#section-design-decisions">9. Decisiones de arquitectura</a></li>
+<li><a href="#section-quality-scenarios">10. Quality Requirements</a>
+<ul class="sectlevel2">
+<li><a href="#_quality_tree">10.1. Quality Tree</a></li>
+<li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
+</ul>
+</li>
+<li><a href="#section-technical-risks">11. Risks and Technical Debts</a></li>
+<li><a href="#section-glossary">12. Glossary</a></li>
 </ul>
 </div>
 </div>
@@ -1445,8 +1448,11 @@ when your infrastructure is more complex.</p>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="section-concepts">7.3. Modelo de dominio</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-concepts">8. Modelo de dominio</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Este es el modelo inicial de nuestra aplicación, pero evolucionará con el tiempo.</p>
 </div>
@@ -1483,33 +1489,32 @@ Partida 1 ---&gt; (5..20) Pregunta
 Pregunta 1---&gt; (2..4) Respuesta</pre>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="_arquitectura_principal">7.4. Arquitectura principal</h3>
+<h3 id="_arquitectura_principal">8.1. Arquitectura principal</h3>
 <div class="paragraph">
 <p>Hemos decidido utilizar una arquitectura de microservicios, dividiendo la aplicación en módulos. Estos módulos a su vez, se estructurarán con el patrón MVC.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reglas_al_usar_una_tecnología_específica">7.5. Reglas al usar una tecnología específica:</h3>
+<h3 id="_reglas_al_usar_una_tecnología_específica">8.2. Reglas al usar una tecnología específica:</h3>
 <div class="paragraph">
 <p>Realmente no sabemos demasiado sobre las tecnologías elegigidas, con la evolución del equipo mejoraremos esta sección.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reglas_de_implementación">7.6. Reglas de implementación</h3>
+<h3 id="_reglas_de_implementación">8.3. Reglas de implementación</h3>
 <div class="paragraph">
 <p>Como es un proyecto en equipo creemos que la colaboración es lo más importante, por eso hemos decidido comentar lo máximo posible nuestro propio código para que sea entendible por otras personas/compañeros de equipo.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_interfaz_de_usuario">7.7. Interfaz de usuario.</h3>
+<h3 id="_interfaz_de_usuario">8.4. Interfaz de usuario.</h3>
 <div class="paragraph">
 <p>Queremos crear una aplicación accesible para todos los usuarios, que sea simple de entender y de jugar, que lo máximo que tengas que pensar sean las preguntas del juego.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_privacidad">7.8. Privacidad</h3>
+<h3 id="_privacidad">8.5. Privacidad</h3>
 <div class="paragraph">
 <p>Los usuarios se tienen que autenticar para poder utilizar la aplicación, además sus contraseñas están encriptadas.</p>
 </div>
@@ -1518,7 +1523,7 @@ Pregunta 1---&gt; (2..4) Respuesta</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-design-decisions">8. Decisiones de arquitectura</h2>
+<h2 id="section-design-decisions">9. Decisiones de arquitectura</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1609,7 +1614,7 @@ There you will find links and examples about ADR.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-quality-scenarios">9. Quality Requirements</h2>
+<h2 id="section-quality-scenarios">10. Quality Requirements</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1634,7 +1639,7 @@ concrete and measurable.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_quality_tree">9.1. Quality Tree</h3>
+<h3 id="_quality_tree">10.1. Quality Tree</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -1671,7 +1676,7 @@ concrete and measurable.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_quality_scenarios">9.2. Quality Scenarios</h3>
+<h3 id="_quality_scenarios">10.2. Quality Scenarios</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -1754,7 +1759,7 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-technical-risks">10. Risks and Technical Debts</h2>
+<h2 id="section-technical-risks">11. Risks and Technical Debts</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1813,7 +1818,7 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-glossary">11. Glossary</h2>
+<h2 id="section-glossary">12. Glossary</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
