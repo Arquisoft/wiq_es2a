@@ -33,3 +33,23 @@ See https://docs.arc42.org/section-9/[Architecture Decisions] in the arc42 docum
 There you will find links and examples about ADR.
 
 ****
+
+[[section-architecture-constraints]]
+== Restricciones
+
+=== Restricciones técnicas
+[options="header", cols="1,1,1"]
+|===
+| Problema | Decisión | Explicación
+
+| Base de datos | Usar MongoDB | Usaremos MongoDB porque ya está implementado en el sistema de login de usuarios.
+
+| Frontend | React | Usaremos React para crear las interfaces de usuario debido a su facilidad de uso.
+
+| BackEnd | Node.js | Escogimos Node.js debido a su compatibilidad.
+
+| Arquitectura | MVC | El modelo MVC nos permite separar las capas para mantener el código ordenado, mantenible y es familiar para los intengrantes del grupo.
+
+| Arquitectura | Microservicios | El modelo de microservicios se ajusta muy bien a las necesidades de la aplicación.
+
+|===
