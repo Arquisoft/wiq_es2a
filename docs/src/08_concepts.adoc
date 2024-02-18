@@ -2,7 +2,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-concepts]]
 
-=== Modelo de dominio
+== Modelo de dominio
 Este es el modelo inicial de nuestra aplicación, pero evolucionará con el tiempo.
 
 ----
