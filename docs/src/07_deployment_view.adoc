@@ -56,18 +56,17 @@ Describe (usually in a combination of diagrams, tables, and text):
 For multiple environments or alternative deployments please copy and adapt this section of arc42 for all relevant environments.
 ****
 
-_**<Overview Diagram>**_
-
 Motivation::
 
-_<explanation in text form>_
+Debido a los diferentes requisitos especificados para esta aplicación se ha decido seguir la estructura descrita más abajo. Se han escogido las herramientas de acuerdo a los medios disponibles ya que no se dispone de presupuesto para este proyecto y, además, algunas de ellas, como Azure, ya eran conocidas por el equipo por lo que es más sencillo su uso.
 
 Quality and/or Performance Features::
 
-_<explanation in text form>_
+Para una disponibilidad de la aplicación a los clientes desde un navegador de forma sencilla, se ha decido usar un servicio en la nube como Azure. 
 
-Mapping of Building Blocks to Infrastructure::
-_<description of the mapping>_
+**Mapping of Building Blocks to Infrastructure**
+
+image::DeploymentView.png[Deployment View] 
 
 
 === Infrastructure Level 2
@@ -80,15 +79,6 @@ Please copy the structure from level 1 for each selected element.
 ****
 
 ==== _<Infrastructure Element 1>_
+En el siguiente diagrama se ve más a fondo el despliegue de nuestra aplicación, se puede ver el uso de docker como forma de contenedor para después desplegarlo en Azure Cloud.
 
-_<diagram + explanation>_
-
-==== _<Infrastructure Element 2>_
-
-_<diagram + explanation>_
-
-...
-
-==== _<Infrastructure Element n>_
-
-_<diagram + explanation>_
+image::DeploymentView.png[Deployment View] 
