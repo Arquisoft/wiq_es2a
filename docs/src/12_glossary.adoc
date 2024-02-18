@@ -32,11 +32,12 @@ See https://docs.arc42.org/section-12/[Glossary] in the arc42 documentation.
 
 [cols="e,2e" options="header"]
 |===
-|Term |Definition
+| Término | Definición
 
-|<Term-1>
-|<definition-1>
+| WikiData
+| Base de conocimientos con una gran cantidad de datos. Extraeremos datos de WikiData a través de la API que nos proporciona. Construiremos las preguntas con estos datos.
 
-|<Term-2>
-|<definition-2>
+| MVC
+| Modelo de arquitectura de software. Las aplicaciones que siguen este modelo se dividen en 3 capas, Modelo, Vista y Controlador.
+
 |===
