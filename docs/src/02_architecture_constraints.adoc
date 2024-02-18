@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-architecture-constraints]]
-== Restricciones técnicas
+== Restricciones de arquitectura
 
 [role="arc42help"]
 
@@ -25,6 +25,8 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 See https://docs.arc42.org/section-2/[Architecture Constraints] in the arc42 documentation.
 
 ****
+
+=== Restricciones técnicas
 
 [options="header", cols="1,1"]
 |===
@@ -61,3 +63,4 @@ See https://docs.arc42.org/section-2/[Architecture Constraints] in the arc42 doc
 | Documentación en formato Arc42 | La documentación debe seguir la estructura Arc42.
 
 |===
+
