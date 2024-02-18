@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-design-decisions]]
-== Architecture Decisions
+== Decisiones de arquitectura
 
 
 [role="arc42help"]
@@ -34,10 +34,6 @@ There you will find links and examples about ADR.
 
 ****
 
-[[section-architecture-constraints]]
-== Restricciones
-
-=== Restricciones técnicas
 [options="header", cols="1,1,1"]
 |===
 | Problema | Decisión | Explicación
