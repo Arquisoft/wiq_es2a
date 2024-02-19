@@ -4,6 +4,8 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 == Building block view
 
+image::ContextoASW.png[Scope & Context] 
+
 === Whitebox Overall System
 [options="header", cols="1,1"]
 |===
@@ -25,7 +27,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 |===
 | Nombre | Descripción
 
-| Sistema | Maneja toda la aplicación y se comunica con todos los otros sistemas.
+| Aplicación | Maneja toda la aplicación y se comunica con todos los otros sistemas.
 
 |===
 
@@ -35,20 +37,10 @@ ifndef::imagesdir[:imagesdir: ../images]
 |===
 | Nombre | Descripción
 
-| Interfaz de usuario | Toda la parte gráfica de la aplicación y que se comunica con el usuario. Se comunica con la parte lógica de la aplicación a base de eventos producidos por el usuario.
+| Vista | Toda la parte gráfica de la aplicación y que se comunica con el usuario. Se comunica con el controlador a base de eventos producidos por el usuario.
 
-| Lógica de aplicación | Lleva a cabo todos los cálculos necesarios para el funcionamiento de la aplicación. También se comunica con los sistemas para conseguir la información necesaria.
+| Modelo | Lleva a cabo todos los cálculos necesarios para el funcionamiento de la aplicación. También se comunica con los sistemas para conseguir la información necesaria.
 
-|===
-
-=== Level 2
-
-[options="header", cols="1,1"]
-|===
-| Nombre | Descripción
-
-| Lógica  | La parte central de la aplicación. Se comunica con todos los sistemas excepto con la base de datos. Para acceder a los datos se comunica con la capa de persistencia.
-
-| Persistencia | Se comunica con la base de datos para conseguir o añadir información.
+| Controlador | Comunica la vista y el modelo. Es el encargado de controlar el flujo de la aplicación.
 
 |===
