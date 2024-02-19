@@ -477,7 +477,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_whitebox_overall_system">5.1. Whitebox Overall System</a></li>
 <li><a href="#_blackbox_overall_system">5.2. Blackbox Overall System</a></li>
 <li><a href="#_level_1">5.3. Level 1</a></li>
-<li><a href="#_level_2">5.4. Level 2</a></li>
 </ul>
 </li>
 <li><a href="#section-runtime-view">6. Runtime View</a>
@@ -1109,6 +1108,11 @@ together with a mapping table showing the relationships between channels and inp
 <div class="sect1">
 <h2 id="section-building-block-view">5. Building block view</h2>
 <div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="./images/ContextoASW.png" alt="Scope &amp; Context">
+</div>
+</div>
 <div class="sect2">
 <h3 id="_whitebox_overall_system">5.1. Whitebox Overall System</h3>
 <table class="tableblock frame-all grid-all stretch">
@@ -1132,7 +1136,7 @@ together with a mapping table showing the relationships between channels and inp
 <td class="tableblock halign-left valign-top"><p class="tableblock">Se guarda información importante, como los datos de los usuarios y sus historiales.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">WebApp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Users</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Permite a los usuarios registrarse e identificarse, además de iniciar la aplicación.</p></td>
 </tr>
 <tr>
@@ -1157,14 +1161,19 @@ together with a mapping table showing the relationships between channels and inp
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sistema</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maneja toda la aplicación y se comunica con todos los otros sistemas.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Toda la aplicación se encapsula aquí.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
 <h3 id="_level_1">5.3. Level 1</h3>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Level1.png" alt="Level1">
+</div>
+</div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1178,37 +1187,16 @@ together with a mapping table showing the relationships between channels and inp
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interfaz de usuario</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Toda la parte gráfica de la aplicación y que se comunica con el usuario. Se comunica con la parte lógica de la aplicación a base de eventos producidos por el usuario.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vista</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Toda la parte gráfica de la aplicación y que se comunica con el usuario. Se comunica con el controlador a base de eventos producidos por el usuario.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lógica de aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modelo</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lleva a cabo todos los cálculos necesarios para el funcionamiento de la aplicación. También se comunica con los sistemas para conseguir la información necesaria.</p></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_level_2">5.4. Level 2</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
 <tr>
-<th class="tableblock halign-left valign-top">Nombre</th>
-<th class="tableblock halign-left valign-top">Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lógica</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La parte central de la aplicación. Se comunica con todos los sistemas excepto con la base de datos. Para acceder a los datos se comunica con la capa de persistencia.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Persistencia</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Se comunica con la base de datos para conseguir o añadir información.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controlador</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comunica la vista y el modelo. Es el encargado de controlar el flujo de la aplicación.</p></td>
 </tr>
 </tbody>
 </table>
