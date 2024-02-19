@@ -27,11 +27,13 @@ image::ContextoASW.png[Scope & Context]
 |===
 | Nombre | Descripción
 
-| Aplicación | Maneja toda la aplicación y se comunica con todos los otros sistemas.
+| Aplicación | Toda la aplicación se encapsula aquí.
 
 |===
 
 === Level 1
+
+image::Level1.png[Level1] 
 
 [options="header", cols="1,1"]
 |===
