@@ -13,7 +13,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 | Base de datos | Se guarda información importante, como los datos de los usuarios y sus historiales.
 
-| WebApp | Permite a los usuarios registrarse e identificarse, además de iniciar la aplicación.
+| Users | Permite a los usuarios registrarse e identificarse, además de iniciar la aplicación.
 
 | Cliente | Accede a la aplicación y interactúa con ella a través de la interfaz de usuario.
 
