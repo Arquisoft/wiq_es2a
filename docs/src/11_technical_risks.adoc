@@ -1,25 +1,37 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-technical-risks]]
-== Risks and Technical Debts
+== Riesgos y deuda técnica
 
 
 [role="arc42help"]
 ****
-.Contents
-A list of identified technical risks or technical debts, ordered by priority
+.Contenido
+Una lista de los riesgos técnicos o deuda técnica identificada, ordenada por prioridad.
 
-.Motivation
-“Risk management is project management for grown-ups” (Tim Lister, Atlantic Systems Guild.) 
+.Motivación
+"El manejo de riesgos es administración de proyectos para gente adulta" (Tim Lister, Atlantic Systems Guild.)
 
-This should be your motto for systematic detection and evaluation of risks and technical debts in the architecture, which will be needed by management stakeholders (e.g. project managers, product owners) as part of the overall risk analysis and measurement planning.
+Esto debiera ser el lema para la detección sistemática y la evaluación de riesgos y deuda técnica en la arquitectura,
+que será requerida por las partes relacionadas administrativas (por ejemplo, administradores de proyectoes, propietarios
+de producto) como parte de la planeación y medición de riesgos en general.
 
-.Form
-List of risks and/or technical debts, probably including suggested measures to minimize, mitigate or avoid risks or reduce technical debts.
-
-
-.Further Information
-
-See https://docs.arc42.org/section-11/[Risks and Technical Debt] in the arc42 documentation.
-
+.Forma
+Lista de riesgos y/o deuda técnica, que podría incluir una medidas sugeridas para minimizar, mitigar o evitar riesgos
+o reducir la deuda técnica.
 ****
+
+
+[options="header", cols="1,1"]
+|===
+| Riesgo | Explicación
+
+| Trabajo en equipo | La falta de coodinación y comunicación puede llevar a malos resultados en el trabajo. Tampoco tenemos experiencia trabajando en una aplicación desde 0.
+
+| Falta de experiencia con WikiData | No estamos muy familiarizados con WikiData y su estructura. Tenemos que aprender a hacer queries a la API de WikiData.
+
+| Desconocimiento de React | Nunca hemos trabajado con React.
+
+| Desconocimiento de Node.js | Nunca hemos trabajado con Node.js.
+
+|===

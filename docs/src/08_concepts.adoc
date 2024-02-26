@@ -1,73 +1,116 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-concepts]]
-== Cross-cutting Concepts
+== Conceptos Transversales (Cross-cutting)
 
 
 [role="arc42help"]
 ****
-.Content
-This section describes overall, principal regulations and solution ideas that are relevant in multiple parts (= cross-cutting) of your system.
-Such concepts are often related to multiple building blocks.
-They can include many different topics, such as
+.Contenido
+Esta sección describe de manera general, las principales ideas de solución y regulación que 
+son relevantes en multiples partes (-> cross-cutting/transversales) del sistema.
+Dichos conceptos están relacionados usualmente a múltiples bloques de construcción.
+Pueden incluir diversos temas, tales como:
 
-* models, especially domain models
-* architecture or design patterns
-* rules for using specific technology
-* principal, often technical decisions of an overarching (= cross-cutting) nature
-* implementation rules
+* Modelos de dominio
+* Patrones de arquitectura o patrones de diseño
+* Reglas de uso para alguna tecnología específica.
+* Decisiones técnicas principales o generales
+* Reglas de implementación
 
+.Motivación
+Conceptos que forman la base para la _integridad conceptual_ (consistencia, homogeneidad) de la
+arquitectura. Entonces, son una contribución importante para alcanzar la calidad interna del sistema.
 
-.Motivation
-Concepts form the basis for _conceptual integrity_ (consistency, homogeneity) of the architecture. 
-Thus, they are an important contribution to achieve inner qualities of your system.
+Algunos de estos conceptos no pueden ser asignados a bloques de construcción individuales (por ejemplo
+seguridad). Este es el lugar en la plantilla provisto para una especificación cohesiva de dichos conceptos.
 
-Some of these concepts cannot be assigned to individual building blocks, e.g. security or safety. 
+.Forma
+La forma puede ser variada:
 
-
-.Form
+* Papeles conceptuales con cualquier tipo de estructura
+* Modelo transversal (cross-cutting) de fragmentos o escenarios usando notación de las vistas arquitectónicas
+* Implementaciones de muestra, especialmente para conceptos técnicos.
+* Referencias a uso típico en frameworks estándar (por ejemplo, el uso de Hibernate para mapeo Objeto/Relacional)
 The form can be varied:
 
-* concept papers with any kind of structure
-* cross-cutting model excerpts or scenarios using notations of the architecture views
-* sample implementations, especially for technical concepts
-* reference to typical usage of standard frameworks (e.g. using Hibernate for object/relational mapping)
+.Estructura
+La estructura potencial (pero no obligatoria) para esta sección podría ser:
 
-.Structure
+* Conceptos de dominio
+* Conceptos de experiencia de usuario (UX)
+* Conceptos de seguridad
+* Patrones de diseño y arquitectura
+* 
 A potential (but not mandatory) structure for this section could be:
 
 * Domain concepts
 * User Experience concepts (UX)
 * Safety and security concepts
 * Architecture and design patterns
-* "Under-the-hood"
-* development concepts
-* operational concepts
+* "Bajo el capó"
+* Conceptos de desarrollo
+* Conceptos de operación
 
-Note: it might be difficult to assign individual concepts to one specific topic
-on this list.
+Nota: Puede ser difícil asignar conceptos individuales a un tema específico de la lista
 
-image::08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscutting concepts"]
-
-
-.Further Information
-
-See https://docs.arc42.org/section-8/[Concepts] in the arc42 documentation.
+image:08-Crosscutting-Concepts-Structure-ES.png["Posibles temas para conceptos transversales"]
 ****
 
+Este es el modelo inicial de nuestra aplicación, pero evolucionará con el tiempo.
 
-=== _<Concept 1>_
+----
+clase Usuario{
+    id: String
+    nombre: String
+    fecha_registro: String
+}
 
-_<explanation>_
+clase Partida{
+    id: String
+    puntuación: int
+    preguntas: Array<Pregunta>
+    preguntas_acertadas: int
+    preguntas_falladas: int
+}
+
+clase Pregunta{
+    id: String
+    texto: String
+    respuestas: Array<Respuesta>
+}
+
+clase Respuesta{
+    id: String
+    texto: String
+    correcta: boolean
+}
+
+Usuario 1 ---> * Partida
+Partida 1 ---> (5..20) Pregunta
+Pregunta 1---> (2..4) Respuesta
+
+----
+
+=== Arquitectura principal
+
+Hemos decidido utilizar una arquitectura de microservicios, dividiendo la aplicación en módulos. Estos módulos a su vez, se estructurarán con el patrón MVC.
 
 
+=== Reglas al usar una tecnología específica:
 
-=== _<Concept 2>_
+Realmente no sabemos demasiado sobre las tecnologías elegigidas, con la evolución del equipo mejoraremos esta sección.
 
-_<explanation>_
 
-...
+=== Reglas de implementación
 
-=== _<Concept n>_
+Como es un proyecto en equipo creemos que la colaboración es lo más importante, por eso hemos decidido comentar lo máximo posible nuestro propio código para que sea entendible por otras personas/compañeros de equipo.
 
-_<explanation>_
+=== Interfaz de usuario.
+
+Queremos crear una aplicación accesible para todos los usuarios, que sea simple de entender y de jugar, que lo máximo que tengas que pensar sean las preguntas del juego.
+
+=== Privacidad 
+
+Los usuarios se tienen que autenticar para poder utilizar la aplicación, además sus contraseñas están encriptadas.
+
