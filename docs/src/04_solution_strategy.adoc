@@ -2,6 +2,32 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-solution-strategy]]
 == Estrategia de solución
+
+
+[role="arc42help"]
+****
+.Contenido
+Un resumen corto y explicación de las estrategias y decisiones fundamentales para la solución que le dan forma a la
+arquitectura del sistema.
+Estas incluyen:
+
+* Decisiones tecnológicas
+* Decisiones acerca de la descomposición a alto nivel de un sistema, por ejemplo, el uso de algún patrón de diseño
+o de arquitectura.
+* Decisiones en como alcanzar metas de calidad claves
+* Decisiones organizacionales relevantes, como el seleccionar un proceso de desarrollo o delegar ciertas tareas a terceros.
+
+.Motivación
+Estas decisiones son las piedras angulares de la arquitectura. Son la base de muchas otras decisiones detalladas o reglas de implementación.
+
+.Forma
+Realice la explicación de las deciciones clave de manera breve. 
+
+Justifique las decisiones y porque se realizaron de esa manera, basado en el planteamiento del problema,
+las metas de calidad y restricciones clave.
+Refierase a los detalles en las secciones posteriores.
+****
+
 === Decisiones Tecnológicas
 * Microsoft Azure: es una plataforma de computación en la nube que ofrece servicios de infraestructura, plataforma y software como servicio, para poder administrar servicios en línea.
 * MongoDB: es un sistema de bases de datos NoSQL, es decir, una base de datos orientada a documentos. Este almacena datos con formato similar JSON, que no tienen que cumplir con una estructura predefinida.
@@ -16,7 +42,7 @@ Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en
 === Decisiones sobre cómo alcanzar los objetivos clave de calidad
 * Usabilidad: Queremos una aplicación que no cause quebraderos de cabeza al usuario, que sea simple y eficiente. 
 * Seguridad: Autenticación de usuarios y encriptado de contraseñas. 
-* Utilizaremos el patrón MVC(Modelo, Vista, Controlador: Facilita la modularidad, la reutilización y el mantenimiento del código, provocando una aplicación eficiente.
+* Utilizaremos el patrón MVC(Modelo, Vista, Controlador): Facilita la modularidad, la reutilización y el mantenimiento del código, provocando una aplicación eficiente.
 
 === Decisiones organizativas:
 * Reparto de tareas: Las tareas se reparten teniendo en cuenta las habilidades de cada uno de los integrantes del equipo.

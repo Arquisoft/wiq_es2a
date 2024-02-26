@@ -1,33 +1,24 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-glossary]]
-== Glossary
+== Glosario
 
 [role="arc42help"]
 ****
-.Contents
-The most important domain and technical terms that your stakeholders use when discussing the system.
+.Contenido
+Los términos técnicos y de dominio más importantes que serán utilizados por las partes relacionadas al discutir el sistema.
 
-You can also see the glossary as source for translations if you work in multi-language teams.
+También se puede usar el glosario como fuente para traducciones si se trabaja en equipos multi-lenguaje.
 
-.Motivation
-You should clearly define your terms, so that all stakeholders
+.Motivación
+Deberían definirse claramente los términos, para que todas las partes relacionadas:
 
-* have an identical understanding of these terms
-* do not use synonyms and homonyms
+* Tengan un entendimiento idéntico de dichos términos
+* No usen sinónimos y homónimos
 
-
-.Form
-
-A table with columns <Term> and <Definition>.
-
-Potentially more columns in case you need translations.
-
-
-.Further Information
-
-See https://docs.arc42.org/section-12/[Glossary] in the arc42 documentation.
-
+.Forma
+* Crear una tabla con las columnas <Término> y <Definición>.
+* Se pueden agregar más columnas en caso de que se requieran traducciones.
 ****
 
 [cols="e,2e" options="header"]
