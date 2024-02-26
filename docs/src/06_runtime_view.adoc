@@ -36,29 +36,63 @@ Hay muchas notaciones para describir los escenarios, por ejemplo:
 * ....
 ****
 
-=== <Escenario de ejecución 1>
+=== Registrar usuario
+Un usuario se registra para poder jugar.
 
-
-* _<insert runtime diagram or textual description of the scenario>_
-* _<insert description of the notable aspects of the interactions between the
-building block instances depicted in this diagram.>_
-
-It is possible to use a sequence diagram:
-
-[plantuml,"Sequence diagram",png]
+[plantuml,"Registrar usuario",png]
 ----
-actor Alice
-actor Bob
-database Pod as "Bob's Pod"
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-Alice  --> Pod: Store route
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+actor Usuario
+participant Aplicación
+database Pod as BBDD
+Usuario-> Aplicación: registrarUsuario(usuario, contraseña)
+Aplicación-> BBDD: validarDatos(usuario,contraseña)
+BBDD--> Aplicación: confirmarValidez()
+Aplicación-> BBDD: crearUsuario(usuario, contraseña)
+BBDD--> Aplicación: confirmarRegistro()
+Aplicación--> Usuario: mostrarMensajeExito()
 ----
 
-=== <Runtime Scenario 2>
-
-=== ...
-
-=== <Runtime Scenario n>
+=== Iniciar sesión
+Un usuario que ya está registrado, inicia sesión con su usuario y contraseña para jugar.
+[plantuml,"Iniciar sesión",png]
+----
+actor Usuario
+participant Aplicación
+database Pod as BBDD
+Usuario-> Aplicación: iniciarSesion(usuario,contraseña)
+Aplicación-> BBDD: validarUsuario(usuario,contraseña)
+BBDD--> Aplicación: confirmarDatos()
+Aplicación--> Usuario: mostrarJuego()
+----
+=== Ver historial
+Un usuario quiere ver su historial del juego.
+[plantuml,"Ver historial",png]
+----
+actor Usuario
+participant Aplicación
+database Pod as BBDD
+Usuario-> Aplicación: verHistorialDeJuego()
+Aplicación-> BBDD: buscarHistorial(usuario)
+BBDD--> Aplicación: devolverHistorial()
+Aplicación--> Usuario: mostrarHistorial(historial)
+----
+=== Jugar y generación de preguntas
+Un usuario procede a jugar, se generan las preguntas y a continuación iniciará el juego.
+[plantuml,"Jugar",png]
+----
+actor Usuario
+participant Aplicación
+database Pod as BBDD
+participant Wikidata
+Usuario-> Aplicación: jugar()
+Aplicación-> Wikidata: generarPreguntas()
+Wikidata--> Aplicación: preguntasGeneradas
+Aplicación-> BBDD: guardarPreguntas(preguntasGeneradas)
+BBDD--> Aplicación: confirmarGuardado()
+loop Responder Preguntas
+  Usuario-> Aplicación: responder(pregunta, respuesta)
+  Aplicación-> BBDD: validarRespuesta(pregunta, respuesta)
+  BBDD--> Aplicación: resultado
+  Aplicación--> Usuario: mostrarResultado(resultado)
+end
+----
