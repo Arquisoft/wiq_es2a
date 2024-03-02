@@ -4,10 +4,10 @@ const userSchema = new mongoose.Schema({
     id: String,
     text: String,
     answers: [{
-        true : Answer,
-        false1 : Answer,
-        false2 : Answer,
-        false3 : Answer
+        true : String,
+        false1 : String,
+        false2 : String,
+        false3 : String
     }]
 });
 
