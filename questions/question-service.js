@@ -1,16 +1,9 @@
-import { readFile } from 'fs/promises'
-
-// leemos el archivo usando top-level await y con
-// codificación utf-8
-const file = await readFile('./baseQuestions.json', 'utf-8')
-
-const json = JSON.parse(file)
-
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
-const Question = require('./question-model')
+const Question = require('./question-model');
+const fs = require('fs');
 
 const app = express();
 const port = 8001;
@@ -19,23 +12,39 @@ const port = 8001;
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/userdb';
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/questiondb';
 mongoose.connect(mongoUri);
 
-for (const question of json.questions) {
-    const newQuestion = new Question({
-      id: question.id,  
-      text: question.test,
-      answers: question.answers
-    });
-    newQuestion.save((err) => {
-      if (err) {
-        console.error('Error al guardar la pregunta:', err);
-      } else {
+fs.readFile('baseQuestions.json', 'utf-8', (err, file) => {
+  if (err) {
+    console.error('Error al leer el archivo:', err);
+    return;
+  }
+  const json = JSON.parse(file);
+
+  for (const question of json.questions) {
+
+    app.post("/questions", async (req, res) => {
+      try {
+        const newQuestion = new Question({
+          id: question.id,  
+          text: question.test,
+          answers: question.answers
+        });
+        await newQuestion.save();
         console.log('Pregunta guardada correctamente:', newQuestion);
+      } catch (error) {
+        console.error('Error al guardar la pregunta:', err);
       }
     });
   }
+});
+
+
+
+
+
+
 
 
 const server = app.listen(port, () => {
