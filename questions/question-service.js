@@ -9,20 +9,22 @@ const app = express();
 const port = 8001;
 
 // Middleware to parse JSON in request body
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
 // Connect to MongoDB
 const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/questiondb';
 mongoose.connect(mongoUri);
 
-fs.readFile('baseQuestions.json', 'utf-8', (err, file) => {
-  if (err) {
-    console.error('Error al leer el archivo:', err);
-    return;
-  }
-  const json = JSON.parse(file);
+// fs.readFile('baseQuestions.json', 'utf-8', (err, file) => {
+//   if (err) {
+//     console.error('Error al leer el archivo:', err);
+//     return;
+//   }
+//   const json = JSON.parse(file);
 
-  for (const question of json.questions) {
+questions =["cual es la capital de:"]
+
+  for (const question of questions) {
 
     app.post("/questions", async (req, res) => {
       try {
@@ -38,7 +40,7 @@ fs.readFile('baseQuestions.json', 'utf-8', (err, file) => {
       }
     });
   }
-});
+//});
 
 
 
