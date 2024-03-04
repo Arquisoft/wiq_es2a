@@ -6,7 +6,7 @@ const Question = require('./question-model');
 const fs = require('fs');
 
 const app = express();
-const port = 8001;
+const port = 8004;
 
 // Middleware to parse JSON in request body
 //app.use(bodyParser.json());
@@ -22,25 +22,18 @@ mongoose.connect(mongoUri);
 //   }
 //   const json = JSON.parse(file);
 
-questions =["cual es la capital de:"]
-
-  for (const question of questions) {
-
     app.post("/questions", async (req, res) => {
       try {
-        const newQuestion = new Question({
-          id: question.id,  
-          text: question.test,
-          answers: question.answers
+        const newQuestion = new Question({ 
+          text: "hola",
         });
         await newQuestion.save();
+        res.json(newQuestion);
         console.log('Pregunta guardada correctamente:', newQuestion);
       } catch (error) {
         console.error('Error al guardar la pregunta:', err);
       }
     });
-  }
-//});
 
 
 
