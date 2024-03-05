@@ -1,3 +1,4 @@
+
 class SPARQLQueryDispatcher {
 	constructor( endpoint ) {
 		this.endpoint = endpoint;
@@ -11,13 +12,22 @@ class SPARQLQueryDispatcher {
 	}
 }
 
+const random = Math.floor(Math.random() * 100)
 const endpointUrl = 'https://query.wikidata.org/sparql';
 const sparqlQuery = `
-SELECT ?directorLabel WHERE {
-  ?director wdt:P31 wd:Q2526255;
+SELECT ?filmLabel ?directorLabel WHERE {
+  ?film wdt:P31 wd:Q11424;
+    wdt:P57 ?director.
   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }
-} LIMIT 100
+}
+LIMIT 100
 `;
 
 const queryDispatcher = new SPARQLQueryDispatcher( endpointUrl );
-queryDispatcher.query( sparqlQuery ).then( console.log );
+const query= queryDispatcher.query( sparqlQuery ).then( function (value) {
+  console.log(value.results.bindings[random]); // Success!
+},
+function (reason) {
+  console.log(reason); // Error!
+},
+);
