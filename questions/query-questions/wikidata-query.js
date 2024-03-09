@@ -1,7 +1,7 @@
 
-class SPARQLQueryDispatcher {
-	constructor( endpoint ) {
-		this.endpoint = endpoint;
+class Wikidata {
+	constructor( ) {
+		this.endpoint = 'https://query.wikidata.org/sparql';
 	}
 
 	query( sparqlQuery ) {
@@ -12,7 +12,9 @@ class SPARQLQueryDispatcher {
 	}
 }
 
-const random = Math.floor(Math.random() * 100)
+module.exports = Wikidata;
+
+/* const random = Math.floor(Math.random() * 100)
 const endpointUrl = 'https://query.wikidata.org/sparql';
 const sparqlQuery = `
 SELECT ?filmLabel ?directorLabel WHERE {
@@ -30,4 +32,4 @@ const query= queryDispatcher.query( sparqlQuery ).then( function (value) {
 function (reason) {
   console.log(reason); // Error!
 },
-);
+); */
