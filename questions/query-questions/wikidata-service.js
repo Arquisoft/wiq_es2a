@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 //const fs = require('fs');
 const Wikidata = require('./wikidata-query');
@@ -23,8 +23,8 @@ const wiki = new Wikidata();
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/questiondb';
-mongoose.connect(mongoUri);
+//const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/questiondb';
+//mongoose.connect(mongoUri);
 
 // fs.readFile('baseQuestions.json', 'utf-8', (err, file) => {
 //   if (err) {
@@ -81,6 +81,6 @@ const server = app.listen(port, () => {
   // Listen for the 'close' event on the Express.js server
   server.on('close', () => {
       // Close the Mongoose connection
-      mongoose.connection.close();
+      //mongoose.connection.close();
     });
   

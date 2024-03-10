@@ -4,7 +4,7 @@
     "description": " Creates base uestions for the game",
     "main": "service.js",
     "scripts": {
-        "start": "node query-questions.js",
+        "start": "node wikidata-service.js",
         "test": "jest"
     },
     "repository": {
