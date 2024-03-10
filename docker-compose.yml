@@ -11,11 +11,23 @@ services:
     networks:
       - mynetwork
 
+  wikidata:
+    container_name: wikidata-${teamname:-defaultASW}
+    image: ghcr.io/arquisoft/wiq_es2a/wikidata:latest
+    profiles: ["dev", "prod"]
+    build: ./questions/query-questions
+    depends_on:
+      - mongodb
+    ports:
+      - "8005:8005"
+    networks:
+      - mynetwork
+
   questionservice:
     container_name: questionservice-${teamname:-defaultASW}
     image: ghcr.io/arquisoft/wiq_es2a/questionservice:latest
     profiles: ["dev", "prod"]
-    build: ./questions
+    build: ./questions/template-questions
     depends_on:
       - mongodb
     ports:
