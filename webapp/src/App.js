@@ -4,13 +4,22 @@ import Login from './components/Login';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+import HomeScreen from './components/HomeScreen';
+import Game from './components/Game';
+
 
 function App() {
   const [showLogin, setShowLogin] = useState(true);
 
   const handleToggleView = () => {
     setShowLogin(!showLogin);
+  };
+  const [isAuthenticated, setAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+    // Lógica para autenticar al usuario (por ejemplo, verificar credenciales)
+    setAuthenticated(true);
   };
 
   return (
@@ -24,6 +33,8 @@ function App() {
         <Route path="/adduser" component={AddUser} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Login} />
+        <PrivateRoute path="/home" isAuthenticated={isAuthenticated} component={HomeScreen} />
+        <PrivateRoute path="/game" isAuthenticated={isAuthenticated} component={Game} />
         </Switch>
     </Router>
     
@@ -43,6 +54,19 @@ function App() {
       </Typography> */}
     </Container>
   );
+
 }
+const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) =>
+      isAuthenticated ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
 
 export default App;
