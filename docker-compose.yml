@@ -74,6 +74,8 @@ services:
       - mongodb
       - userservice
       - authservice
+      - wikidata
+      - questionservice
     ports:
       - "8000:8000"
     networks:

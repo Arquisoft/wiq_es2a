@@ -1,8 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
-const fs = require('fs');
+//const fs = require('fs');
 const Wikidata = require('./wikidata-query');
 
 const app = express();
@@ -35,7 +34,7 @@ mongoose.connect(mongoUri);
 //   const json = JSON.parse(file);
 // });
 
-app.post("/randomQuest", async (req, res) => {
+app.post("/randomQuesvvvvt", async (req, res) => {
   // try {
   //   const newQuestion = new Question({ 
   //     text: "hola",
@@ -46,24 +45,34 @@ app.post("/randomQuest", async (req, res) => {
   // } catch (error) {
   //   console.error('Error al guardar la pregunta:', err);
   // }
-  wiki.query(jsonPreg.queryCorrect).then( function (value) {
-    console.log(value.results.bindings[random]); // Success!
-  },
-  function (reason) {
-    console.log(reason); // Error!
-  },
-  );
+  // wiki.query(jsonPreg.queryCorrect).then( function (value) {
+  //   console.log(value.results.bindings[random]); // Success!
+  // },
+  // function (reason) {
+  //   console.log(reason); // Error!
+  // },
+  // );
   // let response ={
   //   pais: results.value.results.bindings[random],
   //   respuestas: value.results.bindings[random]
   // }
 
   // res.render("lapagina", response)
+
+  
 });
 
-
-
-
+app.post("/randomQuest", async (req, res) => {
+  try {
+    const value = await wiki.query(jsonPreg.queryCorrect);
+    console.log(value.results.bindings[0]); // Éxito
+    // Aquí puedes hacer más cosas con los datos obtenidos
+    res.status(200).send("Éxito"); // Envía una respuesta exitosa al cliente
+  } catch (error) {
+    console.error("Error:", error); // Maneja el error
+    res.status(500).send("Error interno del servidor"); // Envía una respuesta de error al cliente
+  }
+});
 
 const server = app.listen(port, () => {
     console.log(`User Service listening at http://localhost:${port}`);
@@ -75,4 +84,3 @@ const server = app.listen(port, () => {
       mongoose.connection.close();
     });
   
-  module.exports = server
