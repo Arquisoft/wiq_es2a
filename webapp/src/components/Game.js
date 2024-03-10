@@ -25,19 +25,19 @@ const StyledContainer = styled(Container)({
 
 
     const cambiarTextoBoton1 = () => {
-      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+      setTextoBoton1('Prueba'); // Aquí iria la llamada a la función de preguntas
     };
 
     const cambiarTextoBoton2 = () => {
-      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+      setTextoBoton2('Prueba'); // Aquí iria la llamada a la función de preguntas
     };
 
     const cambiarTextoBoton3 = () => {
-      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+      setTextoBoton3('Prueba'); // Aquí iria la llamada a la función de preguntas
     };
 
     const cambiarTextoBoton4 = () => {
-      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+      setTextoBoton4('Prueba'); // Aquí iria la llamada a la función de preguntas
     };
 
     const cambiarTextoPregunta = () => {
