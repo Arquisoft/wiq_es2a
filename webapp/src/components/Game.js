@@ -16,21 +16,49 @@ const StyledContainer = styled(Container)({
   });
   
   const Game = () => {
+    const [textoPregunta, setTextoPregunta] = useState('Pregunta');
+    const [textoBoton1, setTextoBoton1] = useState('Placeholder');
+    const [textoBoton2, setTextoBoton2] = useState('Placeholder');
+    const [textoBoton3, setTextoBoton3] = useState('Placeholder');
+    const [textoBoton4, setTextoBoton4] = useState('Placeholder');
+
+
+
+    const cambiarTextoBoton1 = () => {
+      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+    };
+
+    const cambiarTextoBoton2 = () => {
+      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+    };
+
+    const cambiarTextoBoton3 = () => {
+      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+    };
+
+    const cambiarTextoBoton4 = () => {
+      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+    };
+
+    const cambiarTextoPregunta = () => {
+      setTextoPregunta('Prueba2'); // Llamada a la función
+    }
+
     return (
       <StyledContainer>
-        <h1>Pregunta</h1>
+        <h1>{textoPregunta}</h1>
         <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-        <StyledButton>1</StyledButton>
+        <StyledButton>{textoBoton1}</StyledButton>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <StyledButton>2</StyledButton>
+        <StyledButton>{textoBoton2}</StyledButton>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <StyledButton>3</StyledButton>
+        <StyledButton>{textoBoton3}</StyledButton>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <StyledButton>4</StyledButton>
+        <StyledButton>{textoBoton4}</StyledButton>
         </Grid>
         </Grid>
       </StyledContainer>
