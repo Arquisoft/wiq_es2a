@@ -4,10 +4,7 @@ import Login from './components/Login';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
-import HomeScreen from './components/HomeScreen';
-import Game from './components/Game';
-
+import Link from '@mui/material/Link';
 
 function App() {
   const [showLogin, setShowLogin] = useState(true);
@@ -15,29 +12,13 @@ function App() {
   const handleToggleView = () => {
     setShowLogin(!showLogin);
   };
-  const [isAuthenticated, setAuthenticated] = useState(false);
-
-  const handleLogin = () => {
-    // Lógica para autenticar al usuario (por ejemplo, verificar credenciales)
-    setAuthenticated(true);
-  };
 
   return (
-    
     <Container component="main" maxWidth="xs">
+      <CssBaseline />
       <Typography component="h1" variant="h5" align="center" sx={{ marginTop: 2 }}>
-      Saber y Ganar
+        Welcome to the 2024 edition of the Software Architecture course
       </Typography>
-      <Routes>
-        <Route path="/adduser" element={<AddUser />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Login />} />
-        <Route path="/home" isAuthenticated={isAuthenticated} element={<HomeScreen />} />
-        <Route path="/game" isAuthenticated={isAuthenticated} element={<Game />} />
-      </Routes>
-    
-      {/* <CssBaseline />
-      
       {showLogin ? <Login /> : <AddUser />}
       <Typography component="div" align="center" sx={{ marginTop: 2 }}>
         {showLogin ? (
@@ -49,14 +30,9 @@ function App() {
             Already have an account? Login here.
           </Link>
         )}
-      </Typography> */}
+      </Typography>
     </Container>
   );
-
 }
-
-/* function PrivateRoute({ isAuthenticated, ...props }) {
-  return isAuthenticated ? <Route {...props} /> : <Navigate to="/login" />;
-} */
 
 export default App;
