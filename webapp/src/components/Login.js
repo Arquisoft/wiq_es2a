@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
+import HomeScreen from './HomeScreen';
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -37,12 +39,7 @@ const Login = () => {
     <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
       {loginSuccess ? (
         <div>
-          <Typography component="h1" variant="h5" sx={{ textAlign: 'center' }}>
-            Hello {username}!
-          </Typography>
-          <Typography component="p" variant="body1" sx={{ textAlign: 'center', marginTop: 2 }}>
-            Your account was created on {new Date(createdAt).toLocaleDateString()}.
-          </Typography>
+          <HomeScreen/>
         </div>
       ) : (
         <div>
@@ -67,10 +64,17 @@ const Login = () => {
           <Button variant="contained" color="primary" onClick={loginUser}>
             Login
           </Button>
+          
           <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message="Login successful" />
           {error && (
             <Snackbar open={!!error} autoHideDuration={6000} onClose={() => setError('')} message={`Error: ${error}`} />
           )}
+          <br></br>
+          <Link to="/adduser">
+            Don't have an account? Register here.
+          </Link>
+          
+   
         </div>
       )}
     </Container>
