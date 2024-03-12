@@ -64,10 +64,20 @@ app.post("/randomQuesvvvvt", async (req, res) => {
 
 app.post("/questions", async (req, res) => {
   try {
+    let resultadosGuardados;
     console.log("entra post random questions");
-    const value = await wiki.query(jsonPreg.queryCorrect);
-    console.log(value.results.bindings[0]); // Éxito
-    
+    //const value = await wiki.ejecutarConsultaSPARQL(jsonPreg.queryCorrect);
+    //console.log(value.results.bindings[0]); // Éxito
+    wiki.ejecutarConsultaSPARQL(jsonPreg.queryCorrect)
+      .then((resultados) => {
+        resultadosGuardados = resultados;
+        console.log('Resultados:', resultados);
+        console.log(resultados.results.bindings[0].countryLabel.value);
+        console.log(resultados.results.bindings[0].capitalLabel.value);
+   })
+    .catch((error) => {
+      console.error('Error al ejecutar la consulta:', error);
+  });
     // Aquí puedes hacer más cosas con los datos obtenidos
     //res.status(200).send("Éxito"); // Envía una respuesta exitosa al cliente
     res.send({hola: "hola questions"});
