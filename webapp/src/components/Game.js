@@ -19,7 +19,30 @@ const StyledContainer = styled(Container)({
 
   });
 
-  const apiEndpoint = 'http://localhost:8005';
+  const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
+  const loginUser = async () => {
+    try {
+      const response = await axios.post(`${apiEndpoint}/login`, { username, password });
+
+      // Extract data from the response
+      const { createdAt: userCreatedAt } = response.data;
+
+      setCreatedAt(userCreatedAt);
+      setLoginSuccess(true);
+
+      setOpenSnackbar(true);
+    } catch (error) {
+      setError(error.response.data.error);
+    }
+  };
+  const addPregunta = async () => {
+    try {
+      const response = await axios.post(`${apiEndpoint}/randomQuest`, { });
+      console.log(response.data);
+    } catch (error) {
+      setError(error.response.data.error);
+    }
+  };
 
   
   
@@ -59,14 +82,7 @@ const StyledContainer = styled(Container)({
 
     const [error, setError] = useState('');
     const [pregunta, setPregunta] = useState('');
-    const addPregunta = async () => {
-      try {
-        const p = await axios.post(`${apiEndpoint}/randomQuest`, { });
-        setPregunta(p.data);
-      } catch (error) {
-        setError(error.response.data.error);
-      }
-    };
+    
     
     
     return (
@@ -74,7 +90,7 @@ const StyledContainer = styled(Container)({
         <h1>{textoPregunta}</h1>
         <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-        <StyledButton onClick={cambiarTextoBoton1}>{textoBoton1} </StyledButton>
+        <StyledButton onClick={addPregunta}>{textoBoton1} </StyledButton>
         </Grid>
         <Grid item xs={12} sm={6}>
         <StyledButton>{textoBoton2} </StyledButton>
