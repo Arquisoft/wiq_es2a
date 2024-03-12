@@ -45,6 +45,7 @@ app.post('/adduser', async (req, res) => {
 
 app.post('/questions', async (req, res) => {
   try {
+    console.log("pasando por el gateway por /questions");
     // Forward the add user request to the user service
     const userResponse = await axios.post(questServiceUrl+'/questions', req.body);
     res.json(userResponse.data);

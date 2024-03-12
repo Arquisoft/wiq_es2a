@@ -1,14 +1,18 @@
 
 class Wikidata {
-	constructor( ) {
+	constructor() {
 		this.endpoint = 'https://query.wikidata.org/sparql';
 	}
 
-	query( sparqlQuery ) {
-		const fullUrl = this.endpoint + '?query=' + encodeURIComponent( sparqlQuery );
-		const headers = { 'Accept': 'application/sparql-results+json' };
-
-		return fetch( fullUrl, { headers } ).then( body => body.json() );
+	async query(sparqlQuery) {
+		try {
+			const fullUrl = this.endpoint + '?query=' + encodeURIComponent( sparqlQuery );
+			const headers = { 'Accept': 'application/sparql-results+json' };
+			return fetch( fullUrl, { headers } ).then( body => body.json() );
+		}
+		catch (error) {
+			console.log(error);
+		}
 	}
 }
 

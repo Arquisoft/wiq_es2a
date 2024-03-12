@@ -64,11 +64,13 @@ app.post("/randomQuesvvvvt", async (req, res) => {
 
 app.post("/questions", async (req, res) => {
   try {
-    //const value = await wiki.query(jsonPreg.queryCorrect);
-    //console.log(value.results.bindings[0]); // Éxito
-    console.log("entra post random q");
+    console.log("entra post random questions");
+    const value = await wiki.query(jsonPreg.queryCorrect);
+    console.log(value.results.bindings[0]); // Éxito
+    
     // Aquí puedes hacer más cosas con los datos obtenidos
-    res.status(200).send("Éxito"); // Envía una respuesta exitosa al cliente
+    //res.status(200).send("Éxito"); // Envía una respuesta exitosa al cliente
+    res.send({hola: "hola questions"});
   } catch (error) {
     console.error("Error:", error); // Maneja el error
     res.status(500).send(error); // Envía una respuesta de error al cliente
