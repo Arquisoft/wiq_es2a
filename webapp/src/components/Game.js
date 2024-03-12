@@ -20,29 +20,8 @@ const StyledContainer = styled(Container)({
   });
 
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-  const loginUser = async () => {
-    try {
-      const response = await axios.post(`${apiEndpoint}/login`, { username, password });
-
-      // Extract data from the response
-      const { createdAt: userCreatedAt } = response.data;
-
-      setCreatedAt(userCreatedAt);
-      setLoginSuccess(true);
-
-      setOpenSnackbar(true);
-    } catch (error) {
-      setError(error.response.data.error);
-    }
-  };
-  const addPregunta = async () => {
-    try {
-      const response = await axios.post(`${apiEndpoint}/randomQuest`, { });
-      console.log(response.data);
-    } catch (error) {
-      setError(error.response.data.error);
-    }
-  };
+  
+  
 
   
   
@@ -52,8 +31,17 @@ const StyledContainer = styled(Container)({
     const [textoBoton2, setTextoBoton2] = useState('Placeholder');
     const [textoBoton3, setTextoBoton3] = useState('Placeholder');
     const [textoBoton4, setTextoBoton4] = useState('Placeholder');
+    const [error, setError] = useState('');
 
-
+    const addPregunta = async () => {
+      try {
+        const response = await axios.post(`${apiEndpoint}/questions`, { });
+        console.log(response.data);
+      } catch (error) {
+        console.log(error.response.data.error);
+        //setError(error.response.data.error);
+      }
+    };
 
     const cambiarTextoBoton1 = () => {
       setTextoBoton1('Prueba'); // Aquí iria la llamada a la función de preguntas
@@ -80,7 +68,7 @@ const StyledContainer = styled(Container)({
       addPregunta().then(console.log("hi" + pregunta) );
     }, [])
 
-    const [error, setError] = useState('');
+    
     const [pregunta, setPregunta] = useState('');
     
     

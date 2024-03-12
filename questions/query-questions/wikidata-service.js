@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const Wikidata = require('./wikidata-query');
 
 const app = express();
-const port = 8003;
+const port = 8004;
 
 const jsonPreg={
   text:'¿Cual es la capital de',
@@ -64,8 +64,8 @@ app.post("/randomQuesvvvvt", async (req, res) => {
 
 app.post("/randomQuest", async (req, res) => {
   try {
-    const value = await wiki.query(jsonPreg.queryCorrect);
-    console.log(value.results.bindings[0]); // Éxito
+    //const value = await wiki.query(jsonPreg.queryCorrect);
+    //console.log(value.results.bindings[0]); // Éxito
     // Aquí puedes hacer más cosas con los datos obtenidos
     res.status(200).send("Éxito"); // Envía una respuesta exitosa al cliente
   } catch (error) {
@@ -84,3 +84,4 @@ const server = app.listen(port, () => {
       //mongoose.connection.close();
     });
   
+    module.exports = server
