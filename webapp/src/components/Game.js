@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 
 
@@ -32,29 +33,33 @@ const StyledContainer = styled(Container)({
 
 
     const cambiarTextoBoton1 = () => {
-      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+      setTextoBoton1('Prueba'); // Aquí iria la llamada a la función de preguntas
     };
 
     const cambiarTextoBoton2 = () => {
-      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+      setTextoBoton2('Prueba'); // Aquí iria la llamada a la función de preguntas
     };
 
     const cambiarTextoBoton3 = () => {
-      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+      setTextoBoton3('Prueba'); // Aquí iria la llamada a la función de preguntas
     };
 
     const cambiarTextoBoton4 = () => {
-      setTextoBoton('Prueba'); // Aquí iria la llamada a la función de preguntas
+      setTextoBoton4('Prueba'); // Aquí iria la llamada a la función de preguntas
     };
 
-    const cambiarTextoPregunta = () => {
+    const cambiarTextoPregunta = async() => {
       setTextoPregunta('Prueba2'); // Llamada a la función
     }
+
+    useEffect(() => {
+      console.log('El componente se ha montado');
+      addPregunta().then(console.log("hi" + pregunta) );
+    }, [])
 
     const [error, setError] = useState('');
     const [pregunta, setPregunta] = useState('');
     const addPregunta = async () => {
-    
       try {
         const p = await axios.post(`${apiEndpoint}/randomQuest`, { });
         setPregunta(p.data);
@@ -62,16 +67,17 @@ const StyledContainer = styled(Container)({
         setError(error.response.data.error);
       }
     };
-    addPregunta().then(console.log("hi" + pregunta) );
+    
+    
     return (
       <StyledContainer>
-        <h1>Pregunta</h1>
+        <h1>{textoPregunta}</h1>
         <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-        <StyledButton>{textoBoton1}</StyledButton>
+        <StyledButton onClick={cambiarTextoBoton1}>{textoBoton1} </StyledButton>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <StyledButton>{textoBoton2}</StyledButton>
+        <StyledButton>{textoBoton2} </StyledButton>
         </Grid>
         <Grid item xs={12} sm={6}>
         <StyledButton>{textoBoton3}</StyledButton>

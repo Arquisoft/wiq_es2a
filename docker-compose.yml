@@ -19,9 +19,11 @@ services:
     depends_on:
       - mongodb
     ports:
-      - "8005:8005"
+      - "8003:8003"
     networks:
       - mynetwork
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/userdb
 
   questionservice:
     container_name: questionservice-${teamname:-defaultASW}
@@ -81,6 +83,7 @@ services:
     networks:
       - mynetwork
     environment:
+      WIKIDATA_SERVICE_URL: http://wikidata:8003
       AUTH_SERVICE_URL: http://authservice:8002
       USER_SERVICE_URL: http://userservice:8001
 

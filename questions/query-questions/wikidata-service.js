@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const Wikidata = require('./wikidata-query');
 
 const app = express();
-const port = 8005;
+const port = 8003;
 
 const jsonPreg={
   text:'¿Cual es la capital de',
@@ -70,7 +70,7 @@ app.post("/randomQuest", async (req, res) => {
     res.status(200).send("Éxito"); // Envía una respuesta exitosa al cliente
   } catch (error) {
     console.error("Error:", error); // Maneja el error
-    res.status(500).send("Error interno del servidor"); // Envía una respuesta de error al cliente
+    res.status(500).send(error); // Envía una respuesta de error al cliente
   }
 });
 

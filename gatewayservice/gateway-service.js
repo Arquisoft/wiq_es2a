@@ -7,7 +7,7 @@ const app = express();
 const port = 8000;
 
 const questServiceUrl =  'http://localhost:8004';
-const questRandServiceUrl =  'http://localhost:8005';
+const questRandServiceUrl =  process.env.WIKIDATA_SERVICE_URL || 'http://localhost:8003';
 const authServiceUrl = process.env.AUTH_SERVICE_URL || 'http://localhost:8002';
 const userServiceUrl = process.env.USER_SERVICE_URL || 'http://localhost:8001';
 
@@ -54,6 +54,7 @@ app.post('/questions', async (req, res) => {
 });
 
 app.post('/randomQuest', async (req, res) => {
+  console.log("hola")
   try {
     // Forward the add user request to the user service
     const response = await axios.post(questRandServiceUrl+'/randomQuest', req.body);
