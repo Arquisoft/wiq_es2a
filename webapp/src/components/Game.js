@@ -36,42 +36,19 @@ const StyledContainer = styled(Container)({
     const addPregunta = async () => {
       try {
         const response = await axios.post(`${apiEndpoint}/questions`, { });
-        console.log(response.data);
+        setTextoPregunta(response.data.pregunta)
+        setTextoBoton1(response.data.correcta)
+        //console.log(response.data);
       } catch (error) {
         console.log(error.response.data.error);
         //setError(error.response.data.error);
       }
     };
 
-    const cambiarTextoBoton1 = () => {
-      setTextoBoton1('Prueba'); // Aquí iria la llamada a la función de preguntas
-    };
-
-    const cambiarTextoBoton2 = () => {
-      setTextoBoton2('Prueba'); // Aquí iria la llamada a la función de preguntas
-    };
-
-    const cambiarTextoBoton3 = () => {
-      setTextoBoton3('Prueba'); // Aquí iria la llamada a la función de preguntas
-    };
-
-    const cambiarTextoBoton4 = () => {
-      setTextoBoton4('Prueba'); // Aquí iria la llamada a la función de preguntas
-    };
-
-    const cambiarTextoPregunta = async() => {
-      setTextoPregunta('Prueba2'); // Llamada a la función
-    }
-
-    useEffect(() => {
-      console.log('El componente se ha montado');
-      addPregunta().then(console.log("hi" + pregunta) );
-    }, [])
-
-    
-    const [pregunta, setPregunta] = useState('');
-    
-    
+    // useEffect(() => {
+    //   console.log('El componente se ha montado');
+    //   addPregunta().then(console.log("hi" + pregunta) );
+    // }, [])
     
     return (
       <StyledContainer>
