@@ -36,12 +36,14 @@ const StyledContainer = styled(Container)({
     const addPregunta = async () => {
       try {
         const response = await axios.post(`${apiEndpoint}/questions`, { });
-        setTextoPregunta(response.data.pregunta)
+        setTextoPregunta(response.data.pregunta)    
         setTextoBoton1(response.data.correcta)
-        //console.log(response.data);
+        setTextoBoton2(response.data.incorrectas[0])
+        setTextoBoton3(response.data.incorrectas[1])
+        setTextoBoton4(response.data.incorrectas[2])
+ 
       } catch (error) {
         console.log(error.response.data.error);
-        //setError(error.response.data.error);
       }
     };
 

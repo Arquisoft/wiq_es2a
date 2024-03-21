@@ -26,16 +26,34 @@ app.post("/questions", async (req, res) => {
     console.log("entra post random questions");
     wiki.ejecutarConsultaSPARQL(jsonPreg.queryCorrect)
       .then((resultados) => {
-        let random = Math.floor(Math.random() * 100);
-        console.log("NUMERO " + resultados.results.bindings.length);
-        resultadosGuardados = {
-          pregunta: jsonPreg.text + resultados.results.bindings[random].countryLabel.value + '?',
-          correcta: resultados.results.bindings[random].capitalLabel.value,
-        }
-        
-        console.log('Resultados:', resultados);
+        let size = resultados.results.bindings.length;
+        let random = Math.floor(Math.random() * size);
+        console.log("NUMERO " + resultados.results.bindings.length);  
         console.log(resultados.results.bindings[0].countryLabel.value);
         console.log(resultados.results.bindings[0].capitalLabel.value);
+      
+              let randoms = [];
+              while (randoms.length < 3) {
+                let numero = Math.floor(Math.random() * size);
+                if (!randoms.includes(numero) && numero!=random) {
+                  randoms.push(numero);
+                }
+              }
+              resultadosGuardados = {
+                pregunta: jsonPreg.text + ' ' +resultados.results.bindings[random].countryLabel.value + '?',
+                correcta: resultados.results.bindings[random].capitalLabel.value,
+                incorrectas: [
+                  resultados.results.bindings[randoms[0]].capitalLabel.value,
+                  resultados.results.bindings[randoms[1]].capitalLabel.value,
+                  resultados.results.bindings[randoms[2]].capitalLabel.value
+                ]
+              }
+            
+              console.log(resultadosGuardados.incorrectas);
+              console.log(resultados.results.bindings[randoms[0]].capitalLabel.value);
+              console.log(resultados.results.bindings[randoms[1]].capitalLabel.value);
+              console.log(resultados.results.bindings[randoms[2]].capitalLabel.value);
+          
         res.send(resultadosGuardados);
    })
     .catch((error) => {
