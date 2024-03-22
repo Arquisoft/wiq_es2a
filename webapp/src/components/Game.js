@@ -40,16 +40,18 @@ const Game = () => {
       const response = await axios.post(`${apiEndpoint}/questions`, {});
       setTextoPregunta(response.data.pregunta)
       console.log(random + " Correcta " + response.data.correcta);
-      respuestas[random] = { data: response.data.correcta, isCorrect: true };
+
+      let respCopia=respuestas.slice();
+      respCopia[random] = { data: response.data.correcta, isCorrect: true };
       let cont = 0;
       for (let i = 0; i < respuestas.length; i++) {
         if (i != random) {
-          respuestas[i] = { data: response.data.incorrectas[cont], isCorrect: false };
-          console.log("incorrecta " + respuestas[i].data);
+          respCopia[i] = { data: response.data.incorrectas[cont], isCorrect: false };
+          console.log("incorrecta " + respCopia[i].data);
           cont++;
         }
       }
-      setRespuestas(respuestas);
+      setRespuestas(respCopia);
       const isCorrect = e.target.getAttribute('data-iscorrect') === 'true';
       if (isCorrect) {
         setPreguntasAcertadas(preguntasAcertadas+1);
