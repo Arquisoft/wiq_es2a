@@ -4,7 +4,13 @@ import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import { useEffect } from 'react';
 
-
+function Respuesta({ value, iscorrect, onPClick }) {
+  return (
+    <StyledButton className="pregunta" data-iscorrect={iscorrect} onClick={onPClick}>
+      {value}
+    </StyledButton>
+  );
+}
 
 const StyledContainer = styled(Container)({
     textAlign: 'center',
@@ -22,25 +28,29 @@ const StyledContainer = styled(Container)({
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
   
   
-
-  
-  
   const Game = () => {
-    const [textoPregunta, setTextoPregunta] = useState('Pregunta');
-    const [textoBoton1, setTextoBoton1] = useState('Placeholder');
-    const [textoBoton2, setTextoBoton2] = useState('Placeholder');
-    const [textoBoton3, setTextoBoton3] = useState('Placeholder');
-    const [textoBoton4, setTextoBoton4] = useState('Placeholder');
+    const [respuestas, setRespuestas] = useState(Array(4).fill({data:'', isCorrect:''}));
+    const [textoPregunta, setTextoPregunta] = useState('Cargando...');
     const [error, setError] = useState('');
 
     const addPregunta = async () => {
       try {
+        const random = Math.floor(Math.random() * 4);
         const response = await axios.post(`${apiEndpoint}/questions`, { });
-        setTextoPregunta(response.data.pregunta)    
-        setTextoBoton1(response.data.correcta)
-        setTextoBoton2(response.data.incorrectas[0])
-        setTextoBoton3(response.data.incorrectas[1])
-        setTextoBoton4(response.data.incorrectas[2])
+        setTextoPregunta(response.data.pregunta)
+        for (let i = 0; i < respuestas.length; i++) {
+          let cont=0;
+          if(i!=random){
+            const resp1=respuestas.slice();
+            resp1[i]={data:response.data.incorrectas[cont], isCorrect:false};
+            cont++;
+            setRespuestas(resp1);
+          }else{
+            const resp1=respuestas.slice();
+            resp1[i]={data:response.data.correcta, isCorrect:true};
+            setRespuestas(resp1);
+          }
+        }
  
       } catch (error) {
         console.log(error.response.data.error);
@@ -57,16 +67,16 @@ const StyledContainer = styled(Container)({
         <h1>{textoPregunta}</h1>
         <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-        <StyledButton onClick={addPregunta}>{textoBoton1} </StyledButton>
+          <Respuesta value={respuestas[0].data} onPClick={addPregunta} data-iscorrect={respuestas[0].isCorrect}></Respuesta>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <StyledButton>{textoBoton2} </StyledButton>
+          <Respuesta value={respuestas[1].data} onPClick={addPregunta} data-iscorrect={respuestas[1].isCorrect}></Respuesta>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <StyledButton>{textoBoton3}</StyledButton>
+          <Respuesta value={respuestas[2].data} onPClick={addPregunta} data-iscorrect={respuestas[2].isCorrect}></Respuesta>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <StyledButton>{textoBoton4}</StyledButton>
+          <Respuesta value={respuestas[3].data} onPClick={addPregunta} data-iscorrect={respuestas[3].isCorrect}></Respuesta>
         </Grid>
         </Grid>
       </StyledContainer>
