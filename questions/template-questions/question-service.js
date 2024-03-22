@@ -6,7 +6,7 @@ const app = express();
 const port = 8004;
 
 const jsonPreg={
-  text:'¿Cual es la capital de',
+  text:'¿Cuál es la capital de',
   queryCorrect:'SELECT ?countryLabel ?capitalLabel WHERE {' + 
     '?country wdt:P31 wd:Q6256. ?country wdt:P36 ?capital. SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es".}}',
   queryIncorrect:'SELECT ?capitalLabel WHERE { ?capital wdt:P31 wd:Q5119. SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }}'
@@ -28,10 +28,6 @@ app.post("/questions", async (req, res) => {
       .then((resultados) => {
         let size = resultados.results.bindings.length;
         let random = Math.floor(Math.random() * size);
-        console.log("NUMERO " + resultados.results.bindings.length);  
-        console.log(resultados.results.bindings[0].countryLabel.value);
-        console.log(resultados.results.bindings[0].capitalLabel.value);
-      
               let randoms = [];
               while (randoms.length < 3) {
                 let numero = Math.floor(Math.random() * size);

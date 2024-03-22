@@ -13,74 +13,79 @@ function Respuesta({ value, iscorrect, onPClick }) {
 }
 
 const StyledContainer = styled(Container)({
-    textAlign: 'center',
-    marginTop: '2rem',
-  });
-  
-  const StyledButton = styled('button')({
+  textAlign: 'center',
+  marginTop: '2rem',
+});
+
+const StyledButton = styled('button')({
 
   padding: '10px 20px',
   cursor: 'pointer',
 
 
-  });
+});
 
-  const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-  
-  
-  const Game = () => {
-    const [respuestas, setRespuestas] = useState(Array(4).fill({data:'', isCorrect:''}));
-    const [textoPregunta, setTextoPregunta] = useState('Cargando...');
-    const [error, setError] = useState('');
+const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
 
-    const addPregunta = async () => {
-      try {
-        const random = Math.floor(Math.random() * 4);
-        const response = await axios.post(`${apiEndpoint}/questions`, { });
-        setTextoPregunta(response.data.pregunta)
-        for (let i = 0; i < respuestas.length; i++) {
-          let cont=0;
-          if(i!=random){
-            const resp1=respuestas.slice();
-            resp1[i]={data:response.data.incorrectas[cont], isCorrect:false};
-            cont++;
-            setRespuestas(resp1);
-          }else{
-            const resp1=respuestas.slice();
-            resp1[i]={data:response.data.correcta, isCorrect:true};
-            setRespuestas(resp1);
-          }
+
+const Game = () => {
+  const [respuestas, setRespuestas] = useState(Array(4).fill({ data: '', isCorrect: '' }));
+  const [textoPregunta, setTextoPregunta] = useState('Cargando...');
+  const [preguntasAcertadas, setPreguntasAcertadas] = useState(0);
+  const [error, setError] = useState('');
+
+  const addPregunta = async (e) => {
+    try {
+      const random = Math.floor(Math.random() * 4);
+      const response = await axios.post(`${apiEndpoint}/questions`, {});
+      setTextoPregunta(response.data.pregunta)
+      console.log(random + " Correcta " + response.data.correcta);
+      respuestas[random] = { data: response.data.correcta, isCorrect: true };
+      let cont = 0;
+      for (let i = 0; i < respuestas.length; i++) {
+        if (i != random) {
+          respuestas[i] = { data: response.data.incorrectas[cont], isCorrect: false };
+          console.log("incorrecta " + respuestas[i].data);
+          cont++;
         }
- 
-      } catch (error) {
-        console.log(error.response.data.error);
       }
-    };
-
-    // useEffect(() => {
-    //   console.log('El componente se ha montado');
-    //   addPregunta().then(console.log("hi" + pregunta) );
-    // }, [])
-    
-    return (
-      <StyledContainer>
-        <h1>{textoPregunta}</h1>
-        <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <Respuesta value={respuestas[0].data} onPClick={addPregunta} data-iscorrect={respuestas[0].isCorrect}></Respuesta>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Respuesta value={respuestas[1].data} onPClick={addPregunta} data-iscorrect={respuestas[1].isCorrect}></Respuesta>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Respuesta value={respuestas[2].data} onPClick={addPregunta} data-iscorrect={respuestas[2].isCorrect}></Respuesta>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Respuesta value={respuestas[3].data} onPClick={addPregunta} data-iscorrect={respuestas[3].isCorrect}></Respuesta>
-        </Grid>
-        </Grid>
-      </StyledContainer>
-    );
+      setRespuestas(respuestas);
+      const isCorrect = e.target.getAttribute('data-iscorrect') === 'true';
+      if (isCorrect) {
+        setPreguntasAcertadas(preguntasAcertadas+1);
+      }
+      console.log('Botón clicado es correcto:', isCorrect);
+    } catch (error) {
+      console.log(error.response.data.error);
+    }
   };
+
+
+  // useEffect(() => {
+  //   console.log('El componente se ha montado');
+  //   addPregunta().then(console.log("hi" + pregunta) );
+  // }, [])
+
+  return (
+    <StyledContainer>
+      <h1>{textoPregunta}</h1>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <Respuesta value={respuestas[0].data} onPClick={addPregunta} iscorrect={respuestas[0].isCorrect}></Respuesta>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Respuesta value={respuestas[1].data} onPClick={addPregunta} iscorrect={respuestas[1].isCorrect}></Respuesta>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Respuesta value={respuestas[2].data} onPClick={addPregunta} iscorrect={respuestas[2].isCorrect}></Respuesta>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Respuesta value={respuestas[3].data} onPClick={addPregunta} iscorrect={respuestas[3].isCorrect}></Respuesta>
+        </Grid>
+      </Grid>
+      <p>Preguntas acertadas: {preguntasAcertadas}</p>
+    </StyledContainer>
+  );
+};
 
 export default Game;
