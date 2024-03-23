@@ -11,6 +11,34 @@ services:
     networks:
       - mynetwork
 
+  wikidata:
+    container_name: wikidata-${teamname:-defaultASW}
+    image: ghcr.io/arquisoft/wiq_es2a/query-questions:latest
+    profiles: ["dev", "prod"]
+    build: ./questions/query-questions
+    depends_on:
+      - mongodb
+    ports:
+      - "8003:8003"
+    networks:
+      - mynetwork
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/userdb
+
+  questionservice:
+    container_name: questionservice-${teamname:-defaultASW}
+    image: ghcr.io/arquisoft/wiq_es2a/questionservice:latest
+    profiles: ["dev", "prod"]
+    build: ./questions/template-questions
+    depends_on:
+      - mongodb
+    ports:
+      - "8004:8004"
+    networks:
+      - mynetwork
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/userdb
+
   authservice:
     container_name: authservice-${teamname:-defaultASW}
     image: ghcr.io/arquisoft/wiq_es2a/authservice:latest
@@ -48,11 +76,15 @@ services:
       - mongodb
       - userservice
       - authservice
+      - wikidata
+      - questionservice
     ports:
       - "8000:8000"
     networks:
       - mynetwork
     environment:
+      QUESTIONS_SERVICE_URL: http://questionservice:8004
+      WIKIDATA_SERVICE_URL: http://wikidata:8003
       AUTH_SERVICE_URL: http://authservice:8002
       USER_SERVICE_URL: http://userservice:8001
 

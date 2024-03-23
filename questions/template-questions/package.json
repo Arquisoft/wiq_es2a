@@ -1,0 +1,33 @@
+{
+    "name": "questionservice",
+    "version": "1.0.0",
+    "description": " Creates base uestions for the game",
+    "main": "service.js",
+    "scripts": {
+        "start": "node question-service.js",
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/arquisoft/wiq_es2a.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/arquisoft/wiq_es2a/issues"
+    },
+    "homepage": "https://github.com/arquisoft/wiq_es2a#readme",
+    "dependencies": {
+        "axios": "^1.6.7",
+        "bcrypt": "^5.1.1",
+        "body-parser": "^1.20.2",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.0.4"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "mongodb-memory-server": "^9.1.5",
+        "supertest": "^6.3.4"
+    }
+}

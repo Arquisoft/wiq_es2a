@@ -1,0 +1,28 @@
+{
+  "questions":[
+    {
+      "id": "Q123",
+      "text": "¿Cuál es la capital de Francia?",
+      "answers": [
+        {
+          "true": "París",
+          "false1": "Madrid",
+          "false2": "Berlín",
+          "false3": "Londres"
+        }
+      ]
+    },
+    {
+      "id": "Q1234",
+      "text": "¿Cuál es la capital de España?",
+      "answers": [
+        {
+          "true": "Madrid",
+          "false1": "Paris",
+          "false2": "Berlín",
+          "false3": "Londres"
+        }
+      ]
+    }
+  ]
+}
