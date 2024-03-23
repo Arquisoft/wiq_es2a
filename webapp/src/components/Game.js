@@ -24,15 +24,21 @@ const Game = () => {
    * no salga la siguiente pregunta para evitar errores
    * @param {*} e 
    */
-  const checkPregunta = async(e) =>{
+  const checkPregunta = async (e) => {
     //Si ha acertado añade al contador de aciertos una más
     const isCorrect = e.target.parentNode.getAttribute('data-iscorrect') === 'true';
     if (isCorrect) {
-      setPreguntasAcertadas(preguntasAcertadas+1);
+      setPreguntasAcertadas(preguntasAcertadas + 1);
     }
 
     const old = e.target.parentNode.getAttribute('class');
     e.target.parentNode.setAttribute('class', old + " active");
+
+    const c = document.querySelector('[data-iscorrect=true]');
+    if (c != null) {
+      c.setAttribute('class', old + " active");
+    }
+
 
     //Selección de todos los inputs y deshabilitarlos
     const inputs = document.querySelectorAll('input[name="options"]');
@@ -62,9 +68,11 @@ const Game = () => {
       inputs.forEach(input => {
         input.disabled = false;
       });
-      const verdad = document.querySelector('.active');
-      if(verdad!=null){
-        verdad.classList.remove('active');
+      const activos = document.querySelectorAll('.active');
+      if (activos != null) {
+        for (let i = 0; i < activos.length; i++) {
+          activos[i].classList.remove('active');
+        }
       }
       //Fin de borrado
 
@@ -72,7 +80,7 @@ const Game = () => {
       setTextoPregunta(response.data.pregunta)
       console.log(random + " Correcta " + response.data.correcta);
 
-      let respCopia=respuestas.slice();
+      let respCopia = respuestas.slice();
       respCopia[random] = { data: response.data.correcta, isCorrect: true };
       let cont = 0;
       for (let i = 0; i < respuestas.length; i++) {
@@ -83,7 +91,7 @@ const Game = () => {
         }
       }
       setRespuestas(respCopia);
-      
+
     } catch (error) {
       console.log(error.response.data.error);
     }
@@ -98,26 +106,26 @@ const Game = () => {
   return (
     <StyledContainer>
       <h1>{textoPregunta}</h1>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <div className="btn-group btn-group-toggle" data-toggle="buttons">
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
-            <label class="btn btn-secondary" data-iscorrect={respuestas[0].isCorrect}>
-              <input type="radio" name="options" id="option1" autocomplete="off" onClick={checkPregunta}/> {respuestas[0].data}
+            <label className="btn btn-secondary" data-iscorrect={respuestas[0].isCorrect}>
+              <input type="radio" name="options" id="option1" autoComplete="off" onClick={checkPregunta} /> {respuestas[0].data}
             </label>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <label class="btn btn-secondary" data-iscorrect={respuestas[1].isCorrect}>
-              <input type="radio" name="options" id="option2" autocomplete="off" onClick={checkPregunta} /> {respuestas[1].data}
+            <label className="btn btn-secondary" data-iscorrect={respuestas[1].isCorrect}>
+              <input type="radio" name="options" id="option2" autoComplete="off" onClick={checkPregunta} /> {respuestas[1].data}
             </label>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <label class="btn btn-secondary" data-iscorrect={respuestas[2].isCorrect}>
-              <input type="radio" name="options" id="option3" autocomplete="off" onClick={checkPregunta} /> {respuestas[2].data}
+            <label className="btn btn-secondary" data-iscorrect={respuestas[2].isCorrect}>
+              <input type="radio" name="options" id="option3" autoComplete="off" onClick={checkPregunta} /> {respuestas[2].data}
             </label>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <label class="btn btn-secondary" data-iscorrect={respuestas[3].isCorrect}>
-              <input type="radio" name="options" id="option4" autocomplete="off" onClick={checkPregunta} /> {respuestas[3].data}
+            <label className="btn btn-secondary" data-iscorrect={respuestas[3].isCorrect}>
+              <input type="radio" name="options" id="option4" autoComplete="off" onClick={checkPregunta} /> {respuestas[3].data}
             </label>
           </Grid>
         </Grid>
