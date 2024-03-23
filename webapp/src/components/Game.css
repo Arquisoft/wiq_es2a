@@ -1,0 +1,16 @@
+/* Ocultar el círculo de radio */
+.btn-group-toggle .btn input[type="radio"] {
+    display: none;
+}
+
+.btn-group-toggle .btn.active[data-iscorrect="false"] {
+    background-color: red;
+}
+
+.btn-group-toggle .btn.active[data-iscorrect="true"] {
+    background-color: green;
+}
+
+body{
+    background-image: url('../../public/fondo.png');
+}
