@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Container, styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
@@ -18,6 +18,22 @@ const Game = () => {
   const [textoPregunta, setTextoPregunta] = useState('Cargando...');
   const [preguntasAcertadas, setPreguntasAcertadas] = useState(0);
   const [error, setError] = useState('');
+  const [contadorGlobal, setContadorGlobal] = useState(30);
+
+  const contadorIntervalRef = useRef(null);
+
+
+
+  // Función para detener el contador
+  const detenerContador = () => {
+    clearInterval(contadorIntervalRef.current);
+  };
+
+  useEffect(() => {
+    if (contadorGlobal === 0) {
+      checkPregunta();
+    }
+  }, [contadorGlobal]);
 
   /**
    * Este método comprueba si la pregunta es correcta y deshabilita los botones hasta que
@@ -25,18 +41,22 @@ const Game = () => {
    * @param {*} e 
    */
   const checkPregunta = async (e) => {
-    //Si ha acertado añade al contador de aciertos una más
-    const isCorrect = e.target.parentNode.getAttribute('data-iscorrect') === 'true';
-    if (isCorrect) {
-      setPreguntasAcertadas(preguntasAcertadas + 1);
+    detenerContador();
+    if (e != null) {
+
+
+      //Si ha acertado añade al contador de aciertos una más
+      const isCorrect = e.target.parentNode.getAttribute('data-iscorrect') === 'true';
+      if (isCorrect) {
+        setPreguntasAcertadas(preguntasAcertadas + 1);
+      }
+
+      const old = e.target.parentNode.getAttribute('class');
+      e.target.parentNode.setAttribute('class', old + " active");
     }
-
-    const old = e.target.parentNode.getAttribute('class');
-    e.target.parentNode.setAttribute('class', old + " active");
-
     const c = document.querySelector('[data-iscorrect=true]');
     if (c != null) {
-      c.setAttribute('class', old + " active");
+      c.setAttribute('class', c.getAttribute('class') + " active");
     }
 
 
@@ -47,16 +67,16 @@ const Game = () => {
     });
 
     //Tras 3 segundos llama a la función de addPregunta par que de tiempo a ver el resultado
-    setTimeout(addPregunta, 3000, e);
+    setTimeout(addPregunta, 3000);
   }
 
   /**
    * Este método crea la nueva pregunta llamando al Post (y recogiendo datos de wikidata)
    * También se asegura de poner los inputs de la respuesta sin active, además de volverlos a habilitar
-   * @param {} e 
    */
-  const addPregunta = async (e) => {
+  const addPregunta = async () => {
     try {
+      clearInterval(contadorIntervalRef.current);
       //Se selecciona un número aleatorio [0,3] que será el lugar de la respuesta correcta
       const random = Math.floor(Math.random() * 4);
 
@@ -91,7 +111,20 @@ const Game = () => {
         }
       }
       setRespuestas(respCopia);
+      // Reiniciar el contador a 30
+      setContadorGlobal(30);
 
+      // Volver a iniciar el intervalo del contador
+      contadorIntervalRef.current = setInterval(() => {
+        setContadorGlobal((prevCount) => {
+          if (prevCount === 0) {
+            checkPregunta(); // Si el contador llega a 0, realizar la acción correspondiente
+            return prevCount; // Mantener el contador en 0
+          } else {
+            return prevCount - 1; // Decrementar el contador
+          }
+        });
+      }, 1000); // Actualiza el contador cada segundo
     } catch (error) {
       console.log(error.response.data.error);
     }
@@ -104,6 +137,7 @@ const Game = () => {
 
   return (
     <StyledContainer>
+      <p>{contadorGlobal}</p>
       <h1>{textoPregunta}</h1>
       <div className="btn-group btn-group-toggle" data-toggle="buttons">
         <Grid container spacing={2}>
