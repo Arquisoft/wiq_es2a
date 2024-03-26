@@ -98,10 +98,9 @@ const Game = () => {
   };
 
 
-  // useEffect(() => {
-  //   console.log('El componente se ha montado');
-  //   addPregunta().then(console.log("hi" + pregunta) );
-  // }, [])
+  useEffect(() => {
+    addPregunta();
+  }, [])
 
   return (
     <StyledContainer>
