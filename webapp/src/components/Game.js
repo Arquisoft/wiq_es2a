@@ -20,6 +20,8 @@ const Game = () => {
   const [error, setError] = useState('');
   const [contadorGlobal, setContadorGlobal] = useState(30);
 
+  const width = `${(contadorGlobal / 30) * 100}%`;
+
   const contadorIntervalRef = useRef(null);
 
 
@@ -137,7 +139,9 @@ const Game = () => {
 
   return (
     <StyledContainer>
-      <p>{contadorGlobal}</p>
+      <div className="progress">
+        <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow={contadorGlobal} aria-valuemin="0" aria-valuemax="100" style={{width}}>{contadorGlobal}</div>
+      </div>
       <h1>{textoPregunta}</h1>
       <div className="btn-group btn-group-toggle" data-toggle="buttons">
         <Grid container spacing={2}>
