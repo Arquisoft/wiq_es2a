@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import { useEffect } from 'react';
 import './Game.css';
+import HomeScreen from './HomeScreen';
 
 const StyledContainer = styled(Container)({
   textAlign: 'center',
@@ -13,12 +14,14 @@ const StyledContainer = styled(Container)({
 const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
 
 
-const Game = () => {
+const Game = ({numQuestions}) => {
   const [respuestas, setRespuestas] = useState(Array(4).fill({ data: '', isCorrect: '' }));
   const [textoPregunta, setTextoPregunta] = useState('Cargando...');
   const [preguntasAcertadas, setPreguntasAcertadas] = useState(0);
   const [error, setError] = useState('');
   const [contadorGlobal, setContadorGlobal] = useState(30);
+  const [numPreguntas, setnumPreguntas]=useState(0);
+  const [finished, setFinished] = useState(false);
 
   const width = `${(contadorGlobal / 30) * 100}%`;
 
@@ -68,8 +71,13 @@ const Game = () => {
       input.disabled = true;
     });
 
-    //Tras 3 segundos llama a la función de addPregunta par que de tiempo a ver el resultado
-    setTimeout(addPregunta, 3000);
+    if(numPreguntas==numQuestions){
+      setFinished(true);
+    }else{
+      //Tras 3 segundos llama a la función de addPregunta par que de tiempo a ver el resultado
+      setTimeout(addPregunta, 3000);
+    }
+    
   }
 
   /**
@@ -127,6 +135,11 @@ const Game = () => {
           }
         });
       }, 1000); // Actualiza el contador cada segundo
+
+      //Número de pregunta actual
+      const n=numPreguntas;
+      setnumPreguntas(n+1);
+
     } catch (error) {
       console.log(error.response.data.error);
     }
@@ -138,6 +151,12 @@ const Game = () => {
   }, [])
 
   return (
+    <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
+    {finished ? (
+      <div>
+        <HomeScreen/>
+      </div>
+    ) : (
     <StyledContainer>
       <div className="progress">
         <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow={contadorGlobal} aria-valuemin="0" aria-valuemax="100" style={{width}}>{contadorGlobal}</div>
@@ -169,6 +188,8 @@ const Game = () => {
       </div>
       <p>Preguntas acertadas: {preguntasAcertadas}</p>
     </StyledContainer>
+    )}
+    </Container>
   );
 };
 
