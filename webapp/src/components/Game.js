@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import { useEffect } from 'react';
 import './Game.css';
+import { Link } from 'react-router-dom';
 import HomeScreen from './HomeScreen';
 
 const StyledContainer = styled(Container)({
@@ -18,10 +19,36 @@ const Game = ({numQuestions}) => {
   const [respuestas, setRespuestas] = useState(Array(4).fill({ data: '', isCorrect: '' }));
   const [textoPregunta, setTextoPregunta] = useState('Cargando...');
   const [preguntasAcertadas, setPreguntasAcertadas] = useState(0);
-  const [error, setError] = useState('');
   const [contadorGlobal, setContadorGlobal] = useState(30);
   const [numPreguntas, setnumPreguntas]=useState(0);
   const [finished, setFinished] = useState(false);
+  const [tiempo, setTiempo] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+
+  // Función para iniciar el tiempo
+  const startTime = () => {
+    setIsRunning(true);
+  };
+
+  // Función para detener el tiempo
+  const stopTime = () => {
+    setIsRunning(false);
+  };
+
+  // UseEffect para actualizar el tiempo cada segundo
+  useEffect(() => {
+    let intervalId;
+    if (isRunning) {
+      intervalId = setInterval(() => {
+        setTiempo((prevCount) => prevCount + 1);
+      }, 1000);
+    } else {
+      clearInterval(intervalId);
+    }
+
+    // Limpiar intervalo cuando el componente se desmonta
+    return () => clearInterval(intervalId);
+  }, [isRunning]);
 
   const width = `${(contadorGlobal / 30) * 100}%`;
 
@@ -70,14 +97,8 @@ const Game = ({numQuestions}) => {
     inputs.forEach(input => {
       input.disabled = true;
     });
-
-    if(numPreguntas==numQuestions){
-      setFinished(true);
-    }else{
       //Tras 3 segundos llama a la función de addPregunta par que de tiempo a ver el resultado
       setTimeout(addPregunta, 3000);
-    }
-    
   }
 
   /**
@@ -85,6 +106,10 @@ const Game = ({numQuestions}) => {
    * También se asegura de poner los inputs de la respuesta sin active, además de volverlos a habilitar
    */
   const addPregunta = async () => {
+    if(numPreguntas==numQuestions){
+      stopTime();
+      setFinished(true);
+    } else {
     try {
       clearInterval(contadorIntervalRef.current);
       //Se selecciona un número aleatorio [0,3] que será el lugar de la respuesta correcta
@@ -121,6 +146,9 @@ const Game = ({numQuestions}) => {
         }
       }
       setRespuestas(respCopia);
+      if (numPreguntas==0) {
+        startTime(); //inicio el tiempo una vez se vea la primera pregunta
+      }
       // Reiniciar el contador a 30
       setContadorGlobal(30);
 
@@ -143,6 +171,7 @@ const Game = ({numQuestions}) => {
     } catch (error) {
       console.log(error.response.data.error);
     }
+  }
   };
 
 
@@ -153,9 +182,12 @@ const Game = ({numQuestions}) => {
   return (
     <Container component="main" sx={{ marginTop: 4 }}>
     {finished ? (
-      <div>
-        <HomeScreen/>
+
+      <div align="center">
+        <h1> Has acertado {preguntasAcertadas}/{numQuestions} preguntas en {tiempo} segundos</h1>
+        <Link to= "/home">Volver a inicio</Link>
       </div>
+      
     ) : (
     <StyledContainer>
       <div className="progress">
