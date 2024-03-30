@@ -23,10 +23,11 @@ const HomeScreen = () => {
           ) : (
             // Muestra el contenido inicial con el botón "Jugar"
             <div>
-              <button onClick={handleStartButtonClick}>Jugar</button>
               <div className="form-outline" style={{width: "5em"}}>
-                <input value={defecto} type="number" id="typeNumber" className="form-control" onChange={changeNumber} />
+                <label className="form-label" htmlFor="typeNumber">Número de preguntas:</label>
+                <input min="1" max="30" value={defecto} type="number" id="typeNumber" className="form-control" onChange={changeNumber}/>
               </div>
+              <button onClick={handleStartButtonClick}>Jugar</button>
               <br></br>
               <button>Ver historial</button>
             </div>

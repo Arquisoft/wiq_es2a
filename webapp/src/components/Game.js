@@ -151,7 +151,7 @@ const Game = ({numQuestions}) => {
   }, [])
 
   return (
-    <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
+    <Container component="main" sx={{ marginTop: 4 }}>
     {finished ? (
       <div>
         <HomeScreen/>

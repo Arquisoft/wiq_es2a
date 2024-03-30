@@ -11,7 +11,7 @@
     background-color: green;
 }
 
-body{
+.main{
     background-image: url('../../public/fondo.png');
     background-size: cover;
     min-height: 70vh;

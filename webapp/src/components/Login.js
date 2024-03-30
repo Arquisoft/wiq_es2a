@@ -36,13 +36,14 @@ const Login = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
+    <Container component="main" sx={{ marginTop: 4 }}>
       {loginSuccess ? (
         <div>
           <HomeScreen/>
         </div>
       ) : (
         <div>
+          <Container maxWidth="xs" sx={{ marginTop: 4 }}>
           <Typography component="h1" variant="h5">
             Login
           </Typography>
@@ -73,9 +74,9 @@ const Login = () => {
           <Link to="/adduser">
             Don't have an account? Register here.
           </Link>
-          
-   
+          </Container>
         </div>
+        
       )}
     </Container>
   );
