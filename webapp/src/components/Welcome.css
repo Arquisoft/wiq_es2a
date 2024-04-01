@@ -8,7 +8,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../../public/FondoHome.jpg'); /* Cambia la ruta por la ubicación de tu imagen */
+    background-image: url('../../public/fondo.png'); /* Cambia la ruta por la ubicación de tu imagen */
     background-size: cover;
     z-index: -1;
   }

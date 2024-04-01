@@ -180,7 +180,7 @@ const Game = ({numQuestions}) => {
   }, [])
 
   return (
-    <Container component="main" sx={{ marginTop: 4 }}>
+    <Container component="main" className="gameContainer" sx={{ marginTop: 4 }}>
     {finished ? (
 
       <div align="center">

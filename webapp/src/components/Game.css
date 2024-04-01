@@ -11,8 +11,8 @@
     background-color: green;
 }
 
-.main{
-    background-image: url('../../public/fondo.png');
+.gameContainer{
+    background-image: url('../../public/FondoHome.jpg');
     background-size: cover;
     min-height: 70vh;
     display: flex;
