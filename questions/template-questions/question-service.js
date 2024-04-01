@@ -31,7 +31,7 @@ const jsonPreg = [
       '} LIMIT 100'
   },
   {
-    textStart: '¿Quién es el cantante de ',
+    textStart: '¿Quién interpreta la canción ',
     textEnd: '?',
     queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {' +
       '?pregunta wdt:P31 wd:Q134556.' +
@@ -67,6 +67,16 @@ const jsonPreg = [
                  'wdt:P1549 ?respuesta.'+
       'OPTIONAL { ?respuesta rdfs:label ?respuestaLabel. FILTER(LANG(?respuestaLabel) = "es") }'+
       'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }}'
+  }
+  ,
+  {
+    textStart: '¿A qué grupo pertenece ',
+    textEnd: '?',
+    queryCorrect: 'SELECT DISTINCT ?cantanteLabel ?grupoMusicalLabel WHERE {'+
+      '?cantante wdt:P106 wd:Q177220;         # Cantante es una persona'+
+              ' wdt:P463 ?grupoMusical. # Cantante es miembro de un grupo musical'+
+      'SERVICE wikibase:label { '+
+        'bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }} LIMIT 100'
   }
 
 ]

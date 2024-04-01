@@ -22,33 +22,25 @@ const Game = ({numQuestions}) => {
   const [contadorGlobal, setContadorGlobal] = useState(30);
   const [numPreguntas, setnumPreguntas]=useState(0);
   const [finished, setFinished] = useState(false);
-  const [tiempo, setTiempo] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
+  const [tiempoTotal, setTiempoTotal] = useState(0);
+  var tiempoInicial = 0;
+  var tiempoFinal = 0;
 
   // Función para iniciar el tiempo
   const startTime = () => {
-    setIsRunning(true);
+    tiempoInicial = new Date();
+    console.log(tiempoInicial);
   };
 
   // Función para detener el tiempo
-  const stopTime = () => {
-    setIsRunning(false);
+  const calculateTime = () => {
+    tiempoFinal = new Date();
+    console.log(tiempoFinal);
+    tiempoFinal = tiempoFinal - tiempoInicial;
+    setTiempoTotal(Math.floor(((tiempoFinal % 3600000) % 60000) / 1000));
+    console.log(tiempoTotal);
   };
 
-  // UseEffect para actualizar el tiempo cada segundo
-  useEffect(() => {
-    let intervalId;
-    if (isRunning) {
-      intervalId = setInterval(() => {
-        setTiempo((prevCount) => prevCount + 1);
-      }, 1000);
-    } else {
-      clearInterval(intervalId);
-    }
-
-    // Limpiar intervalo cuando el componente se desmonta
-    return () => clearInterval(intervalId);
-  }, [isRunning]);
 
   const width = `${(contadorGlobal / 30) * 100}%`;
 
@@ -107,7 +99,7 @@ const Game = ({numQuestions}) => {
    */
   const addPregunta = async () => {
     if(numPreguntas==numQuestions){
-      stopTime();
+      calculateTime();
       setFinished(true);
     } else {
     try {
@@ -147,7 +139,7 @@ const Game = ({numQuestions}) => {
       }
       setRespuestas(respCopia);
       if (numPreguntas==0) {
-        startTime(); //inicio el tiempo una vez se vea la primera pregunta
+       startTime(); //inicio el tiempo una vez se vea la primera pregunta
       }
       // Reiniciar el contador a 30
       setContadorGlobal(30);
@@ -184,7 +176,7 @@ const Game = ({numQuestions}) => {
     {finished ? (
 
       <div align="center">
-        <h1> Has acertado {preguntasAcertadas}/{numQuestions} preguntas en {tiempo} segundos</h1>
+        <h1> Has acertado {preguntasAcertadas}/{numQuestions} preguntas en {tiempoTotal} segundos</h1>
         <Link to= "/home">Volver a inicio</Link>
       </div>
       
