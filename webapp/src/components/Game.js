@@ -29,16 +29,13 @@ const Game = ({numQuestions}) => {
   // Función para iniciar el tiempo
   const startTime = () => {
     tiempoInicial = new Date();
-    console.log(tiempoInicial);
   };
 
   // Función para detener el tiempo
   const calculateTime = () => {
     tiempoFinal = new Date();
-    console.log(tiempoFinal);
     tiempoFinal = tiempoFinal - tiempoInicial;
     setTiempoTotal(Math.floor(((tiempoFinal % 3600000) % 60000) / 1000));
-    console.log(tiempoTotal);
   };
 
 
@@ -172,12 +169,12 @@ const Game = ({numQuestions}) => {
   }, [])
 
   return (
-    <Container component="main" className="gameContainer" sx={{ marginTop: 4 }}>
+    <Container component="main" id="gameContainer" sx={{ marginTop: 4 }}>
     {finished ? (
 
       <div align="center">
         <h1> Has acertado {preguntasAcertadas}/{numQuestions} preguntas en {tiempoTotal} segundos</h1>
-        <Link to= "/home">Volver a inicio</Link>
+        <Link to= "/home">Volver al inicio</Link>
       </div>
       
     ) : (

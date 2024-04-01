@@ -9,6 +9,7 @@ import HomeScreen from './components/HomeScreen';
 import Game from './components/Game';
 import Welcome from './components/Welcome';
 import ImagenA from './LogoSaberYGanar.png'
+import './App.css';
 
 
 function App() {

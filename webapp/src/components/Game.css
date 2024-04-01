@@ -11,8 +11,10 @@
     background-color: green;
 }
 
-.gameContainer{
-    background-image: url('../../public/FondoHome.jpg');
+#gameContainer{
+    padding: 0.1em;
+    border-radius: 1em;
+    background-image: url('../../public/FondoGame.jpg');
     background-size: cover;
     min-height: 70vh;
     display: flex;
