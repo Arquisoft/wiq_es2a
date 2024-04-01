@@ -72,11 +72,21 @@ const jsonPreg = [
   {
     textStart: '¿A qué grupo pertenece ',
     textEnd: '?',
-    queryCorrect: 'SELECT DISTINCT ?cantanteLabel ?grupoMusicalLabel WHERE {'+
-      '?cantante wdt:P106 wd:Q177220;         # Cantante es una persona'+
-              ' wdt:P463 ?grupoMusical. # Cantante es miembro de un grupo musical'+
+    queryCorrect: 'SELECT DISTINCT ?preguntaLabel ?respuestaLabel WHERE {'+
+      '?pregunta wdt:P106 wd:Q177220;'+
+              ' wdt:P463 ?respuesta.'+
       'SERVICE wikibase:label { '+
         'bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }} LIMIT 100'
+  }
+  ,
+  {
+    textStart: '¿Dónde nació el compositor ',
+    textEnd: '?',
+    queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {' +
+      '?pregunta wdt:P106 wd:Q36834;'+
+           ' wdt:P19 ?respuesta' +
+      'SERVICE wikibase:label { bd:serviceParam wikibase:language "es" } '+
+    '} LIMIT 100'
   }
 
 ]
