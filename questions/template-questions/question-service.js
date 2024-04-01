@@ -84,7 +84,7 @@ const jsonPreg = [
     textEnd: '?',
     queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {' +
       '?pregunta wdt:P106 wd:Q36834;'+
-           ' wdt:P19 ?respuesta' +
+           ' wdt:P19 ?respuesta.' +
       'SERVICE wikibase:label { bd:serviceParam wikibase:language "es" } '+
     '} LIMIT 100'
   }
