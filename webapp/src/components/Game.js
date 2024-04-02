@@ -184,6 +184,9 @@ const Game = ({numQuestions}) => {
       
     ) : (
     <StyledContainer>
+      {numPreguntas > 0 && (
+        <h1 style={{ textAlign: 'left' }}>Pregunta Nº{numPreguntas}</h1>
+      )}
       <div className="progress">
         <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow={contadorGlobal} aria-valuemin="0" aria-valuemax="100" style={{width}}>{contadorGlobal}</div>
       </div>
