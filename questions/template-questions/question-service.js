@@ -10,7 +10,7 @@ const jsonPreg = [
     textStart: '¿Cuál es la capital de ',
     textEnd: '?',
     queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {' +
-      '?pregunta wdt:P31 wd:Q6256. ?pregunta wdt:P36 ?respuesta. SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es".}}'
+      '?pregunta wdt:P31 wd:Q6256. ?pregunta wdt:P36 ?respuesta. SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en".}}'
   },
   {
     textStart: '¿Quién es el director de la película ',
@@ -18,7 +18,7 @@ const jsonPreg = [
     queryCorrect: 'SELECT DISTINCT ?preguntaLabel ?respuestaLabel WHERE {' +
       '?pregunta wdt:P31 wd:Q11424.' +
       '?pregunta wdt:P57 ?respuesta.' +
-      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }' +
+      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }' +
       '} LIMIT 100'
   },
   {
@@ -27,7 +27,7 @@ const jsonPreg = [
     queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {' +
       '?pregunta wdt:P31 wd:Q7725634.' +
       '?pregunta wdt:P50 ?respuesta.' +
-      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }' +
+      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }' +
       '} LIMIT 100'
   },
   {
@@ -36,7 +36,7 @@ const jsonPreg = [
     queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {' +
       '?pregunta wdt:P31 wd:Q134556.' +
       '?pregunta wdt:P175 ?respuesta.' +
-      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }' +
+      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }' +
       '} LIMIT 100'
   },
   {
@@ -45,7 +45,7 @@ const jsonPreg = [
     queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {' +
       '?pregunta wdt:P31 wd:Q570116.' +
       '?pregunta wdt:P17 ?respuesta.' +
-      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }' +
+      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }' +
       '} LIMIT 100'
   },
   {
@@ -55,7 +55,7 @@ const jsonPreg = [
       '(CONCAT(REPLACE(STR((ROUND(?respuesta / 1000) * 1000)), "(\\\\d)(?=(\\\\d{3})+$)", "$1."), "") AS ?respuestaLabel) WHERE {' +
       '?pregunta wdt:P31 wd:Q6256.' +
       '?pregunta wdt:P1082 ?respuesta.' +
-      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }}'
+      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }}'
   }
   ,
   {
@@ -66,7 +66,7 @@ const jsonPreg = [
                  'wdt:P17 wd:Q29; '+
                  'wdt:P1549 ?respuesta.'+
       'OPTIONAL { ?respuesta rdfs:label ?respuestaLabel. FILTER(LANG(?respuestaLabel) = "es") }'+
-      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }}'
+      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }}'
   }
   ,
   {
@@ -76,7 +76,7 @@ const jsonPreg = [
       '?pregunta wdt:P106 wd:Q177220;'+
               ' wdt:P463 ?respuesta.'+
       'SERVICE wikibase:label { '+
-        'bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }} LIMIT 100'
+        'bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }} LIMIT 100'
   }
   ,
   {
@@ -85,7 +85,7 @@ const jsonPreg = [
     queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {' +
       '?pregunta wdt:P106 wd:Q36834;'+
            ' wdt:P19 ?respuesta.' +
-      'SERVICE wikibase:label { bd:serviceParam wikibase:language "es" } '+
+      'SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en" } '+
     '} LIMIT 100'
   }
 
