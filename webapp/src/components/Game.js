@@ -86,8 +86,13 @@ const Game = ({numQuestions}) => {
     inputs.forEach(input => {
       input.disabled = true;
     });
-      //Tras 3 segundos llama a la función de addPregunta par que de tiempo a ver el resultado
-      setTimeout(addPregunta, 3000);
+    if(numPreguntas==numQuestions){
+      setTimeout(addPregunta, 3000); //esperar un poco para que se vean los resultados de la ultima pregunta
+    }
+    else {
+      addPregunta();
+    }
+      
   }
 
   /**
