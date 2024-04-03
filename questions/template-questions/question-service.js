@@ -88,6 +88,14 @@ const jsonPreg = [
       'SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en" } '+
     '} LIMIT 100'
   }
+  ,
+  {
+    textStart: 'En qué país se encuentra la atracción turística ',
+    textEnd: '?',
+    queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {'+
+      '?pregunta wdt:P31 wd:Q570116; wdt:P17 ?respuesta.'+
+      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }} LIMIT 200'
+  }
 
 ]
   ;
@@ -107,36 +115,32 @@ app.post("/questions", async (req, res) => {
     //Escoge un valor aleatorio para escoger la pregunta
     let sizeJson = jsonPreg.length;
     let randQuery= Math.floor(Math.random() * sizeJson);
-    
     wiki.ejecutarConsultaSPARQL(jsonPreg[randQuery].queryCorrect)
       .then((resultados) => {
         //Escoge un valor aleatorio de la consulta para la respuesta correcta
         let size = resultados.results.bindings.length;
         let random = Math.floor(Math.random() * size);
 
-        //Valor aleatorio para las respuestas incorrectas
-        let randoms = [];
-        while (randoms.length < 3) {
-          let numero = Math.floor(Math.random() * size);
-          if (!randoms.includes(numero) && numero != random) {
-            randoms.push(numero);
+        let incorrectas = [];
+
+        let respuestaCorrecta = resultados.results.bindings[random].respuestaLabel.value;
+
+        // Mientras que el tamaño del array de incorrectas sea menor que 3, sigue añadiendo respuestas incorrectas únicas
+        while (incorrectas.length < 3) {
+          let randomIndex = Math.floor(Math.random() * size);
+          let respuestaIncorrecta = resultados.results.bindings[randomIndex].respuestaLabel.value;
+          
+          // Si la respuesta incorrecta no está ya en el array de incorrectas y no es igual a la respuesta correcta, añádela
+          if (respuestaIncorrecta !== respuestaCorrecta && !incorrectas.includes(respuestaIncorrecta)) {
+            incorrectas.push(respuestaIncorrecta);
           }
         }
-        //Json generado para enviar al post
+
         resultadosGuardados = {
           pregunta: jsonPreg[randQuery].textStart + resultados.results.bindings[random].preguntaLabel.value + jsonPreg[randQuery].textEnd,
-          correcta: resultados.results.bindings[random].respuestaLabel.value,
-          incorrectas: [
-            resultados.results.bindings[randoms[0]].respuestaLabel.value,
-            resultados.results.bindings[randoms[1]].respuestaLabel.value,
-            resultados.results.bindings[randoms[2]].respuestaLabel.value
-          ]
+          correcta: respuestaCorrecta,
+          incorrectas: incorrectas
         }
-
-        // console.log(resultadosGuardados.incorrectas);
-        // console.log(resultados.results.bindings[randoms[0]].capitalLabel.value);
-        // console.log(resultados.results.bindings[randoms[1]].capitalLabel.value);
-        // console.log(resultados.results.bindings[randoms[2]].capitalLabel.value);
 
         res.send(resultadosGuardados);
       })
