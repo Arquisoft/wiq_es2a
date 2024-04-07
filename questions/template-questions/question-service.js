@@ -97,10 +97,7 @@ const jsonPreg = [
       'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }} LIMIT 200'
   }
 
-]
-  ;
-
-//const json = JSON.parse(jsonPreg);
+];
 
 const wiki = new Wikidata();
 

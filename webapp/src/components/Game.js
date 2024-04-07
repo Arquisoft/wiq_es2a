@@ -126,8 +126,7 @@ const Game = ({numQuestions}) => {
       //Fin de borrado
 
       //Introducción del texto en los input de la respuesta
-      setTextoPregunta(response.data.pregunta)
-      console.log(random + " Correcta " + response.data.correcta);
+      setTextoPregunta(response.data.pregunta);
 
       let respCopia = respuestas.slice();
       respCopia[random] = { data: response.data.correcta, isCorrect: true };
@@ -135,7 +134,6 @@ const Game = ({numQuestions}) => {
       for (let i = 0; i < respuestas.length; i++) {
         if (i != random) {
           respCopia[i] = { data: response.data.incorrectas[cont], isCorrect: false };
-          console.log("incorrecta " + respCopia[i].data);
           cont++;
         }
       }
