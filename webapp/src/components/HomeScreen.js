@@ -16,6 +16,10 @@ const HomeScreen = () => {
       setDefecto(event.target.value);
     };
 
+    const handleHistoryButton = () => {
+      window.location.href = '/history';
+    }
+
     return (
         <Container component="main">
         <div>
@@ -29,8 +33,8 @@ const HomeScreen = () => {
                 <label className="form-label" htmlFor="typeNumber">Número de preguntas:</label>
                 <input min="1" max="30" value={defecto} type="number" id="typeNumber" className="form-control" onChange={changeNumber}/>
               </div>
-              <button onClick={handleStartButtonClick}>Jugar</button>
-              <Link to="/history">Ver historial</Link>
+              <button onClick={handleStartButtonClick} type="button" class="btn btn-outline-primary">Jugar</button>
+              <button  onClick={handleHistoryButton} type="button" class="btn btn-outline-primary">Ver historial</button>
             </div>
           )}
         </div>

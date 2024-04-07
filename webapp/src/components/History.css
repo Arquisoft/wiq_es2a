@@ -1,0 +1,36 @@
+
+#table {
+    width: 100%;
+    border-collapse: separate;
+  }
+  
+  /* Estilos para las celdas de encabezado */
+  th {
+    background-color: #59b494d1;
+    color: #333;
+    padding: 10px;
+  }
+  
+  /* Estilos para las celdas de datos */
+  td {
+    padding: 10px;
+  }
+  
+  /* Estilos para las filas impares */
+  tr:nth-child(odd) {
+    background-color: #bee5c480;
+  }
+  
+  /* Estilos para las filas pares */
+  tr:nth-child(even) {
+    background-color: #d3f0e8ad;
+  }
+  
+  td, th {
+    font-size: 1em;
+  }
+
+  h1 {
+    text-align: center;
+  }
+  

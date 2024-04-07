@@ -202,7 +202,6 @@ const username = decoded.username;
 
       <div align="center">
         <h1> Has acertado {preguntasAcertadas}/{numQuestions} preguntas en {tiempoTotal} segundos</h1>
-        <Link to= "/home">Volver al inicio</Link>
         <button type="button" className="btn btn-outline-primary btn-lg" onClick={addRecord}>Guardar partida</button>
       </div>
       
