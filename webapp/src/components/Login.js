@@ -19,9 +19,10 @@ const Login = () => {
     try {
       const response = await axios.post(`${apiEndpoint}/login`, { username, password });
 
-      // Extract data from the response
-      const { createdAt: userCreatedAt } = response.data;
-
+       // Extract data from the response
+       const { createdAt: userCreatedAt, token } = response.data;
+       // Store the token in localStorage
+       localStorage.setItem('token', token);
       setCreatedAt(userCreatedAt);
       setLoginSuccess(true);
 

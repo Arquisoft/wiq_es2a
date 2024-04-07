@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import './Game.css';
 import { Link } from 'react-router-dom';
-import HomeScreen from './HomeScreen';
+import { jwtDecode } from 'jwt-decode';
 
 const StyledContainer = styled(Container)({
   textAlign: 'center',
@@ -25,6 +25,14 @@ const Game = ({numQuestions}) => {
   const [tiempoTotal, setTiempoTotal] = useState(0);
   var tiempoInicial = 0;
   var tiempoFinal = 0;
+  // Obtén el token del almacenamiento local
+const token = localStorage.getItem('token');
+
+// Decodifica el token para obtener la información del usuario
+const decoded = jwtDecode(token);
+
+// Accede al nombre de usuario desde la información decodificada
+const username = decoded.username;
 
   // Función para iniciar el tiempo
   const startTime = () => {
@@ -166,6 +174,23 @@ const Game = ({numQuestions}) => {
   }
   };
 
+  const addRecord = async () => {
+    try {
+      //Llamada al post para obtener los resultados de Wikidata
+      await axios.post(`${apiEndpoint}/addRecord`, {
+        user_id: username,
+        correctQuestions: preguntasAcertadas,
+        totalQuestions: numPreguntas,
+        totalTime: tiempoTotal
+      });
+
+      window.location.href = '/home';
+
+    } catch (error) {
+      console.log(error.response.data.error);
+    }
+  };
+
 
   useEffect(() => {
     addPregunta();
@@ -177,17 +202,20 @@ const Game = ({numQuestions}) => {
 
       <div align="center">
         <h1> Has acertado {preguntasAcertadas}/{numQuestions} preguntas en {tiempoTotal} segundos</h1>
-        <Link to= "/home">Volver al inicio</Link>
+        <button type="button" className="btn btn-outline-primary btn-lg" onClick={addRecord}>Guardar partida</button>
       </div>
       
     ) : (
     <StyledContainer>
       {numPreguntas > 0 && (
-        <h1 style={{ textAlign: 'left' }}>Pregunta Nº{numPreguntas}</h1>
+        <div>
+          <h1 style={{ textAlign: 'left' }}>Pregunta Nº{numPreguntas}</h1>
+          <div className="progress">
+            <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow={contadorGlobal} aria-valuemin="0" aria-valuemax="100" style={{width}}>{contadorGlobal}</div>
+          </div>
+        </div>
       )}
-      <div className="progress">
-        <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow={contadorGlobal} aria-valuemin="0" aria-valuemax="100" style={{width}}>{contadorGlobal}</div>
-      </div>
+      
       <h1>{textoPregunta}</h1>
       <div className="btn-group btn-group-toggle" data-toggle="buttons">
         <Grid container spacing={2}>

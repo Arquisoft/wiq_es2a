@@ -30,9 +30,9 @@ const HomeScreen = () => {
               ↓↓↓
               </Typography>
               <br></br>
-              <div class="px-3">
-                <button type="button" class="btn btn-outline-primary btn-lg" onClick={handleLogin}>Login</button>
-                <button type="button" class="btn btn-outline-primary btn-lg" onClick={handleSignUp}>SignUp</button>
+              <div className="px-3">
+                <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleLogin}>Login</button>
+                <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleSignUp}>SignUp</button>
               </div>
             </>
           );

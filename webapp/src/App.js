@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-ro
 import HomeScreen from './components/HomeScreen';
 import Game from './components/Game';
 import Welcome from './components/Welcome';
-import ImagenA from './LogoSaberYGanar2.png'
+import ImagenA from './LogoSaberYGanar2.png';
+import History from './components/History.js';
 import './App.css';
 
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/home" isAuthenticated={isAuthenticated} element={<HomeScreen />} />
         <Route path="/game" isAuthenticated={isAuthenticated} element={<Game />} />
+        <Route path="/history" element={<History />} />
       </Routes>
     
       {}
