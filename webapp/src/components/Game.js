@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Container, styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import { useEffect } from 'react';
 import './Game.css';
+import { Link } from 'react-router-dom';
+import HomeScreen from './HomeScreen';
 
 const StyledContainer = styled(Container)({
   textAlign: 'center',
@@ -13,11 +15,46 @@ const StyledContainer = styled(Container)({
 const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
 
 
-const Game = () => {
+const Game = ({numQuestions}) => {
   const [respuestas, setRespuestas] = useState(Array(4).fill({ data: '', isCorrect: '' }));
   const [textoPregunta, setTextoPregunta] = useState('Cargando...');
   const [preguntasAcertadas, setPreguntasAcertadas] = useState(0);
-  const [error, setError] = useState('');
+  const [contadorGlobal, setContadorGlobal] = useState(30);
+  const [numPreguntas, setnumPreguntas]=useState(0);
+  const [finished, setFinished] = useState(false);
+  const [tiempoTotal, setTiempoTotal] = useState(0);
+  var tiempoInicial = 0;
+  var tiempoFinal = 0;
+
+  // Función para iniciar el tiempo
+  const startTime = () => {
+    tiempoInicial = new Date();
+  };
+
+  // Función para detener el tiempo
+  const calculateTime = () => {
+    tiempoFinal = new Date();
+    tiempoFinal = tiempoFinal - tiempoInicial;
+    setTiempoTotal(Math.floor(((tiempoFinal % 3600000) % 60000) / 1000));
+  };
+
+
+  const width = `${(contadorGlobal / 30) * 100}%`;
+
+  const contadorIntervalRef = useRef(null);
+
+
+
+  // Función para detener el contador
+  const detenerContador = () => {
+    clearInterval(contadorIntervalRef.current);
+  };
+
+  useEffect(() => {
+    if (contadorGlobal === 0) {
+      checkPregunta();
+    }
+  }, [contadorGlobal]);
 
   /**
    * Este método comprueba si la pregunta es correcta y deshabilita los botones hasta que
@@ -25,18 +62,22 @@ const Game = () => {
    * @param {*} e 
    */
   const checkPregunta = async (e) => {
-    //Si ha acertado añade al contador de aciertos una más
-    const isCorrect = e.target.parentNode.getAttribute('data-iscorrect') === 'true';
-    if (isCorrect) {
-      setPreguntasAcertadas(preguntasAcertadas + 1);
+    detenerContador();
+    if (e != null) {
+
+
+      //Si ha acertado añade al contador de aciertos una más
+      const isCorrect = e.target.parentNode.getAttribute('data-iscorrect') === 'true';
+      if (isCorrect) {
+        setPreguntasAcertadas(preguntasAcertadas + 1);
+      }
+
+      const old = e.target.parentNode.getAttribute('class');
+      e.target.parentNode.setAttribute('class', old + " active");
     }
-
-    const old = e.target.parentNode.getAttribute('class');
-    e.target.parentNode.setAttribute('class', old + " active");
-
     const c = document.querySelector('[data-iscorrect=true]');
     if (c != null) {
-      c.setAttribute('class', old + " active");
+      c.setAttribute('class', c.getAttribute('class') + " active");
     }
 
 
@@ -45,18 +86,26 @@ const Game = () => {
     inputs.forEach(input => {
       input.disabled = true;
     });
-
-    //Tras 3 segundos llama a la función de addPregunta par que de tiempo a ver el resultado
-    setTimeout(addPregunta, 3000, e);
+    if(numPreguntas==numQuestions){
+      setTimeout(addPregunta, 3000); //esperar un poco para que se vean los resultados de la ultima pregunta
+    }
+    else {
+      addPregunta();
+    }
+      
   }
 
   /**
    * Este método crea la nueva pregunta llamando al Post (y recogiendo datos de wikidata)
    * También se asegura de poner los inputs de la respuesta sin active, además de volverlos a habilitar
-   * @param {} e 
    */
-  const addPregunta = async (e) => {
+  const addPregunta = async () => {
+    if(numPreguntas==numQuestions){
+      calculateTime();
+      setFinished(true);
+    } else {
     try {
+      clearInterval(contadorIntervalRef.current);
       //Se selecciona un número aleatorio [0,3] que será el lugar de la respuesta correcta
       const random = Math.floor(Math.random() * 4);
 
@@ -77,8 +126,7 @@ const Game = () => {
       //Fin de borrado
 
       //Introducción del texto en los input de la respuesta
-      setTextoPregunta(response.data.pregunta)
-      console.log(random + " Correcta " + response.data.correcta);
+      setTextoPregunta(response.data.pregunta);
 
       let respCopia = respuestas.slice();
       respCopia[random] = { data: response.data.correcta, isCorrect: true };
@@ -86,15 +134,36 @@ const Game = () => {
       for (let i = 0; i < respuestas.length; i++) {
         if (i != random) {
           respCopia[i] = { data: response.data.incorrectas[cont], isCorrect: false };
-          console.log("incorrecta " + respCopia[i].data);
           cont++;
         }
       }
       setRespuestas(respCopia);
+      if (numPreguntas==0) {
+       startTime(); //inicio el tiempo una vez se vea la primera pregunta
+      }
+      // Reiniciar el contador a 30
+      setContadorGlobal(30);
+
+      // Volver a iniciar el intervalo del contador
+      contadorIntervalRef.current = setInterval(() => {
+        setContadorGlobal((prevCount) => {
+          if (prevCount === 0) {
+            checkPregunta(); // Si el contador llega a 0, realizar la acción correspondiente
+            return prevCount; // Mantener el contador en 0
+          } else {
+            return prevCount - 1; // Decrementar el contador
+          }
+        });
+      }, 1000); // Actualiza el contador cada segundo
+
+      //Número de pregunta actual
+      const n=numPreguntas;
+      setnumPreguntas(n+1);
 
     } catch (error) {
       console.log(error.response.data.error);
     }
+  }
   };
 
 
@@ -103,7 +172,22 @@ const Game = () => {
   }, [])
 
   return (
+    <Container component="main" id="gameContainer" sx={{ marginTop: 4 }}>
+    {finished ? (
+
+      <div align="center">
+        <h1> Has acertado {preguntasAcertadas}/{numQuestions} preguntas en {tiempoTotal} segundos</h1>
+        <Link to= "/home">Volver al inicio</Link>
+      </div>
+      
+    ) : (
     <StyledContainer>
+      {numPreguntas > 0 && (
+        <h1 style={{ textAlign: 'left' }}>Pregunta Nº{numPreguntas}</h1>
+      )}
+      <div className="progress">
+        <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow={contadorGlobal} aria-valuemin="0" aria-valuemax="100" style={{width}}>{contadorGlobal}</div>
+      </div>
       <h1>{textoPregunta}</h1>
       <div className="btn-group btn-group-toggle" data-toggle="buttons">
         <Grid container spacing={2}>
@@ -131,6 +215,8 @@ const Game = () => {
       </div>
       <p>Preguntas acertadas: {preguntasAcertadas}</p>
     </StyledContainer>
+    )}
+    </Container>
   );
 };
 

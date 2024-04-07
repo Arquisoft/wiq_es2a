@@ -45,22 +45,9 @@ app.post('/adduser', async (req, res) => {
 
 app.post('/questions', async (req, res) => {
   try {
-    console.log("pasando por el gateway por /questions");
     // Forward the add user request to the user service
     const userResponse = await axios.post(questServiceUrl+'/questions', req.body);
     res.json(userResponse.data);
-  } catch (error) {
-    res.status(error.response.status).json({ error: error.response.data.error });
-  }
-});
-
-app.post('/randomQuest', async (req, res) => {
-  
-  try {
-    //console.log("hola");
-    // Forward the add user request to the user service
-    const response = await axios.post(questRandServiceUrl+'/randomQuest', req.body);
-    res.json(response.data);
   } catch (error) {
     res.status(error.response.status).json({ error: error.response.data.error });
   }
