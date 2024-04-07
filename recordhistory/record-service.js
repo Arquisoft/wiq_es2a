@@ -42,6 +42,17 @@ app.post('/addRecord', async (req, res) => {
         res.status(400).json({ error: error.message }); 
     }});
 
+  app.post('/getRecords', async (req, res) => {
+    try {
+        const username = req.body.username;
+
+        const records = await Record.find({ user_id: username });
+        
+        res.json(records);
+    } catch (error) {
+        res.status(400).json({ error: error.message }); 
+    }});
+
 const server = app.listen(port, () => {
   console.log(`User Service listening at http://localhost:${port}`);
 });

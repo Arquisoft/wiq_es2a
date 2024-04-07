@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 import { Container} from '@mui/material';
 import Game from './Game';
 import './HomeScreen.css';
+import { Link } from "react-router-dom";
+
 const HomeScreen = () => {
-    const [juegoIniciado, setJuegoIniciado] = useState(false);
+    const [mostrarJuego, setMostrarJuego] = useState(false);
     const [defecto, setDefecto] = useState("15");
 
     const handleStartButtonClick = () => {
-        setJuegoIniciado(true);
+      setMostrarJuego(true);
     };
 
     const changeNumber = (event) => {
       setDefecto(event.target.value);
     };
 
-
     return (
         <Container component="main">
         <div>
-             {juegoIniciado ? (
+             {mostrarJuego ? (
             // Muestra otro componente o contenido cuando el juego está iniciado
             <Game numQuestions={defecto}/>
           ) : (
@@ -29,7 +30,7 @@ const HomeScreen = () => {
                 <input min="1" max="30" value={defecto} type="number" id="typeNumber" className="form-control" onChange={changeNumber}/>
               </div>
               <button onClick={handleStartButtonClick}>Jugar</button>
-              <button>Ver historial</button>
+              <Link to="/history">Ver historial</Link>
             </div>
           )}
         </div>
