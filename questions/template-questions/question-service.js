@@ -90,13 +90,22 @@ const jsonPreg = [
   }
   ,
   {
-    textStart: 'En qué país se encuentra la atracción turística ',
+    textStart: '¿En qué país se encuentra la atracción turística ',
     textEnd: '?',
     queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {'+
       '?pregunta wdt:P31 wd:Q570116; wdt:P17 ?respuesta.'+
       'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }} LIMIT 200'
   }
-
+  ,
+  {
+    textStart: '¿Cuándo nació ',
+    textEnd: '?',
+    queryCorrect: 'SELECT ?preguntaLabel ?respuesta WHERE {'+
+      '?pregunta wdt:P106 wd:Q33999;'+
+             'wdt:P569 ?respuesta .'+
+      'SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }'+
+    '} LIMIT 100'
+  }
 ];
 
 const wiki = new Wikidata();
