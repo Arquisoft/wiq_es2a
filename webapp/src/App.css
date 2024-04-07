@@ -37,7 +37,10 @@
   }
 }
 
-body {
-    background-image: url('../public/fondo.png');
-    background-size: cover;
+nav{
+  background-color: #f7d2baa1;
+}
+
+nav{
+  align-self: center;
 }
