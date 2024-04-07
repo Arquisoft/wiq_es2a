@@ -25,6 +25,20 @@ services:
     environment:
       MONGODB_URI: mongodb://mongodb:27017/userdb
 
+  recordservice:
+    container_name: recordservice-${teamname:-defaultASW}
+    image: ghcr.io/arquisoft/wiq_es2a/recordservice:latest
+    profiles: ["dev", "prod"]
+    build: ./recordhistory
+    depends_on:
+      - mongodb
+    ports:
+      - "8003:8003"
+    networks:
+      - mynetwork
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/recorddb
+
   authservice:
     container_name: authservice-${teamname:-defaultASW}
     image: ghcr.io/arquisoft/wiq_es2a/authservice:latest
@@ -63,12 +77,14 @@ services:
       - userservice
       - authservice
       - questionservice
+      - recordservice
     ports:
       - "8000:8000"
     networks:
       - mynetwork
     environment:
       QUESTIONS_SERVICE_URL: http://questionservice:8004
+      RECORD_SERVICE_URL: http://recordservice:8003
       AUTH_SERVICE_URL: http://authservice:8002
       USER_SERVICE_URL: http://userservice:8001
 

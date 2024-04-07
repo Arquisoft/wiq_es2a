@@ -5,7 +5,6 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import './Game.css';
 import { Link } from 'react-router-dom';
-import HomeScreen from './HomeScreen';
 
 const StyledContainer = styled(Container)({
   textAlign: 'center',
@@ -166,6 +165,23 @@ const Game = ({numQuestions}) => {
   }
   };
 
+  const addRecord = async () => {
+    try {
+      //Llamada al post para obtener los resultados de Wikidata
+      await axios.post(`${apiEndpoint}/addRecord`, {
+        user_id:"1",
+        correctQuestions: preguntasAcertadas,
+        totalQuestions: numPreguntas,
+        totalTime: tiempoTotal
+      });
+
+      window.location.href = '/home';
+
+    } catch (error) {
+      console.log(error.response.data.error);
+    }
+  };
+
 
   useEffect(() => {
     addPregunta();
@@ -178,6 +194,7 @@ const Game = ({numQuestions}) => {
       <div align="center">
         <h1> Has acertado {preguntasAcertadas}/{numQuestions} preguntas en {tiempoTotal} segundos</h1>
         <Link to= "/home">Volver al inicio</Link>
+        <button type="button" class="btn btn-outline-primary btn-lg" onClick={addRecord}>Guardar partida</button>
       </div>
       
     ) : (
