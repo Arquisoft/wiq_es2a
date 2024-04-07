@@ -7,7 +7,7 @@ const app = express();
 const port = 8000;
 
 const questServiceUrl = process.env.QUESTIONS_SERVICE_URL || 'http://localhost:8004';
-const questRandServiceUrl =  process.env.WIKIDATA_SERVICE_URL || 'http://localhost:8003';
+const recordService =  process.env.RECORD_SERVICE_URL || 'http://localhost:8003';
 const authServiceUrl = process.env.AUTH_SERVICE_URL || 'http://localhost:8002';
 const userServiceUrl = process.env.USER_SERVICE_URL || 'http://localhost:8001';
 
@@ -47,6 +47,16 @@ app.post('/questions', async (req, res) => {
   try {
     // Forward the add user request to the user service
     const userResponse = await axios.post(questServiceUrl+'/questions', req.body);
+    res.json(userResponse.data);
+  } catch (error) {
+    res.status(error.response.status).json({ error: error.response.data.error });
+  }
+});
+
+app.post('/addRecord', async (req, res) => {
+  try {
+    // Forward the add user request to the user service
+    const userResponse = await axios.post(recordService+'/addRecord', req.body);
     res.json(userResponse.data);
   } catch (error) {
     res.status(error.response.status).json({ error: error.response.data.error });
