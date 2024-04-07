@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import AddUser from './components/AddUser';
 import Login from './components/Login';
-import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import HomeScreen from './components/HomeScreen';
 import Game from './components/Game';
 import Welcome from './components/Welcome';
-import ImagenA from './LogoSaberYGanar.png'
+import ImagenA from './LogoSaberYGanar2.png'
 import './App.css';
 
 
@@ -26,16 +25,14 @@ function App() {
   };
 
   return (
-    <Container component="main">
-      <nav className="navbar navbar-light">
-        <a className="navbar-brand" href="/">
-          <img src={ImagenA} width="30" height="30" className="d-inline-block align-top" alt=""/>
-          WIQ
+    <div>
+    <nav className="navbar navbar-light m-auto" >
+        <a className="navbar-brand m-auto" href="/">
+          <img src={ImagenA} width="100" height="56" className="d-inline-block align-top" alt=""/>
         </a>
-      </nav>
-      <Typography component="h1" variant="h5" align="center" sx={{ marginTop: 2 }}>
-      Saber y Ganar
-      </Typography>
+    </nav>
+      
+    <Container component="main" id="principal">
       <Routes>
         <Route path="/adduser" element={<AddUser />} />
         <Route path="/login" element={<Login />} />
@@ -44,21 +41,9 @@ function App() {
         <Route path="/game" isAuthenticated={isAuthenticated} element={<Game />} />
       </Routes>
     
-      {/* <CssBaseline />
-      
-      {showLogin ? <Login /> : <AddUser />}
-      <Typography component="div" align="center" sx={{ marginTop: 2 }}>
-        {showLogin ? (
-          <Link name="gotoregister" component="button" variant="body2" onClick={handleToggleView}>
-            Don't have an account? Register here.
-          </Link>
-        ) : (
-          <Link component="button" variant="body2" onClick={handleToggleView}>
-            Already have an account? Login here.
-          </Link>
-        )}
-      </Typography> */}
+      {}
     </Container>
+    </div>
   );
 
 }
