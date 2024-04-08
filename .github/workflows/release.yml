@@ -11,7 +11,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-    needs: [e2e-tests]
     steps:
     - uses: actions/checkout@v4
     - name: Publish to Registry
@@ -31,7 +30,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-    needs: [e2e-tests]
     steps:
     - uses: actions/checkout@v4
     - name: Publish to Registry
@@ -48,7 +46,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-    needs: [e2e-tests]
     steps:
     - uses: actions/checkout@v4
     - name: Publish to Registry
@@ -65,7 +62,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-    needs: [e2e-tests]
     steps:
     - uses: actions/checkout@v4
     - name: Publish to Registry
