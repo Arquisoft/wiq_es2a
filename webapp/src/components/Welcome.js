@@ -18,7 +18,7 @@ const HomeScreen = () => {
                 Tu juego favorito de televisión, ¡ahora en tu ordenador!
               </Typography>
               <Typography component="h1" variant="h5" align="center" sx={{ marginTop: 2 }}>
-                Accede a tu cuenta o registrarte para comenzar
+                Accede a tu cuenta o regístrate para comenzar
               </Typography>
               <Typography component="h1" variant="h5" align="center" sx={{ marginTop: 2 }}>
               ↓↓↓
