@@ -1,23 +1,17 @@
-import React, { useState } from 'react';
-import AddUser from './AddUser';
-import Login from './Login';
 import './Welcome.css'
 import Typography from '@mui/material/Typography';
-
+import { useNavigate } from "react-router-dom";
 const HomeScreen = () => {
-    const [showLogin, setShowLogin] = useState(false);
-    const [showSignUp, setShowSignUp] = useState(false);
-
+    const navigate = useNavigate();
     const handleLogin = () => {
-        setShowLogin(true);
+        navigate("/login");
     };
 
     const handleSignUp = () => {
-        setShowSignUp(true);
+        navigate("/adduser");
     };
 
     const renderButtons = () => {
-        if (!showLogin && !showSignUp) {
           return (
             <>
               <Typography component="h1" variant="h5" align="center" sx={{ marginTop: 2 }}>
@@ -30,13 +24,17 @@ const HomeScreen = () => {
               ↓↓↓
               </Typography>
               <br></br>
-              <div className="px-3">
-                <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleLogin}>Login</button>
-                <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleSignUp}>SignUp</button>
+              <div className="d-flex justify-content-center">
+                  <div className="px-2">
+                      <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleLogin}>Login</button>
+                  </div>
+                  <div className="px-2">
+                      <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleSignUp}>SignUp</button>
+                  </div>
               </div>
             </>
           );
-        }
+        
       };
 
     return (
@@ -45,8 +43,6 @@ const HomeScreen = () => {
             <div className="button-container">
                 {renderButtons()}
             </div>
-            {showLogin && <Login />}
-            {showSignUp && <AddUser />}
         </div>
     );
 };
