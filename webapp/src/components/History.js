@@ -52,6 +52,7 @@ const History = () => {
         <Container component="main">
             <h1>Historial de partidas</h1>
             <br></br>
+            <div className="table-container">
             <table id="table">
                 <thead>
                 <tr>
@@ -72,6 +73,8 @@ const History = () => {
                 ))}
                 </tbody>
             </table>
+            </div>
+            <br></br>
             <button type="button" className="btn btn-secondary" onClick={volverHome}>Volver</button>
         </Container>
       )

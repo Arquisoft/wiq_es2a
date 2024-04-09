@@ -1,36 +1,42 @@
+.table-container {
+  overflow-y: auto;
+  max-height: 20em;
+  position: relative; /* Necesario para fijar el thead */
+}
 
 #table {
-    width: 100%;
-    border-collapse: separate;
-  }
-  
-  /* Estilos para las celdas de encabezado */
-  th {
-    background-color: #59b494d1;
-    color: #333;
-    padding: 10px;
-  }
-  
-  /* Estilos para las celdas de datos */
-  td {
-    padding: 10px;
-  }
-  
-  /* Estilos para las filas impares */
-  tr:nth-child(odd) {
-    background-color: #bee5c480;
-  }
-  
-  /* Estilos para las filas pares */
-  tr:nth-child(even) {
-    background-color: #d3f0e8ad;
-  }
-  
-  td, th {
-    font-size: 1em;
-  }
+  border-collapse: separate;
+  width: 100%;
+}
 
-  h1 {
-    text-align: center;
-  }
-  
+#table th,
+#table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#table th {
+  background-color: #30ab7ff5;
+  color: #333;
+}
+
+#table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Estilos para las filas impares */
+#table tbody tr:nth-child(odd) {
+  background-color: #bee5c480;
+}
+
+/* Estilos para las filas pares */
+#table tbody tr:nth-child(even) {
+  background-color: #d3f0e8ad;
+}
+
+h1 {
+  text-align: center;
+}
