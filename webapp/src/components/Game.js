@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import { useEffect } from 'react';
 import './Game.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
 const StyledContainer = styled(Container)({
@@ -15,7 +15,7 @@ const StyledContainer = styled(Container)({
 const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
 
 
-const Game = ({numQuestions}) => {
+const Game = () => {
   const [respuestas, setRespuestas] = useState(Array(4).fill({ data: '', isCorrect: '' }));
   const [textoPregunta, setTextoPregunta] = useState('Cargando...');
   const [preguntasAcertadas, setPreguntasAcertadas] = useState(0);
@@ -25,14 +25,10 @@ const Game = ({numQuestions}) => {
   const [tiempoTotal, setTiempoTotal] = useState(0);
   var tiempoInicial = 0;
   var tiempoFinal = 0;
-  // Obtén el token del almacenamiento local
-const token = localStorage.getItem('token');
 
-// Decodifica el token para obtener la información del usuario
-const decoded = jwtDecode(token);
+  const navigate = useNavigate();
 
-// Accede al nombre de usuario desde la información decodificada
-const username = decoded.username;
+  const numQuestions = localStorage.getItem('numQuestions');
 
   // Función para iniciar el tiempo
   const startTime = () => {
@@ -176,6 +172,14 @@ const username = decoded.username;
 
   const addRecord = async () => {
     try {
+       // Obtén el token del almacenamiento local
+      let token = localStorage.getItem('token');
+
+      // Decodifica el token para obtener la información del usuario
+      let decoded = jwtDecode(token);
+
+      // Accede al nombre de usuario desde la información decodificada
+      let username = decoded.username;
       //Llamada al post para obtener los resultados de Wikidata
       await axios.post(`${apiEndpoint}/addRecord`, {
         user_id: username,
@@ -184,16 +188,28 @@ const username = decoded.username;
         totalTime: tiempoTotal
       });
 
-      window.location.href = '/home';
+      navigate("/home");
 
     } catch (error) {
       console.log(error.response.data.error);
     }
   };
 
+  const checkUserLogin = () => {
+    let token = localStorage.getItem('token');
+    if (token==null) {
+      navigate("/");
+    }
+    else {
+      if (numQuestions==null) {
+        localStorage.setItem('numQuestions', 10);
+      }
+      addPregunta();
+    }
+  }
 
   useEffect(() => {
-    addPregunta();
+    checkUserLogin();
   }, [])
 
   return (
@@ -202,7 +218,7 @@ const username = decoded.username;
 
       <div align="center">
         <h1> Has acertado {preguntasAcertadas}/{numQuestions} preguntas en {tiempoTotal} segundos</h1>
-        <button type="button" className="btn btn-outline-primary btn-lg" onClick={addRecord}>Guardar partida</button>
+        <button type="button" className="btn btn-outline-primary btn-lg" onClick={addRecord}>Volver al inicio</button>
       </div>
       
     ) : (
@@ -211,7 +227,7 @@ const username = decoded.username;
         <div>
           <h1 style={{ textAlign: 'left' }}>Pregunta Nº{numPreguntas}</h1>
           <div className="progress">
-            <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow={contadorGlobal} aria-valuemin="0" aria-valuemax="100" style={{width}}>{contadorGlobal}</div>
+            <div className="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow={contadorGlobal} aria-valuemin="0" aria-valuemax="100" style={{width}}>{contadorGlobal}</div>
           </div>
         </div>
       )}
