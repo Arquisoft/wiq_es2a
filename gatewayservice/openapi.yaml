@@ -142,3 +142,44 @@ paths:
                     type: string
                     description: Error information.
                     example: Internal Server Error
+
+                    paths:
+  /questions:
+    post:
+      summary: Create a question and its answers.
+      operationId: questions
+      responses:
+        '200':
+          description: Question created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pregunta:
+                    type: string
+                    description: Question text
+                    example: Who was the author of The Hunger Games?
+                  correcta:
+                    type: string
+                    description: Correct answer
+                    example: Suzzanne Collins
+                  incorrectas:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                      - Sarah J. Maas
+                      - Alice Oseman
+                      - Veronica Roth                                        
+        '400':
+          description: Failed to create question.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Wikidata error conection.
+                    example: Cannot connect with Wikidata
