@@ -10,6 +10,7 @@ import ImagenA from './LogoSaberYGanar2.png';
 import History from './components/History.js';
 import './App.css';
 import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
 function App() {
   const navigate = useNavigate();
@@ -30,6 +31,10 @@ function App() {
       navigate("/");
     }
   };
+
+  useEffect(() => {
+    document.getElementById('btLogout').style.display = 'none';
+  }, [])
 
   return (
     <div>
@@ -57,6 +62,8 @@ function App() {
   );
 
 }
+
+
 
 /* function PrivateRoute({ isAuthenticated, ...props }) {
   return isAuthenticated ? <Route {...props} /> : <Navigate to="/login" />;
