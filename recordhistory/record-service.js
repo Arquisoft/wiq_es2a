@@ -42,7 +42,7 @@ app.post('/addRecord', async (req, res) => {
         res.status(400).json({ error: error.message }); 
     }});
 
-  app.post('/getRecords', async (req, res) => {
+  app.get('/getRecords', async (req, res) => {
     try {
         const username = req.body.username;
 

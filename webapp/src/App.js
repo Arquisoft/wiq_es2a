@@ -18,7 +18,7 @@ function App() {
   const logout = () => {
       localStorage.removeItem('token');
       localStorage.removeItem('numQuestions');
-      document.getElementById('btLogout').style.display = 'none';
+      //document.getElementById('btLogout').style.display = 'none';
       navigate("/");
   };
 

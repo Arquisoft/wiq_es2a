@@ -24,7 +24,7 @@ const HomeScreen = () => {
     
   useEffect(() => {
     checkUserLogin();
-    document.getElementById('btLogout').style.display = 'inline-block';
+    //document.getElementById('btLogout').style.display = 'inline-block';
   }, [])
   
 
