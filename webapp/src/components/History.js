@@ -18,9 +18,12 @@ const History = () => {
         let token = localStorage.getItem('token');
         let decoded = jwtDecode(token);
         let username = decoded.username;
-        let result = await axios.get(`${apiEndpoint}/getRecords`, {
-          username: username,
-        });
+        let config = {
+          headers: {
+            'username': username // Agregar el usuario como un encabezado
+          }
+        };
+        let result = await axios.get(`${apiEndpoint}/getRecords`,config);
         setHistoryData(result.data);
   
       } catch (error) {
