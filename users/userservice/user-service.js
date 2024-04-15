@@ -26,11 +26,29 @@ function validateRequiredFields(req, requiredFields) {
     }
 }
 
+function validateFieldsNotEmpty(req) {
+  
+    if (req.body.username.trim().length === 0) {
+      throw new Error(`El nombre de usuario no puede estar vacío`);
+    }
+    if (req.body.password.trim().length === 0) {
+      throw new Error(`La contraseña no puede estar vacía`);
+    }
+  
+}
+
 app.post('/adduser', async (req, res) => {
     try {
         // Check if required fields are present in the request body
         validateRequiredFields(req, ['username', 'password']);
 
+        validateFieldsNotEmpty(req);
+
+        const user = await User.findOne({username: req.body.username});
+        console.log(user);
+        if (user) {
+          throw new Error(`Este nombre de usuario está en uso`);
+        }
         // Encrypt the password before saving it
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
