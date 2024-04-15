@@ -66,9 +66,9 @@ app.post('/addRecord', async (req, res) => {
   }
 });
 
-app.post('/getRecords', async (req, res) => {
+app.get('/getRecords', async (req, res) => {
   try {
-    const userResponse = await axios.post(recordService+'/getRecords', req.body);
+    const userResponse = await axios.get(recordService+'/getRecords', req.body);
     res.json(userResponse.data);
   } catch (error) {
     res.status(error.response.status).json({ error: error.response.data.error });
