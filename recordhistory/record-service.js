@@ -42,11 +42,9 @@ app.post('/addRecord', async (req, res) => {
         res.status(400).json({ error: error.message }); 
     }});
 
-  app.get('/getRecords', async (req, res) => {
+  app.post('/getRecords', async (req, res) => {
     try {
-        console.log(req)
-        const username = req.headers['username'];
-        console.log("getRecords:"+username)
+        const username = req.body.username;
         const records = await Record.find({ user_id: username }).sort({doneAt: -1});
         
         res.json(records);

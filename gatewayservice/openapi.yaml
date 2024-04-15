@@ -184,12 +184,24 @@ paths:
                     description: Wikidata error conection.
                     example: Cannot connect with Wikidata
 
-    /getRecords:
-      post:
-        summary: Obtains the records of the user.
-        operationId: userRecords
-        requestBody:
-          required: true
+  /getRecords:
+    post:
+      summary: Obtains the records of the user.
+      operationId: userRecords
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: User ID.
+                  example: student
+      responses:
+        '200':
+          description: Get Records successful. 
           content:
             application/json:
               schema:
@@ -197,46 +209,34 @@ paths:
                 properties:
                   user_id:
                     type: string
-                    description: User ID.
+                    description: Username.
                     example: student
-        responses:
-          '200':
-            description: Get Records successful. 
-            content:
-              application/json:
-                schema:
-                  type: array
-                  properties:
-                    user_id:
-                      type: string
-                      description: Username.
-                      example: student
-                    correctQuestions:
-                      type: number
-                      description: Number of correct questions.
-                      example: 2
-                    totalQuestions:
-                      type: number
-                      description: Number of questions.
-                      example: 5
-                    totalTime:
-                      type: number
-                      description: Time spent playing in seconds.
-                      example: 26
-                    doneAt:
-                      type: string
-                      description: When was the game done.
-                      example: '2024-03-17T20:47:23.935Z'
-                    
+                  correctQuestions:
+                    type: number
+                    description: Number of correct questions.
+                    example: 2
+                  totalQuestions:
+                    type: number
+                    description: Number of questions.
+                    example: 5
+                  totalTime:
+                    type: number
+                    description: Time spent playing in seconds.
+                    example: 26
+                  doneAt:
+                    type: string
+                    description: When was the game done.
+                    example: '2024-03-17T20:47:23.935Z'
+                  
 
-          '400':
-            description: User is no valid or doesn't exist.
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    error:
-                      type: string
-                      description: Shows the error info..
-                      example: Invalid user
+        '400':
+          description: User is not valid or doesn't exist.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Shows the error info..
+                    example: Invalid user
