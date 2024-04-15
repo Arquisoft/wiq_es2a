@@ -46,7 +46,7 @@ app.post('/addRecord', async (req, res) => {
     try {
         const username = req.body.username;
 
-        const records = await Record.find({ user_id: username });
+        const records = await Record.find({ user_id: username }).sort({doneAt: -1});
         
         res.json(records);
     } catch (error) {

@@ -16,9 +16,10 @@ function App() {
   const token = localStorage.getItem('token');
 
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('numQuestions');
-    navigate("/");
+      localStorage.removeItem('token');
+      localStorage.removeItem('numQuestions');
+      document.getElementById('btLogout').style.display = 'none';
+      navigate("/");
   };
 
   const volverHome = () => {
