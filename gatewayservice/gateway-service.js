@@ -75,6 +75,15 @@ app.post('/getRecords', async (req, res) => {
   }
 });
 
+app.get('/getAllUsers', async (req, res) => {
+  try {
+    const userResponse = await axios.get(userServiceUrl+'/getAllUsers', req.body);
+    res.json(userResponse.data);
+  } catch (error) {
+    res.status(error.response.status).json({ error: error.response.data.error });
+  }
+});
+
 // Read the OpenAPI YAML file synchronously
 openapiPath='./openapi.yaml'
 if (fs.existsSync(openapiPath)) {

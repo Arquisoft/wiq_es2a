@@ -240,3 +240,34 @@ paths:
                     type: string
                     description: Shows the error info..
                     example: Invalid user
+  /getAllUsers:
+    get:
+      summary: Obtains the information of all users.
+      operationId: allUsers
+      responses:
+        '200':
+          description: Get Users successful. 
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                    description: Username of the user.
+                    example: student
+                  createdAt:
+                    type: string
+                    description: When the account was created
+                    example: '2024-03-05T15:10:51.313Z'
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error information.
+                    example: Internal Server Error

@@ -64,6 +64,15 @@ app.post('/adduser', async (req, res) => {
     }
   });
 
+  app.get('/getAllUsers', async (req, res) => {
+    try {
+        const users = await User.find().select('username createdAt');;
+        
+        res.json(users);
+    } catch (error) {
+        res.status(400).json({ error: error.message }); 
+    }});
+
 const server = app.listen(port, () => {
   console.log(`User Service listening at http://localhost:${port}`);
 });
