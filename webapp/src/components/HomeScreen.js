@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const HomeScreen = () => {
     const [value, setValue] = useState(15);
     const navigate = useNavigate();
-    const token = localStorage.getItem('token');
+    
 
     const handleStartButtonClick = () => {
       localStorage.setItem('numQuestions', value);
@@ -17,12 +17,19 @@ const HomeScreen = () => {
       navigate("/history");
     }
     const checkUserLogin = () => {
+      const token = localStorage.getItem('token');
       if (token==null) {
         navigate("/");
       }
     }
     
-
+useEffect(() => {
+    checkUserLogin();
+    const logoutButton = document.getElementById('btLogout');
+    if (logoutButton) {
+      logoutButton.style.display = 'inline-block';
+    }
+  }, [])
   
 
   const handleChange = (event, newValue) => {
