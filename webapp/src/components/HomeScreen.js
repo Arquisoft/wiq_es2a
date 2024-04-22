@@ -22,10 +22,7 @@ const HomeScreen = () => {
       }
     }
     
-  useEffect(() => {
-    checkUserLogin();
-    document.getElementById('btLogout').style.display = 'inline-block';
-  }, [])
+
   
 
   const handleChange = (event, newValue) => {
@@ -45,6 +42,7 @@ const HomeScreen = () => {
         color="info"
 
         inputProps={{
+          "data-testid": "name-input",
           min: 1,
           max: 30,
           type: 'number',

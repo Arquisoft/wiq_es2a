@@ -4,7 +4,7 @@ import App from './App';
 
 describe('App component', () => {
 
-  it('renders learn react link',async () => {
+  it('should show the nav var and the logout button',async () => {
     render(
       <BrowserRouter>
           <App/>
