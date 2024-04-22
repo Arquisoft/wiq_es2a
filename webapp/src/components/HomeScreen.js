@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const HomeScreen = () => {
     const [value, setValue] = useState(15);
     const navigate = useNavigate();
-    const token = localStorage.getItem('token');
+    
 
     const handleStartButtonClick = () => {
       localStorage.setItem('numQuestions', value);
@@ -17,14 +17,18 @@ const HomeScreen = () => {
       navigate("/history");
     }
     const checkUserLogin = () => {
+      const token = localStorage.getItem('token');
       if (token==null) {
         navigate("/");
       }
     }
     
-  useEffect(() => {
+useEffect(() => {
     checkUserLogin();
-    document.getElementById('btLogout').style.display = 'inline-block';
+    const logoutButton = document.getElementById('btLogout');
+    if (logoutButton) {
+      logoutButton.style.display = 'inline-block';
+    }
   }, [])
   
 
@@ -45,6 +49,7 @@ const HomeScreen = () => {
         color="info"
 
         inputProps={{
+          "data-testid": "name-input",
           min: 1,
           max: 30,
           type: 'number',
