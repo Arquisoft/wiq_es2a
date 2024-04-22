@@ -4,20 +4,22 @@ import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 import './History.css';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
 
 const History = () => {
     const [historyData, setHistoryData] = useState([]);
 
+    const navigate = useNavigate();
+
     const getHistory = async () => {
       try {
-        let result = await axios.post(`${apiEndpoint}/getRecords`, {
-          username: username,
-        });
+        let token = localStorage.getItem('token');
+        let decoded = jwtDecode(token);
+        let username = decoded.username;
+        let result = await axios.post(`${apiEndpoint}/getRecords`,{ username: username });
         setHistoryData(result.data);
-        console.log(result.data)
   
       } catch (error) {
         console.log(error.response.data.error);
@@ -25,21 +27,30 @@ const History = () => {
     };
 
     useEffect(() => {
-        getHistory();
+      checkUserLogin();
       }, [])
 
-    const token = localStorage.getItem('token');
-    const decoded = jwtDecode(token);
-    const username = decoded.username;
+    
 
     const volverHome = () => {
-        window.location.href = '/home';
-      };
+        navigate('/home');
+    };
+
+    const checkUserLogin = () => {
+      let token = localStorage.getItem('token');
+      if (token==null) {
+        navigate("/");
+      }
+      else {
+        getHistory();
+      }
+    }
 
     return (
         <Container component="main">
             <h1>Historial de partidas</h1>
             <br></br>
+            <div className="table-container">
             <table id="table">
                 <thead>
                 <tr>
@@ -60,7 +71,9 @@ const History = () => {
                 ))}
                 </tbody>
             </table>
-            <button type="button" class="btn btn-secondary" onClick={volverHome}>Volver</button>
+            </div>
+            <br></br>
+            <button type="button" className="btn btn-secondary" onClick={volverHome}>Volver</button>
         </Container>
       )
 };

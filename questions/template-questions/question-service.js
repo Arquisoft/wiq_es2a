@@ -1,6 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Wikidata = require('./wikidata-query');
+//import { readFile } from 'fs/promises'
+
+// leemos el archivo usando top-level await y con
+// codificación utf-8
+//const file = await readFile('./baseQuestions.json', 'utf-8')
 
 const app = express();
 const port = 8004;

@@ -45,3 +45,20 @@ body {
   background-image: url('../public/fondo.png');
   background-size: cover;
 }
+#btSaberYGanar {
+  height: 3.5em;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  margin-left: 45vw;
+}
+
+#btSaberYGanar img {
+  width: 100%;
+  height: 100%;
+}
+
+#btLogout {
+  margin-right: 0.5em;
+}

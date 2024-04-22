@@ -1,8 +1,22 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen,waitFor } from '@testing-library/react';
+import { BrowserRouter} from 'react-router-dom';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/Welcome to the 2024 edition of the Software Architecture course/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App component', () => {
+
+  it('renders learn react link',async () => {
+    render(
+      <BrowserRouter>
+          <App/>
+      </BrowserRouter>
+    );
+    
+      // Esperamos que se muestre el boton de cerrar sesión
+      await waitFor(() => {
+        const navElement = screen.getByRole('navigation');
+        expect(navElement).toBeInTheDocument();
+        expect(screen.getByText(/Cerrar sesión/i)).toBeInTheDocument();
+      });
+  });
+
 });

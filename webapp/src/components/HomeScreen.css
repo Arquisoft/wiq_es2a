@@ -5,3 +5,8 @@
     flex-direction: column;
     align-items: center;
 }
+
+#formNumPreguntas {
+    display:flex;
+    flex-direction: column;
+}

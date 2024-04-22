@@ -23,12 +23,27 @@ function validateRequiredFields(req, requiredFields) {
     }
 }
 
+function validateFieldsNotEmpty(req) {
+  
+  if (req.body.username.trim().length === 0) {
+    throw new Error(`El nombre de usuario no puede estar vacío`);
+  }
+  if (req.body.password.trim().length === 0) {
+    throw new Error(`La contraseña no puede estar vacía`);
+  }
+
+}
+
 // Route for user login
 app.post('/login', async (req, res) => {
   try {
     // Check if required fields are present in the request body
     validateRequiredFields(req, ['username', 'password']);
-
+    try {
+      validateFieldsNotEmpty(req);
+    } catch (validationError) {
+      return res.status(400).json({ error: validationError.message });
+    }
     const { username, password } = req.body;
 
     // Find the user by username in the database
@@ -42,7 +57,7 @@ app.post('/login', async (req, res) => {
       // Respond with the token and user information
       res.json({ token: token, username: username, createdAt: user.createdAt });
     } else {
-      res.status(401).json({ error: 'Invalid credentials' });
+      res.status(401).json({ error: 'Credenciales inválidas' });
     }
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
