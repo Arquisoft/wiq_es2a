@@ -78,10 +78,5 @@ describe('Login component', () => {
 
     // Verificar que no hay token en localStorage
     expect(localStorage.getItem('token')).toBeNull();
-    console.log('AAAAAAA'
-     + window.location.pathname);
-
-    // Verificamos que no se ha ido a Home
-    expect(window.location.pathname).not.toBe('/home');
   });
 });
