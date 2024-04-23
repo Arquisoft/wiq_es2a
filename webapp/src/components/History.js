@@ -66,7 +66,7 @@ const History = () => {
                         <td>{record.correctQuestions}</td>
                         <td>{record.totalQuestions}</td>
                         <td>{record.totalTime} segundos</td>
-                        <td>{new Date(record.doneAt).toLocaleString()}</td>
+                        <td>{new Date(record.doneAt).toLocaleString('ES', { timeZone: 'Europe/Madrid' })}</td>
                     </tr>
                 ))}
                 </tbody>
