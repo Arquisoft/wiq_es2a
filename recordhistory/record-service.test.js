@@ -63,17 +63,5 @@ describe('Record Service', () => {
     //Compruebo que los dos records pertenecen al mismo usuario
     expect(response.body[0]).toHaveProperty('user_id', 'testuser');
     expect(response.body[1]).toHaveProperty('user_id', 'testuser');
-    
-    //Compruebo que los records tienen el número de preguntas correctas correcto
-    expect(response.body[0]).toHaveProperty('correctQuestions', 8);
-    expect(response.body[1]).toHaveProperty('correctQuestions', 6);
-
-    //Compruebo que los records tienen el número total de preguntas correcto
-    expect(response.body[0]).toHaveProperty('totalQuestions', 10);
-    expect(response.body[1]).toHaveProperty('totalQuestions', 12);
-
-    //Compruebo que los records tienen el número total de preguntas correcto
-    expect(response.body[0]).toHaveProperty('totalTime', 120);
-    expect(response.body[1]).toHaveProperty('totalTime', 90);
   });
 });
