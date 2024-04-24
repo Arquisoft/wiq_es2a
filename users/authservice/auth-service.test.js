@@ -42,4 +42,27 @@ describe('Auth Service', () => {
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('username', 'testuser');
   });
+
+  it('should return 400 if username is empty or blank', async () => {
+    const userError1 = {
+        username: ' ',
+        password: 'testpassword',
+    };
+
+    const response = await request(app).post('/login').send(userError1);
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('error', 'El nombre de usuario no puede estar vacío');
+  });
+
+  it('should return 400 if password is empty or blank', async () => {
+    const userError2 = {
+        username: 'testusername',
+        password: ' ',
+    };
+
+    const response = await request(app).post('/login').send(userError2);
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('error', 'La contraseña no puede estar vacía');
+  });
+
 });
