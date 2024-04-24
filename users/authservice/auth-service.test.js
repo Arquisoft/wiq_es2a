@@ -65,4 +65,25 @@ describe('Auth Service', () => {
     expect(response.body).toHaveProperty('error', 'La contraseña no puede estar vacía');
   });
 
+  it('should return 401 if username or password is incorrect', async () => {
+    const userError3 = {
+        username: 'wrongusername',
+        password: 'wrongpassword',
+      
+    };
+
+    const response = await request(app).post('/login').send(userError3);
+    expect(response.status).toBe(401);
+    expect(response.body).toHaveProperty('error', 'Credenciales inválidas');
+  });
+
+  it('should return 500 if there is a server error', async () => {
+    const userError4 = {
+      username: 'wrongFormat',
+    };
+
+    const response = await request(app).post('/login').send(userError4);
+    expect(response.status).toBe(500);
+    expect(response.body).toHaveProperty('error', 'Internal Server Error');
+  });
 });
