@@ -64,4 +64,10 @@ describe('Record Service', () => {
     expect(response.body[0]).toHaveProperty('user_id', 'testuser');
     expect(response.body[1]).toHaveProperty('user_id', 'testuser');
   });
+
+  it('Should respond 400 error due to sending an empty body to the addRecords', async () => {
+    const response = await request(app).post('/addRecord').send({});
+    expect(response.statusCode).toBe(400);
+    expect(response.body).toHaveProperty('error');
+  });
 });

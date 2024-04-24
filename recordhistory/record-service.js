@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const Record = require('./record-model')
+const Record = require('./record-model');
 
 const app = express();
 const port = 8003;
@@ -49,7 +49,7 @@ app.post('/addRecord', async (req, res) => {
         
         res.json(records);
     } catch (error) {
-        res.status(400).json({ error: error.message }); 
+        
     }});
 
 const server = app.listen(port, () => {

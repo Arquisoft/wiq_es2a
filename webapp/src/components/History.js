@@ -22,7 +22,6 @@ const History = () => {
         setHistoryData(result.data);
   
       } catch (error) {
-        console.log(error.response.data.error);
       }
     };
 
