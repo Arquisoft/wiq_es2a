@@ -60,6 +60,17 @@ describe('User Service', () => {
     expect(response.body).toHaveProperty('error', 'Missing required field: password');
   });
 
+  it('should return 400 if the username already exists', async () => {
+    const userError3 = {
+      username: 'testuser',
+      password: 'test'
+    };
+
+    const response = await request(app).post('/adduser').send(userError3);
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('error', 'Este nombre de usuario está en uso');
+  });
+
   //For getting all users
   it('should GET all the users', async () => {
     const response = await request(app).get('/getAllUsers');
