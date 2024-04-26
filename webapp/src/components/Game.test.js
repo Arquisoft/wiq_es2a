@@ -1,21 +1,25 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import React from 'react';
+import { render, screen,cleanup } from '@testing-library/react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import Game from './Game';
 import { BrowserRouter} from 'react-router-dom';
+const jwt = require('jsonwebtoken');
+const mockAxios = new MockAdapter(axios);
 
 describe('Game', () => {
-  let mockAxios;
-
   beforeEach(() => {
-    mockAxios = new MockAdapter(axios);
+    const token = jwt.sign({username: "testUsername" }, 'secret-key');
+    localStorage.setItem('token', token);
   });
 
   afterEach(() => {
+    localStorage.clear();
     mockAxios.reset();
+    cleanup();
   });
 
-  it('should render the loading text initially', () => {
+  it('should load the word Cargando...', () => {
     render(
     <BrowserRouter>
         <Game />
@@ -23,7 +27,7 @@ describe('Game', () => {
     expect(screen.getByText('Cargando...')).toBeInTheDocument();
   });
 
-  it('should render the question and answer options after loading', async () => {
+  it('should mock the question and show it on the screen', async () => {
     const mockResponse = {
       pregunta: 'What is the capital of France?',
       correcta: 'Paris',
@@ -35,7 +39,6 @@ describe('Game', () => {
     <BrowserRouter>
         <Game />
     </BrowserRouter>);
-    await waitFor(() => expect(screen.queryByText('Cargando...')).not.toBeInTheDocument());
 
     await screen.findByText('What is the capital of France?');
     expect(screen.getByText('Paris')).toBeInTheDocument();

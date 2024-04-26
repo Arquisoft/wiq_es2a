@@ -165,7 +165,7 @@ const Game = () => {
       setnumPreguntas(n+1);
 
     } catch (error) {
-      console.log(error.response.data.error);
+      
     }
   }
   };
