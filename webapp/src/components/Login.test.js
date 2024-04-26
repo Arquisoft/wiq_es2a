@@ -4,7 +4,7 @@ import { BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import Login from './Login';
-
+import App from '../App';
 const mockAxios = new MockAdapter(axios);
 
 describe('Login component', () => {
@@ -78,5 +78,43 @@ describe('Login component', () => {
 
     // Verificar que no hay token en localStorage
     expect(localStorage.getItem('token')).toBeNull();
+  });
+
+  //TEST 3 - Test de cerrar sesión
+  it('should logout successfully', async () => {
+    render( 
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+    );
+    const button = screen.getByRole('button', { name: /Login/i });
+    fireEvent.click(button);
+    const logoutButton = screen.queryByRole('button', { name: /Cerrar sesión/i });
+    expect(logoutButton).toBeNull();
+    const usernameInput = screen.getByLabelText(/Username/i);
+    const passwordInput = screen.getByLabelText(/Password/i);
+    const loginButton = screen.getByRole('button', { name: /Login/i });
+
+    mockAxios.onPost('http://localhost:8000/login').reply(200, { token: 'testToken' });
+
+    fireEvent.change(usernameInput, { target: { value: 'testUser' } });
+    fireEvent.change(passwordInput, { target: { value: 'testPassword' } });
+
+    // Click en el botón de login	
+    fireEvent.click(loginButton);
+    let logoutButton2;
+    await waitFor(() => {
+      logoutButton2 = screen.getByRole('button', { name: /Cerrar sesión/i });
+      expect(logoutButton2).toBeInTheDocument();
+    });
+    
+    logoutButton2.click();
+
+     // Verificar que el token ha sido borrado del localStorage
+     expect(localStorage.getItem('token')).toBeNull();
+
+     // Verificar que se ha redirigido a /
+     expect(window.location.pathname).toBe('/');
+  
   });
 });
