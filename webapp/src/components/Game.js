@@ -15,7 +15,7 @@ const StyledContainer = styled(Container)({
 const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
 
 
-const Game = () => {
+const Game = ({ esperaFinalizacion = 3000 }) => {
   const [respuestas, setRespuestas] = useState(Array(4).fill({ data: '', isCorrect: '' }));
   const [textoPregunta, setTextoPregunta] = useState('Cargando...');
   const [preguntasAcertadas, setPreguntasAcertadas] = useState(0);
@@ -91,7 +91,7 @@ const Game = () => {
       input.disabled = true;
     });
     if(numPreguntas==numQuestions){
-      setTimeout(addPregunta, 3000); //esperar un poco para que se vean los resultados de la ultima pregunta
+      setTimeout(addPregunta, esperaFinalizacion); //esperar un poco para que se vean los resultados de la ultima pregunta
     }
     else {
       addPregunta();

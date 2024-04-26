@@ -95,7 +95,7 @@ const jsonPreg = [
   }
   ,
   {
-    textStart: 'En qué país se encuentra la atracción turística ',
+    textStart: '¿En qué país se encuentra la atracción turística ',
     textEnd: '?',
     queryCorrect: 'SELECT ?preguntaLabel ?respuestaLabel WHERE {'+
       '?pregunta wdt:P31 wd:Q570116; wdt:P17 ?respuesta.'+
