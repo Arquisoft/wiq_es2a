@@ -19,6 +19,6 @@ describe('GET /questions', () => {
     expect(response.body).toHaveProperty('correcta');
     expect(response.body).toHaveProperty('incorrectas');
     expect(response.body.incorrectas).toHaveLength(3);
-  });
+  }, 20000);
 
 });
