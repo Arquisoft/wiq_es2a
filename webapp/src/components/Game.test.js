@@ -51,7 +51,7 @@ describe('Game', () => {
   it('should select the correct answer and add 1 to the total', async () => {
 
     const mockResponse = {
-      pregunta: '¿Cual es la capital de Italia?',
+      pregunta: '¿Cuál es la capital de Italia?',
       correcta: 'Roma',
       incorrectas: ['Seul', 'Berlin', 'Madrid'],
     };
@@ -74,4 +74,65 @@ describe('Game', () => {
     expect(getByText('Preguntas acertadas: 1')).toBeInTheDocument();
   });
 
+  it('should select a incorrect answer and total is 0', async () => {
+
+    const mockResponse = {
+      pregunta: '¿Dónde se encuentra el monumento Torre Eiffel?',
+      correcta: 'Francia',
+      incorrectas: ['Japón', 'Alemania', 'Suiza'],
+    };
+
+    mockAxios.onPost(`http://localhost:8000/questions`).reply(200, mockResponse);
+
+    const { getByText } = render(
+      <BrowserRouter>
+          <Game />
+      </BrowserRouter>);
+
+    // Esperar a que se cargue la pregunta
+    await waitFor(() => expect(getByText(mockResponse.pregunta)).toBeInTheDocument());
+
+    //Doy click a una incorrecta
+    const incorrectButton = screen.getByText('Alemania');
+    fireEvent.click(incorrectButton);
+
+    // Verificar que la puntuación sigue en 0
+    expect(getByText('Preguntas acertadas: 0')).toBeInTheDocument();
+  });
+
+  it('should finish a game and show the number of correct answers', async () => {
+    localStorage.setItem('numQuestions', 1);
+    const mockResponse = {
+      pregunta: '¿Dónde se encuentra el monumento Torre Eiffel?',
+      correcta: 'Francia',
+      incorrectas: ['Japón', 'Alemania', 'Suiza'],
+    };
+
+    mockAxios.onPost(`http://localhost:8000/questions`).reply(200, mockResponse);
+
+    const { getByText } = render(
+      <BrowserRouter>
+          <Game esperaFinalizacion={0}/>
+      </BrowserRouter>);
+
+    // Esperar a que se cargue la pregunta
+    await waitFor(() => expect(getByText(mockResponse.pregunta)).toBeInTheDocument());
+
+    //Doy click a la correcta
+    const correcta = screen.getByText('Francia');
+    fireEvent.click(correcta);
+
+    expect(localStorage.getItem('numQuestions')).toBe("1");
+    await waitFor(() => expect(getByText(/Has acertado 1\/1 preguntas/i)).toBeInTheDocument());
+
+    mockAxios.onPost('http://localhost:8000/addRecord').reply(200, 
+    { user_id: "testUsername",
+      correctQuestions: 1,
+      totalQuestions: 1,
+      totalTime: 10});
+    //Vuelvo al inicio
+    const inicioButton = screen.getByText('Volver al inicio');
+    fireEvent.click(inicioButton);
+    expect(window.location.pathname).toBe('/');
+  });
 });
