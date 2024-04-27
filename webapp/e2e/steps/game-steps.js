@@ -63,9 +63,13 @@ defineFeature(feature, test => {
     let password;
   
     given('An authenticated user', async () => {
-      username = "game1";
+      username = "game2";
       password = "game";
-      await expect(page).toClick('button', { text: 'Login' });
+      await expect(page).toClick('button', { text: 'SignUp' });
+      await expect(page).toFill('input[name="username"]', username);
+      await expect(page).toFill('input[name="password"]', password);
+      await expect(page).toClick('button', { text: 'Add User' });
+      await expect(page).toClick('a', { text: 'Already have an account? Login here.' });
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
       await expect(page).toClick('button', { text: 'Login' });
