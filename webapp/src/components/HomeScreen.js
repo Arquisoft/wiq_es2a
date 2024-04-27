@@ -29,6 +29,7 @@ useEffect(() => {
     if (logoutButton) {
       logoutButton.style.display = 'inline-block';
     }
+    // eslint-disable-next-line
   }, [])
   
 

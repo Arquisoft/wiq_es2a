@@ -2,7 +2,8 @@
 import AddUser from './components/AddUser';
 import Login from './components/Login';
 import Container from '@mui/material/Container';
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+// eslint-disable-next-line
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomeScreen from './components/HomeScreen';
 import Game from './components/Game';
 import Welcome from './components/Welcome';

@@ -27,6 +27,7 @@ const History = () => {
 
     useEffect(() => {
       checkUserLogin();
+      // eslint-disable-next-line
       }, [])
 
     
