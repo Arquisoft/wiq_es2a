@@ -29,8 +29,13 @@ defineFeature(feature, test => {
     let password;
 
     given('A registered user', async () => {
-      username = "j"
-      password = "j"
+      username = "login1"
+      password = "test"
+      await expect(page).toClick('button', { text: 'SignUp' })
+      await expect(page).toFill('input[name="username"]', username);
+      await expect(page).toFill('input[name="password"]', password);
+      await expect(page).toClick('button', { text: 'Add User' });
+      await expect(page).toClick('a', { text: 'Already have an account? Login here.' });
       await expect(page).toClick('button', { text: 'Login' })
     });
 
@@ -44,6 +49,7 @@ defineFeature(feature, test => {
         await expect(page).toMatchElement("button", { text: "Jugar" });
         await expect(page).toMatchElement("button", { text: "Ver historial" });
         await expect(page).toMatchElement("input[type='number']");
+        await expect(page.url()).toBe('http://localhost:3000/home');
     });
   })
 

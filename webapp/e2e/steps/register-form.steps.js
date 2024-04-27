@@ -29,8 +29,8 @@ defineFeature(feature, test => {
     let password;
 
     given('An unregistered user', async () => {
-      username = "j"
-      password = "j"
+      username = "register1"
+      password = "test"
       await expect(page).toClick('button', { text: 'SignUp' })
     });
 

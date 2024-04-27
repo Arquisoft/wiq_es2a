@@ -28,7 +28,7 @@ defineFeature(feature, test => {
     let password;
   
     given('An authenticated user', async () => {
-      username = "record1";
+      username = "record2";
       password = "record1";
       await expect(page).toClick('button', { text: 'SignUp' });
       await expect(page).toFill('input[name="username"]', username);
@@ -46,6 +46,7 @@ defineFeature(feature, test => {
     });
   
     then('I can see my records', async () => {
+        await expect(page.url()).toBe('http://localhost:3000/history');
         await expect(page).toMatchElement("th", { text: "Preguntas acertadas" });
         await expect(page).toMatchElement("th", { text: "Nº preguntas" });
         await expect(page).toMatchElement("th", { text: "Tiempo total" });
