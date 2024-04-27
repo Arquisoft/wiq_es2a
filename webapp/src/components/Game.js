@@ -58,6 +58,7 @@ const Game = ({ esperaFinalizacion = 3000 }) => {
     if (contadorGlobal === 0) {
       checkPregunta();
     }
+    // eslint-disable-next-line
   }, [contadorGlobal]);
 
   /**
@@ -90,7 +91,7 @@ const Game = ({ esperaFinalizacion = 3000 }) => {
     inputs.forEach(input => {
       input.disabled = true;
     });
-    if(numPreguntas==numQuestions){
+    if(numPreguntas===numQuestions){
       setTimeout(addPregunta, esperaFinalizacion); //esperar un poco para que se vean los resultados de la ultima pregunta
     }
     else {
@@ -104,7 +105,7 @@ const Game = ({ esperaFinalizacion = 3000 }) => {
    * También se asegura de poner los inputs de la respuesta sin active, además de volverlos a habilitar
    */
   const addPregunta = async () => {
-    if(numPreguntas==numQuestions){
+    if(numPreguntas===numQuestions){
       calculateTime();
       setFinished(true);
     } else {
@@ -136,13 +137,13 @@ const Game = ({ esperaFinalizacion = 3000 }) => {
       respCopia[random] = { data: response.data.correcta, isCorrect: true };
       let cont = 0;
       for (let i = 0; i < respuestas.length; i++) {
-        if (i != random) {
+        if (i !== random) {
           respCopia[i] = { data: response.data.incorrectas[cont], isCorrect: false };
           cont++;
         }
       }
       setRespuestas(respCopia);
-      if (numPreguntas==0) {
+      if (numPreguntas===0) {
        startTime(); //inicio el tiempo una vez se vea la primera pregunta
       }
       // Reiniciar el contador a 30
@@ -210,6 +211,7 @@ const Game = ({ esperaFinalizacion = 3000 }) => {
 
   useEffect(() => {
     checkUserLogin();
+    // eslint-disable-next-line
   }, [])
 
   return (
