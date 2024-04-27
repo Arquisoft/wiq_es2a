@@ -91,7 +91,9 @@ const Game = ({ esperaFinalizacion = 3000 }) => {
     inputs.forEach(input => {
       input.disabled = true;
     });
-    if(numPreguntas===numQuestions){
+
+    // eslint-disable-next-line
+    if(numPreguntas==numQuestions){
       setTimeout(addPregunta, esperaFinalizacion); //esperar un poco para que se vean los resultados de la ultima pregunta
     }
     else {
@@ -105,7 +107,8 @@ const Game = ({ esperaFinalizacion = 3000 }) => {
    * También se asegura de poner los inputs de la respuesta sin active, además de volverlos a habilitar
    */
   const addPregunta = async () => {
-    if(numPreguntas===numQuestions){
+    // eslint-disable-next-line
+    if(numPreguntas==numQuestions){
       calculateTime();
       setFinished(true);
     } else {
