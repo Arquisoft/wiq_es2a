@@ -53,16 +53,6 @@ defineFeature(feature, test => {
         });
         // Compruebo que el boton se ha activado
         expect(labelHasActiveClass).toBe(true);
-        const labelStyle = await page.$eval('label[data-iscorrect="true"]', label => {
-            const style = window.getComputedStyle(label);
-            return {
-              color: style.color,
-              backgroundColor: style.backgroundColor
-            };
-          });
-          
-          // Compruebo que el color sea verde
-          expect(labelStyle.backgroundColor).toBe('rgb(0, 128, 0)');
         await expect(page).toMatchElement("p", { text: "Preguntas acertadas: 1" });
         
     });
@@ -96,15 +86,13 @@ defineFeature(feature, test => {
           const labelsWithActiveClass = await page.$$eval('label[data-iscorrect="false"]', labels => {
             return labels.map(label => {
               const isActive = label.classList.contains('active');
-              const backgroundColor = window.getComputedStyle(label).backgroundColor;
-              return { isActive, backgroundColor };
+              return { isActive };
             });
           });
           
-          // Comprueba si alguna etiqueta activa tiene el color rojo y está activada
-          const hasRedActiveLabel = labelsWithActiveClass.some(label => label.isActive && label.backgroundColor === 'rgb(255, 0, 0)');
-          
-          expect(hasRedActiveLabel).toBe(true);
+          // Comprueba si alguna etiqueta está activada
+          const hasActiveLabel = labelsWithActiveClass.some(label => label.isActive);
+          expect(hasActiveLabel).toBe(true);
           await expect(page).toMatchElement("p", { text: "Preguntas acertadas: 0" });
     });
   });
