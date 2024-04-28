@@ -1,9 +1,9 @@
-<img src="/docs/images/WIQLogo.png" width="70%" height="70%"/>
 # wiq_es2a
-
 [![Deploy on release](https://github.com/Arquisoft/wiq_es2a/actions/workflows/release.yml/badge.svg)](https://github.com/Arquisoft/wiq_es2a/actions/workflows/release.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_wiq_es2a&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_wiq_es2a)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_wiq_es2a&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Arquisoft_wiq_es2a)
+
+<img src="/docs/images/WIQLogo.png" width="70%" height="70%"/>
 
 ## Acceso
 - Acceso a la documentación: [Documentación](https://arquisoft.github.io/wiq_es2a/)
