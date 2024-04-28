@@ -30,14 +30,14 @@ defineFeature(feature, test => {
     given('An authenticated user', async () => {
       username = "game1";
       password = "game";
-      await expect(page).toClick('button', { text: 'SignUp' });
+      await expect(page).toClick('button', { text: 'Registrarse' });
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
-      await expect(page).toClick('button', { text: 'Add User' });
-      await expect(page).toClick('a', { text: 'Already have an account? Login here.' });
+      await expect(page).toClick('button', { text: 'Registrarse' });
+      await expect(page).toClick('a', { text: '¿Ya tienes una cuenta? Inicia sesión aquí.' });
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
-      await expect(page).toClick('button', { text: 'Login' });
+      await expect(page).toClick('button', { text: 'Iniciar sesión' });
     });
   
     when('I navigate to the game page and I click the correct answer', async () => {
@@ -65,14 +65,14 @@ defineFeature(feature, test => {
     given('An authenticated user', async () => {
       username = "game2";
       password = "game";
-      await expect(page).toClick('button', { text: 'SignUp' });
+      await expect(page).toClick('button', { text: 'Registrarse' });
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
-      await expect(page).toClick('button', { text: 'Add User' });
-      await expect(page).toClick('a', { text: 'Already have an account? Login here.' });
+      await expect(page).toClick('button', { text: 'Registrarse' });
+      await expect(page).toClick('a', { text: '¿Ya tienes una cuenta? Inicia sesión aquí.' });
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
-      await expect(page).toClick('button', { text: 'Login' });
+      await expect(page).toClick('button', { text: 'Iniciar sesión' });
     });
   
     when('I navigate to the game page and I click an incorrect answer', async () => {

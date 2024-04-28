@@ -23,7 +23,7 @@ describe('Welcome Component', () => {
           <Welcome />
         </BrowserRouter>
     );
-    const loginButton = screen.getByRole('button', { name: /login/i });
+    const loginButton = screen.getByRole('button', { name: /Iniciar sesión/i });
     fireEvent.click(loginButton);
     expect(window.location.pathname).toBe('/login');
   });
@@ -34,7 +34,7 @@ describe('Welcome Component', () => {
           <Welcome />
         </BrowserRouter>
     );
-    const signupButton = screen.getByRole('button', { name: /signup/i });
+    const signupButton = screen.getByRole('button', { name: /Registrarse/i });
     fireEvent.click(signupButton);
     expect(window.location.pathname).toBe('/adduser');
   });

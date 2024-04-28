@@ -28,13 +28,13 @@ const AddUser = () => {
   return (
     <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
       <Typography component="h1" variant="h5">
-        Add User
+        Registrarse
       </Typography>
       <TextField
         name="username"
         margin="normal"
         fullWidth
-        label="Username"
+        label="Nombre de usuario"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
@@ -42,22 +42,22 @@ const AddUser = () => {
         name="password"
         margin="normal"
         fullWidth
-        label="Password"
+        label="Contraseña"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <Button variant="contained" color="primary" onClick={addUser}>
-        Add User
+        Registrarse
       </Button>
       
-      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message="User added successfully" />
+      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message="Usuario añadido con éxito" />
       {error && (
         <Snackbar open={!!error} autoHideDuration={6000} onClose={() => setError('')} message={`Error: ${error}`} />
       )}
       <br></br>
       <Link to="/login">
-            Already have an account? Login here.
+          ¿Ya tienes una cuenta? Inicia sesión aquí.
       </Link>
     </Container>
   );

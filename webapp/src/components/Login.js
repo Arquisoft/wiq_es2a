@@ -38,13 +38,13 @@ const Login = () => {
         <div>
           <Container maxWidth="xs" sx={{ marginTop: 4 }}>
           <Typography component="h1" variant="h5">
-            Login
+            Iniciar sesión
           </Typography>
           <TextField
             name="username"
             margin="normal"
             fullWidth
-            label="Username"
+            label="Nombre de usuario"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -52,22 +52,22 @@ const Login = () => {
             name="password"
             margin="normal"
             fullWidth
-            label="Password"
+            label="Contraseña"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button variant="contained" color="primary" onClick={loginUser}>
-            Login
+            Iniciar sesión
           </Button>
           
-          <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message="Login successful" />
+          <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message="Inicio de sesión existoso" />
           {error && (
             <Snackbar open={!!error} autoHideDuration={6000} onClose={() => setError('')} message={`Error: ${error}`} />
           )}
           <br></br>
           <Link to="/adduser">
-            Don't have an account? Register here.
+            ¿No tienes cuenta? Regístrate aquí.
           </Link>
           </Container>
         </div>
