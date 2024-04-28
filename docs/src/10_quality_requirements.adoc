@@ -24,7 +24,7 @@ en cuenta los elementos importantes para las partes relacionadas que sean concre
 [role="arc42help"]
 ****
 .Contenido
-El árbol de calidad (Definido en ATAM - Método de análisis de compensación de arquitectura por sus silas en inglés) con 
+El árbol de calidad (Definido en ATAM - Método de análisis de compensación de arquitectura por sus siglas en inglés) con 
 escenarios de calidad/evaluación como hojas. 
 
 .Motivación
@@ -46,7 +46,7 @@ image::10_QualityTree.png[Quality Tree]
 [role="arc42help"]
 ****
 .Contenido
-Concretización de requerimientos de calidad (que pueden ser vagos o implícitos) utilizando escenarios de calidad.
+Concretar requisitos de calidad (que pueden ser vagos o implícitos) utilizando escenarios de calidad.
 
 Estos escenarios describen lo que debería pasar cuando un estímulo llega al sistema.
 
@@ -56,7 +56,7 @@ Para los arquitectos, son importantes dos tipos de escenarios:
 en tiempo de ejecución de un sistema a un determinado estímulo. Esto incluye también escenarios que describen la eficiencia
 o el rendimiento del sistema. Por ejemplo: El sistema reacciona a la petición de un usuario en un segundo.
 * Escenarios de cambios, describen la modificación del sistema a su ambiente inmediato. Por ejemplo: Cuando se implementa
-funcionalidad adicional o requerimietnos para el cambio de un atributo de calidad.
+funcionalidad adicional o requerimientos para el cambio de un atributo de calidad.
 
 .Motivación
 Los escenarios crean requerimientos de calidad concretos y permiten medirlos de manera mas sencilla o decidir si han sido

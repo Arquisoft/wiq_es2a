@@ -7,7 +7,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 [role="arc42help"]
 ****
 .Contenido
-Decisiones arquitectónicas importantes, costosas, a larga escala o riesgosas incluyendo sus razonamientos.
+Decisiones arquitectónicas importantes, costosas, a larga escala o de riesgo incluyendo sus razonamientos.
 Con "Decisiones" nos referimos a la elección de una alternativa basada en cierto criterio.
 
 Se debe usar el juicio para decidir si una decisión arquitectónica debe ser documentada en esta sección
@@ -39,7 +39,7 @@ Varias opciones:
 
 | BackEnd | Node.js | Escogimos Node.js debido a su compatibilidad.
 
-| Arquitectura | MVC | El modelo MVC nos permite separar las capas para mantener el código ordenado, mantenible y es familiar para los intengrantes del grupo.
+| Arquitectura | MVC | El modelo MVC nos permite separar las capas para mantener el código ordenado, mantenible y es familiar para los integrantes del grupo.
 
 | Arquitectura | Microservicios | El modelo de microservicios se ajusta muy bien a las necesidades de la aplicación.
 

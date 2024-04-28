@@ -21,11 +21,11 @@ o de arquitectura.
 Estas decisiones son las piedras angulares de la arquitectura. Son la base de muchas otras decisiones detalladas o reglas de implementación.
 
 .Forma
-Realice la explicación de las deciciones clave de manera breve. 
+Realice la explicación de las decisiones clave de manera breve. 
 
 Justifique las decisiones y porque se realizaron de esa manera, basado en el planteamiento del problema,
 las metas de calidad y restricciones clave.
-Refierase a los detalles en las secciones posteriores.
+Refiérase a los detalles en las secciones posteriores.
 ****
 
 === Decisiones Tecnológicas
@@ -34,18 +34,18 @@ Refierase a los detalles en las secciones posteriores.
 * **JavaScript**: es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se utiliza para crear páginas web dinámicas. 
 * **React**: es una biblioteca de JavaScript para construir interfaces de usuario.
 * **WikiData**: es una base de datos libre, colaborativa y multilingüe, que sirve como una base de datos secundaria y que recopila datos estructurados para dar soporte a Wikipedia, Wikimedia Commons...
-* **Docker**: se utiliza para hacer el despligue de la aplicación.
+* **Docker**: se utiliza para hacer el despliegue de la aplicación.
 * **Bootstrap**: es un framework de código abierto para el diseño de sitios y aplicaciones web. 
  
 
 === Motivaciones
-Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en su mayoría lo domina. En cuanto React nos basemos en que facilmente se puede crear interfaces. El resto de tecnologías son las más óptimas y las prestablecidas, en el proyecto. Realmente estamos a la espera de los resultados de estas decisiones, ya que en su mayoría son tecnologías desconocidas para el equipo. 
+Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en su mayoría lo domina. En cuanto React nos basemos en que fácilmente se puede crear interfaces. El resto de tecnologías son las más óptimas y las preestablecidas, en el proyecto. Realmente estamos a la espera de los resultados de estas decisiones, ya que en su mayoría son tecnologías desconocidas para el equipo. 
 
 * **Microsoft Azure**: la universidad nos proporciona crédito para Azure, por lo que no tendremos que pagar por el servicio y es una plataforma que ya conocemos por otras asignaturas del grado.
 * **MongoDB**: el formato de los datos de MongoDB nos facilita mucho el guardado de datos en la aplicación
 * **JavaScript**: aunque no lo dominamos completamente, es un lenguaje que nos era familiar y muy usado en el desarrollo web, además combinamos su uso con la biblioteca de React. 
 * **React**: esta biblioteca facilita el uso de los componentes de la aplicación y, además el proyecto inicial lo usaba por lo que no se ha tenido que construir la aplicación desde cero.
-* **WikiData**: su uso es un requisito obligatorio de esta aplicación pero su istema de consultas SPARQL ha resultado muy útil a la hora de obtener las preguntas de forma dinámica y actualizada para el juego.
+* **WikiData**: su uso es un requisito obligatorio de esta aplicación pero su sistema de consultas SPARQL ha resultado muy útil a la hora de obtener las preguntas de forma dinámica y actualizada para el juego.
 * **Docker**: ya configurado en el proyecto inicial por lo que pudimos crear contenedores de forma sencilla.
 * **Bootstrap**: permite crear la interfaz de usuario de forma más sencilla y con diseños más agradables al cliente.
 
@@ -53,7 +53,7 @@ Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en
 === Decisiones sobre cómo alcanzar los objetivos clave de calidad
 * **Usabilidad**: Será una aplicación sencilla, sin demasiados distractores y con los enlaces necesarios para el funcionamiento correcto del juego únicamente. Se tratará de que resulte intuitiva y fácil de usar. 
 * **Seguridad**: Se configurarán los endpoints para que un usuario no autentificado pueda acceder a partes restringidas de la aplicación. Además los usuarios serán guardados con su contraseña encriptada. 
-* **Disponibilidad**: El uso de Azure nos garantiza un 99,9% de disponibilidad, aunque hay que restar la dependencia que tenemos con otros servicios como wikidata o mongoDB, de todas maneras se tratará de que la aplicación tenga la mayor disponibilidad posible.
+* **Disponibilidad**: El uso de Azure nos garantiza un 99,9% de disponibilidad, aunque hay que restar la dependencia que tenemos con otros servicios como Wikidata o MongoDB, de todas maneras se tratará de que la aplicación tenga la mayor disponibilidad posible.
 * Utilizaremos el patrón MVC(Modelo, Vista, Controlador): Facilita la modularidad, la reutilización y el mantenimiento del código, provocando una aplicación eficiente.
 
 === Decisiones organizativas:

@@ -16,7 +16,7 @@ deben considerar. Entre estas se incluyen:
 Nuestro equipo de desarrollo ha sido contratado por la empresa HappySW para la creación de una aplicación de preguntas y respuestas similar al programa de RTVE "Saber y Ganar". Nuestro objetivo para este proyecto será:
 
 * Crear una aplicación web con preguntas creadas automáticamente, haciendo así un juego mucho más dinámico y actualizado.
-* Los usuarios podrán crear sus propia cuenta para acceder al historial de sus partidas.
+* Los usuarios podrán crear su propia cuenta para acceder al historial de sus partidas.
 
 
 === Vista de Requisitos
@@ -54,7 +54,7 @@ A continuación se muestran los requisitos de alto nivel para el desarrollo del 
 
 |Condiciones de juego| Habrá un tiempo limitado de respuesta para cada pregunta
 
-|Acesso a información por parte del Sistema| El sistema tendrá acceso a la información de los usuarios, además de las preguntas generadas.
+|Acceso a información por parte del Sistema| El sistema tendrá acceso a la información de los usuarios, además de las preguntas generadas.
 |===
 
 Para información más detallada, se puede consultar el documento completo proporcionado por la empresa https://docs.google.com/document/d/1pahOfYFY--Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit[aquí] .
@@ -91,7 +91,7 @@ Una tabla con metas de calidad y escenarios concretos, ordenados por prioridades
 [role="arc42help"]
 ****
 .Contenido
-Vista detallada de las partes intersadas del sistema, es decir, toda persona, rol u organización que:
+Vista detallada de las partes interesadas del sistema, es decir, toda persona, rol u organización que:
 
 * Debe conocer la arquitectura
 * Debe estar convencida de la arquitectura
@@ -113,7 +113,7 @@ documentación
 [options="header",cols="1,2,2"]
 |===
 |Rol|Contacto con la aplicación|Expectativas
-| Usuarios | Interacionan directamente con la aplicación | Esperamos que el usuario considere nuestra aplicación divertida, accesible y usable. Además de que las preguntas les parezcan interesantes y no repetitivas
+| Usuarios | Interaccionan directamente con la aplicación | Esperamos que el usuario considere nuestra aplicación divertida, accesible y usable. Además de que las preguntas les parezcan interesantes y no repetitivas
 | Equipo de desarrollo | Son las personas encargadas de realizar el proyecto | Crear una aplicación sólida y mantenible en el tiempo, aprendiendo nuevas tecnologías
 | RTVE | Es la empresa contratante | Espera obtener una versión online experimental de un concurso de preguntas y respuestas similar a “Saber y Ganar”
 | HappySw | Es la empresa de desarrollo de software | Que el equipo de desarrollo realice un producto de buena calidad para que la empresa contratante este satisfecha con el producto final

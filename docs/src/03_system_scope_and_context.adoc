@@ -62,7 +62,7 @@ image::Business_Context.png[Contexto de negocio]
 [role="arc42help"]
 ****
 .Contenido
-Las interfases técnicas (medios de transmisión y canales) enlanzando al sistema con su ambiente. De manera adicional
+Las interfases técnicas (medios de transmisión y canales) enlazando al sistema con su ambiente. De manera adicional
 el mapeo de las entradas/salidas específicas del dominio a los canales, es decir, una explicación acerca de que entrada/salida
 utiliza cual canal.
 
@@ -71,14 +71,14 @@ Muchas partes relacionadas realizan decisiones arquitectónicas basadas en las i
 su contexto. Especialmente los diseñadores de infraestructura o hardware deciden estas interfases técnicas.
 
 .Forma
-Por ejemplo, diagramas UML de despligue describiendo los canales a sistemas vecinos, junto con una tabla de 
+Por ejemplo, diagramas UML de despliegue describiendo los canales a sistemas vecinos, junto con una tabla de 
 mapeo mostrando las relaciones entre los canales y las entradas/salidas.
 ****
 
 image::Technical_Context.svg[Contexto técnico] 
 
 |===
-| Tecnologías utilizadas | Decripción de uso 
+| Tecnologías utilizadas | Descripción de uso 
 | Azure Cloud | Utilizado para el despliegue de la aplicación
 | MongoDB | Base de datos NoSQL para guardar la información de la aplicación, como los usuarios y las preguntas base 
 | Navegadores | Permiten al usuario acceder a la aplicación una vez desplegada

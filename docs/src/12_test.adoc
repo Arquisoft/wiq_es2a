@@ -13,5 +13,5 @@ A continuación se muestra el resumen proporcionado por SonarCloud sobre la cali
 image::../images/12-SonarCloud-Coverage.png[width=100%][sonar-cloud]
 
 === Pruebas E2E (End to End)
-Se han realizado 5 pruebas E2E a las funciones más importantes de la aplicación: Login, register, Game y Record. Estas pruebas se han reallizado utilizando las librerías de Pupeteer y Jest-Cucumber, las cuales nos permiten probar su funcionalidad utilizando Chromium.
+Se han realizado 5 pruebas E2E a las funciones más importantes de la aplicación: Login, register, Game y Record. Estas pruebas se han realizado utilizando las librerías de Puppeteer y Jest-Cucumber, las cuales nos permiten probar su funcionalidad utilizando Chromium.
 

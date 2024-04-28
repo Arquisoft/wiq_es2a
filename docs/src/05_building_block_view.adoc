@@ -18,7 +18,7 @@ Es la analogía al plano de una casa.
 .Motivación
 Mantener una visión general de su código fuente haciendo su estructura comprensible de manera abstracta.
 
-Esto permite comunicar a las partes interesades en un nivel abstracto sin entrar en detalles de implementación.
+Esto permite comunicar a las partes interesadas en un nivel abstracto sin entrar en detalles de implementación.
 
 .Forma
 La vista de bloques comprende una colección jerárquica de cajas negras y cajas blancas (ver figura de abajo)
@@ -30,7 +30,7 @@ image::05_building_blocks-ES.png["Jerarquía de bloques de construcción"]
 todos los bloques contenidos.
 
 *Nivel 2* hace zoom a los bloques de construcción del Nivel 1. Entonces contiene la descripción de Caja Blanca de los
-bloques de construcción selecionadas del nivel 1,junto con las descripciones de caja negra de sus bloques de construcción
+bloques de construcción seleccionadas del nivel 1,junto con las descripciones de caja negra de sus bloques de construcción
 internas.
 
 *Nivel 3* Hace zoom a los bloques selectos del nivel 2, y así sucesivamente.
@@ -53,7 +53,7 @@ interfaces
 ** Usar una lista de descripciones de caja negra de los bloques de construcción acorde a la plantilla de caja negra (ver abajo). Dependiendo de la herramienta utilizada, esta lista podría constar de sub-capítulos (en archivos de texto),
 sub-páginas (en un wiki) o elementos anidados (en una herramienta de modelado).
 * (opcional:) Interfases importantes, que no están explicadas en las plantillas de caja negra de un bloque de construcción,
-pero que son muy importantes para entender la caja blanca. En el peor de los casos se deberá especificar y desribir la
+pero que son muy importantes para entender la caja blanca. En el peor de los casos se deberá especificar y describir la
 sintaxis, semántica, protocolos, manejo de errores, restricciones, versiones, calidades, compatibilidades necesarias, entre
 otras. En el mejor de los casos bastará con ejemplos o la firma de los mismos.
 ****
@@ -62,7 +62,7 @@ otras. En el mejor de los casos bastará con ejemplos o la firma de los mismos.
 |===
 | Nombre | Descripción
 
-| Wikidata | Para formular las preguntas se extrará información de WikiData a través de su API.
+| Wikidata | Para formular las preguntas se extraerá información de WikiData a través de su API.
 
 | Base de datos | Se guarda información importante, como los datos de los usuarios y sus historiales.
 
@@ -103,7 +103,7 @@ importante. El título es el nombre de la caja negra.
 
 [role="arc42help"]
 ****
-Aqui se describe la <caja negra 1> acorde a la siguiente plantilla:
+Aquí se describe la <caja negra 1> acorde a la siguiente plantilla:
 
 * Propósito/Responsabilidad
 * Interfases, cuando no son extraídas como párrafos separados. Estas interfases pueden incluir características de calidad y rendimiento.

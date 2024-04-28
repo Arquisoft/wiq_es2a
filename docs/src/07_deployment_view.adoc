@@ -20,11 +20,11 @@ Deberá documentarse la vista de despliegue de manera especial cuando el softwar
 con mas de una computadora, procesador, servidor o contenedor o cuando se diseñen los procesadores y chips de hardware propios.
 
 Desde una perspectiva de software es suficiente con capturar los elementos de la infraestructura necesarios para mostrar
-el despliegue de los bloques de construcción. Los arquitectos de hardware pueden ir más alla y describir la infraestructura
+el despliegue de los bloques de construcción. Los arquitectos de hardware pueden ir más allá y describir la infraestructura
 a cualquier nivel de detalle que requieran.
 
 .Motivación
-El software no corre sin haardware.
+El software no corre sin hardware.
 El hardware subyacente puede influenciar el sistema o algunos conceptos entrecruzados. Por ende, es necesario conocer
 la infraestructura.
 
@@ -33,7 +33,7 @@ Quizá el más alto nivel de diagrama de despliegue esté contenido en la secci�
 propia infraestructura como UNA caja negra. En esta sección se deberá realizar un acercamiento a ésta caja negra 
 utilizando diagramas de despliegue adicionales:
 
-* UML provee diagramas de despliegue para expresar la vista. Uselos, probablemente con diagramas anidados.
+* UML provee diagramas de despliegue para expresar la vista. úselos, probablemente con diagramas anidados.
 * Cuando las partes relacionadas de Hardware prefieran otro tipo de diagramas además de los diagramas de despliegue,
 permítales usar cualquier tipo que permita mostrar los nodos y canales de la infraestructura.
 ****
