@@ -10,7 +10,7 @@
 - Yeray Rodríguez Granda - UO284247
 - Pablo López Tamargo - UO287694
 
-20.117.111.8:3000
+20.117.111.8:3000 [Entra aquí para acceder](https://tinyurl.com/wiqes2a)
 
 This is a base repo for the [Software Architecture course](http://arquisoft.github.io/) in [2023/2024 edition](https://arquisoft.github.io/course2324.html). 
 
