@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#section-introduction-and-goals">1. Introducción y Metas</a>
 <ul class="sectlevel2">
-<li><a href="#_vista_de_requerimientos">1.1. Vista de Requerimientos</a></li>
+<li><a href="#_vista_de_requisitos">1.1. Vista de Requisitos</a></li>
 <li><a href="#_metas_de_calidad">1.2. Metas de Calidad</a></li>
 <li><a href="#_partes_interesadas_stakeholders">1.3. Partes interesadas (Stakeholders)</a></li>
 </ul>
@@ -480,10 +480,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#section-runtime-view">6. Vista de Ejecución</a>
 <ul class="sectlevel2">
-<li><a href="#_escenario_de_ejecución_1">6.1. &lt;Escenario de ejecución 1&gt;</a></li>
-<li><a href="#_runtime_scenario_2">6.2. &lt;Runtime Scenario 2&gt;</a></li>
-<li><a href="#">6.3. &#8230;&#8203;</a></li>
-<li><a href="#_runtime_scenario_n">6.4. &lt;Runtime Scenario n&gt;</a></li>
+<li><a href="#_registrar_usuario">6.1. Registrar usuario</a></li>
+<li><a href="#_iniciar_sesión">6.2. Iniciar sesión</a></li>
+<li><a href="#_ver_historial">6.3. Ver historial</a></li>
+<li><a href="#_jugar_y_generación_de_preguntas">6.4. Jugar y generación de preguntas</a></li>
 </ul>
 </li>
 <li><a href="#section-deployment-view">7. Vista de Despliegue</a>
@@ -495,10 +495,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#section-concepts">8. Conceptos Transversales (Cross-cutting)</a>
 <ul class="sectlevel2">
 <li><a href="#_arquitectura_principal">8.1. Arquitectura principal</a></li>
-<li><a href="#_reglas_al_usar_una_tecnología_específica">8.2. Reglas al usar una tecnología específica:</a></li>
-<li><a href="#_reglas_de_implementación">8.3. Reglas de implementación</a></li>
-<li><a href="#_interfaz_de_usuario">8.4. Interfaz de usuario.</a></li>
-<li><a href="#_privacidad">8.5. Privacidad</a></li>
+<li><a href="#_reglas_de_implementación">8.2. Reglas de implementación</a></li>
+<li><a href="#_interfaz_de_usuario">8.3. Interfaz de usuario.</a></li>
+<li><a href="#_privacidad">8.4. Privacidad</a></li>
 </ul>
 </li>
 <li><a href="#section-design-decisions">9. Decisiones de Diseño</a></li>
@@ -508,8 +507,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_escenarios_de_calidad">10.2. Escenarios de calidad</a></li>
 </ul>
 </li>
-<li><a href="#section-technical-risks">11. Riesgos y deuda técnica</a></li>
-<li><a href="#section-glossary">12. Glosario</a></li>
+<li><a href="#section-technical-risks">11. Riesgos y deuda técnica</a>
+<ul class="sectlevel2">
+<li><a href="#_riesgos">11.1. Riesgos</a></li>
+<li><a href="#_deuda_técnica">11.2. Deuda Técnica</a></li>
+</ul>
+</li>
+<li><a href="#section-test">12. Pruebas realizadas</a>
+<ul class="sectlevel2">
+<li><a href="#_pruebas_unitarias">12.1. Pruebas Unitarias</a></li>
+<li><a href="#_pruebas_e2e_end_to_end">12.2. Pruebas E2E (End to End)</a></li>
+</ul>
+</li>
+<li><a href="#section-glossary">13. Glosario</a></li>
 </ul>
 </div>
 </div>
@@ -604,7 +614,7 @@ deben considerar. Entre estas se incluyen:</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_vista_de_requerimientos">1.1. Vista de Requerimientos</h3>
+<h3 id="_vista_de_requisitos">1.1. Vista de Requisitos</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -646,8 +656,12 @@ relacionados.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creación de usuarios e historial</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un usuario se podrá registrar en la web y consultar los resultados de sus anteriores partidas.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creación de usuarios</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Para acceder al juego, el usuario tendrá que estar registrado en la aplicación.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Historial</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un usuario registrado podrá consultar los resultados de sus anteriores partidas a través de un historial.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Preguntas creadas automáticamente</p></td>
@@ -704,10 +718,6 @@ Si como arquitecto no conoce la calidad de su trabajo, será juzgado&#8230;&#820
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Usabilidad</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">La interfaz de usuario será sencilla de entender y de usar</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rendimiento</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación tendrá tiempos de carga rápidos y respuestas ágiles</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Adaptabilidad</p></td>
@@ -773,9 +783,9 @@ documentación</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Role/Name</th>
-<th class="tableblock halign-left valign-top">Contact</th>
-<th class="tableblock halign-left valign-top">Expectations</th>
+<th class="tableblock halign-left valign-top">Rol</th>
+<th class="tableblock halign-left valign-top">Contacto con la aplicación</th>
+<th class="tableblock halign-left valign-top">Expectativas</th>
 </tr>
 </thead>
 <tbody>
@@ -797,7 +807,12 @@ documentación</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HappySw</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Es la empresa de desarrollo de software</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Que el equipo de desarrollo realice un producto extraordinario para que la empresa contratante este satisfecha con el producto final</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Que el equipo de desarrollo realice un producto de buena calidad para que la empresa contratante este satisfecha con el producto final</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Profesores Arquitectura del Software</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Personas encargadas de evaluar el proyecto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Esperan que el equipo de desarrollo cumpla con los requisitos obligatorios en la aplicación final</p></td>
 </tr>
 </tbody>
 </table>
@@ -845,7 +860,8 @@ Si se requiere, se pueden subdividir en restricciones técnicas, organizacionale
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">API Wikidata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Las preguntas y soluciones a estas deben ser generadas a través de la API de Wikidata, que permite acceder a toda la información alojada en ella. Sin embargo, esta información puede ser poco fiable debido a que es de acceso público y puede ser modificada por cualquiera. También se debe tener en cuenta la estructura de Wikidata a la hora de acceder a los datos, ya que se basa en entidades y relaciones.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Las preguntas y soluciones a estas deben ser generadas a través de la API de Wikidata, que permite acceder a toda la información alojada en ella. Sin embargo, esta información puede ser poco fiable debido a que es de acceso público y puede ser modificada por cualquiera.
+También se debe tener en cuenta la estructura de Wikidata a la hora de acceder a los datos, ya que se basa en entidades y relaciones, además del tiempo de acceso a esta API la cual puede relentizar el juego.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Desplegar la aplicación en un servidor</p></td>
@@ -853,11 +869,11 @@ Si se requiere, se pueden subdividir en restricciones técnicas, organizacionale
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GitHub</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Todo el código de la aplicación se alojará en GitHub y se usarán ramas para ejecutar cualquier tipo de cambio significativo a la apliación. Los commits deben tener nombres explicativos.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Todo el código de la aplicación se alojará en GitHub y se usarán ramas para ejecutar cualquier tipo de cambio significativo a la apliación. Los commits deben tener nombres explicativos y podría haber conflictos en los merge.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pruebas</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Se crearán pruebas de distintos tipos. La aplicación debe pasar estas pruebas para asegurar su funcionamiento.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Se crearán pruebas de distintos tipos. La aplicación debe pasar estas pruebas para asegurar su funcionamiento, el fallo de alguna de las pruebas bloqueará el despliegue.</p></td>
 </tr>
 </tbody>
 </table>
@@ -883,6 +899,10 @@ Si se requiere, se pueden subdividir en restricciones técnicas, organizacionale
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Actas e Issues</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Todas las decisiones y trabajo hecho se debe ver reflejado en el GitHub del grupo. Cada semana se deben hacer actas donde se tomen decisiones y se reparta el trabajo, que se verá reflejado en los issues.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluaciones intermedias</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cada 3 semanas el proyecto será evaluado y se tomarán nota de los avances y correccciones que se deben hacer para la siguiente evaluación</p></td>
 </tr>
 </tbody>
 </table>
@@ -1116,19 +1136,25 @@ Refierase a los detalles en las secciones posteriores.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Microsoft Azure: es una plataforma de computación en la nube que ofrece servicios de infraestructura, plataforma y software como servicio, para poder administrar servicios en línea.</p>
+<p><strong>Microsoft Azure</strong>: es una plataforma de computación en la nube que ofrece servicios de infraestructura, plataforma y software como servicio, para poder administrar servicios en línea.</p>
 </li>
 <li>
-<p>MongoDB: es un sistema de bases de datos NoSQL, es decir, una base de datos orientada a documentos. Este almacena datos con formato similar JSON, que no tienen que cumplir con una estructura predefinida.</p>
+<p><strong>MongoDB</strong>: es un sistema de bases de datos NoSQL, es decir, una base de datos orientada a documentos. Este almacena datos con formato similar JSON, que no tienen que cumplir con una estructura predefinida.</p>
 </li>
 <li>
-<p>TypeScript: es un lenguaje de programación de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto tipado de JavaScript que compila a JavaScript puro y es compatible con todas las funcionalidades de este último.</p>
+<p><strong>JavaScript</strong>: es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se utiliza para crear páginas web dinámicas.</p>
 </li>
 <li>
-<p>WikiData: es una base de datos libre, colaborativa y multilingüe, que sirve como una base de datos secundaria y que recopila datos estructurados para dar soporte a Wikipedia, Wikimedia Commons&#8230;&#8203;</p>
+<p><strong>React</strong>: es una biblioteca de JavaScript para construir interfaces de usuario.</p>
 </li>
 <li>
-<p>Docker: se utiliza para hacer el despligue de la aplicación.</p>
+<p><strong>WikiData</strong>: es una base de datos libre, colaborativa y multilingüe, que sirve como una base de datos secundaria y que recopila datos estructurados para dar soporte a Wikipedia, Wikimedia Commons&#8230;&#8203;</p>
+</li>
+<li>
+<p><strong>Docker</strong>: se utiliza para hacer el despligue de la aplicación.</p>
+</li>
+<li>
+<p><strong>Bootstrap</strong>: es un framework de código abierto para el diseño de sitios y aplicaciones web.</p>
 </li>
 </ul>
 </div>
@@ -1138,16 +1164,44 @@ Refierase a los detalles en las secciones posteriores.</p>
 <div class="paragraph">
 <p>Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en su mayoría lo domina. En cuanto React nos basemos en que facilmente se puede crear interfaces. El resto de tecnologías son las más óptimas y las prestablecidas, en el proyecto. Realmente estamos a la espera de los resultados de estas decisiones, ya que en su mayoría son tecnologías desconocidas para el equipo.</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Microsoft Azure</strong>: la universidad nos proporciona crédito para Azure, por lo que no tendremos que pagar por el servicio y es una plataforma que ya conocemos por otras asignaturas del grado.</p>
+</li>
+<li>
+<p><strong>MongoDB</strong>: el formato de los datos de MongoDB nos facilita mucho el guardado de datos en la aplicación</p>
+</li>
+<li>
+<p><strong>JavaScript</strong>: aunque no lo dominamos completamente, es un lenguaje que nos era familiar y muy usado en el desarrollo web, además combinamos su uso con la biblioteca de React.</p>
+</li>
+<li>
+<p><strong>React</strong>: esta biblioteca facilita el uso de los componentes de la aplicación y, además el proyecto inicial lo usaba por lo que no se ha tenido que construir la aplicación desde cero.</p>
+</li>
+<li>
+<p><strong>WikiData</strong>: su uso es un requisito obligatorio de esta aplicación pero su istema de consultas SPARQL ha resultado muy útil a la hora de obtener las preguntas de forma dinámica y actualizada para el juego.</p>
+</li>
+<li>
+<p><strong>Docker</strong>: ya configurado en el proyecto inicial por lo que pudimos crear contenedores de forma sencilla.</p>
+</li>
+<li>
+<p><strong>Bootstrap</strong>: permite crear la interfaz de usuario de forma más sencilla y con diseños más agradables al cliente.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_decisiones_sobre_cómo_alcanzar_los_objetivos_clave_de_calidad">4.3. Decisiones sobre cómo alcanzar los objetivos clave de calidad</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Usabilidad: Queremos una aplicación que no cause quebraderos de cabeza al usuario, que sea simple y eficiente.</p>
+<p><strong>Usabilidad</strong>: Será una aplicación sencilla, sin demasiados distractores y con los enlaces necesarios para el funcionamiento correcto del juego únicamente. Se tratará de que resulte intuitiva y fácil de usar.</p>
 </li>
 <li>
-<p>Seguridad: Autenticación de usuarios y encriptado de contraseñas.</p>
+<p><strong>Seguridad</strong>: Se configurarán los endpoints para que un usuario no autentificado pueda acceder a partes restringidas de la aplicación. Además los usuarios serán guardados con su contraseña encriptada.</p>
+</li>
+<li>
+<p><strong>Disponibilidad</strong>: El uso de Azure nos garantiza un 99,9% de disponibilidad, aunque hay que restar la dependencia que tenemos con otros servicios como wikidata o mongoDB, de todas maneras se tratará de que la aplicación tenga la mayor disponibilidad posible.</p>
 </li>
 <li>
 <p>Utilizaremos el patrón MVC(Modelo, Vista, Controlador): Facilita la modularidad, la reutilización y el mantenimiento del código, provocando una aplicación eficiente.</p>
@@ -1160,13 +1214,19 @@ Refierase a los detalles en las secciones posteriores.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Reparto de tareas: Las tareas se reparten teniendo en cuenta las habilidades de cada uno de los integrantes del equipo.</p>
+<p>Las tareas se reparten teniendo en cuenta las habilidades de cada uno de los integrantes del equipo y su disponibilidad.</p>
 </li>
 <li>
-<p>Los miembros del equipo mantenemos comunicación por Whatsaap para las dudas que surjan.</p>
+<p>Los miembros del equipo mantenemos comunicación más directa a través de WhatsApp y Discord para las dudas que surjan u otras decisiones que haya que tomar en conjunto.</p>
 </li>
 <li>
 <p>Si un miembro del equipo tiene problemas con su tarea, entre los integrantes del grupo se resolverá.</p>
+</li>
+<li>
+<p>Durante el laboratorio de la asignatura, se realizarán reuniones en las que se expondrá el trabajo realizado y si alguno ha tenido algún problema con su tarea.</p>
+</li>
+<li>
+<p>Si algún miembro decide abandonar el proyecto, se repartirán sus tareas pendientes entre los miembros restantes.</p>
 </li>
 </ul>
 </div>
@@ -1473,37 +1533,48 @@ para comprender los modelos estáticos en la documentación (Vista de Bloques de
 </div>
 </div>
 <div class="sect2">
-<h3 id="_escenario_de_ejecución_1">6.1. &lt;Escenario de ejecución 1&gt;</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><em>&lt;insert runtime diagram or textual description of the scenario&gt;</em></p>
-</li>
-<li>
-<p><em>&lt;insert description of the notable aspects of the interactions between the
-building block instances depicted in this diagram.&gt;</em></p>
-</li>
-</ul>
-</div>
+<h3 id="_registrar_usuario">6.1. Registrar usuario</h3>
 <div class="paragraph">
-<p>It is possible to use a sequence diagram:</p>
+<p>Un usuario se registra para poder jugar.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Sequence%20diagram.png" alt="Sequence diagram" width="332" height="335">
+<img src="./images/Registrar%20usuario.png" alt="Registrar usuario" width="522" height="365">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_runtime_scenario_2">6.2. &lt;Runtime Scenario 2&gt;</h3>
-
+<h3 id="_iniciar_sesión">6.2. Iniciar sesión</h3>
+<div class="paragraph">
+<p>Un usuario que ya está registrado, inicia sesión con su usuario y contraseña para jugar.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Iniciar%20sesión.png" alt="Iniciar sesión" width="504" height="305">
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="">6.3. &#8230;&#8203;</h3>
-
+<h3 id="_ver_historial">6.3. Ver historial</h3>
+<div class="paragraph">
+<p>Un usuario quiere ver su historial del juego.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Ver%20historial.png" alt="Ver historial" width="394" height="305">
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_runtime_scenario_n">6.4. &lt;Runtime Scenario n&gt;</h3>
+<h3 id="_jugar_y_generación_de_preguntas">6.4. Jugar y generación de preguntas</h3>
+<div class="paragraph">
+<p>Un usuario procede a jugar, se generan las preguntas y a continuación iniciará el juego.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Jugar.png" alt="Jugar" width="488" height="428">
+</div>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1634,7 +1705,7 @@ conexiones físicas entre ellos</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/DeploymentView.png" alt="Deployment View">
+<img src="./images/DeploymentView_2.png" alt="Deployment View">
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1755,39 +1826,29 @@ A potential (but not mandatory) structure for this section could be:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Este es el modelo inicial de nuestra aplicación, pero evolucionará con el tiempo.</p>
+<p>Modelo de la aplicación:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>clase Usuario{
-    id: String
-    nombre: String
-    fecha_registro: String
+<pre>clase Usuario {
+    username: String
+    password: String
+    createdAt: String
 }
 
-clase Partida{
-    id: String
-    puntuación: int
-    preguntas: Array&lt;Pregunta&gt;
-    preguntas_acertadas: int
-    preguntas_falladas: int
+clase Record {
+    username: String
+    correctQuestions: int
+    totalQuestions: int
+    totalTime: int
+    doneAt: Date
 }
 
-clase Pregunta{
-    id: String
-    texto: String
-    respuestas: Array&lt;Respuesta&gt;
-}
-
-clase Respuesta{
-    id: String
-    texto: String
-    correcta: boolean
-}
-
-Usuario 1 ---&gt; * Partida
-Partida 1 ---&gt; (5..20) Pregunta
-Pregunta 1---&gt; (2..4) Respuesta</pre>
+clase Pregunta {
+    pregunta: String
+    correcta: String
+    incorrectas: Array&lt;String&gt;(3)
+}</pre>
 </div>
 </div>
 <div class="sect2">
@@ -1797,25 +1858,19 @@ Pregunta 1---&gt; (2..4) Respuesta</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reglas_al_usar_una_tecnología_específica">8.2. Reglas al usar una tecnología específica:</h3>
-<div class="paragraph">
-<p>Realmente no sabemos demasiado sobre las tecnologías elegigidas, con la evolución del equipo mejoraremos esta sección.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_reglas_de_implementación">8.3. Reglas de implementación</h3>
+<h3 id="_reglas_de_implementación">8.2. Reglas de implementación</h3>
 <div class="paragraph">
 <p>Como es un proyecto en equipo creemos que la colaboración es lo más importante, por eso hemos decidido comentar lo máximo posible nuestro propio código para que sea entendible por otras personas/compañeros de equipo.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_interfaz_de_usuario">8.4. Interfaz de usuario.</h3>
+<h3 id="_interfaz_de_usuario">8.3. Interfaz de usuario.</h3>
 <div class="paragraph">
 <p>Queremos crear una aplicación accesible para todos los usuarios, que sea simple de entender y de jugar, que lo máximo que tengas que pensar sean las preguntas del juego.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_privacidad">8.5. Privacidad</h3>
+<h3 id="_privacidad">8.4. Privacidad</h3>
 <div class="paragraph">
 <p>Los usuarios se tienen que autenticar para poder utilizar la aplicación, además sus contraseñas están encriptadas.</p>
 </div>
@@ -2028,19 +2083,14 @@ cumplidos.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">El usuario quiere utilizar la aplicación con facilidad</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación tendrá tiempos de ejecución cortos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rendimiento</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cuando el usuario comience una partida en el juego habrá tiempos de espera cortos</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación podrá ser usada en distintos dispositivos</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Adaptabilidad</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Un usuario podrá usar la aplicación en móvil, tablet u ordenador</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación estará disponible la mayoría del tiempo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación estará disponible el 95% del tiempo.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Disponibilidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación no tendrá caídas inesperadas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un usuario accede a la aplicación a las 6 de la tarde y esta estará disponible</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Los datos de cada usuario estarán guardados de forma segura</p></td>
@@ -2078,6 +2128,8 @@ o reducir la deuda técnica.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_riesgos">11.1. Riesgos</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -2091,28 +2143,95 @@ o reducir la deuda técnica.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abandono de miembros del grupo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cuantas menos personas seamos, más trabajo tendremos que realizar los demás miembros.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Trabajo en equipo</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">La falta de coodinación y comunicación puede llevar a malos resultados en el trabajo. Tampoco tenemos experiencia trabajando en una aplicación desde 0.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abandono de miembros del equipo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Si uno o más miembros abandonan el equipo de desarrollo, la carga de trabajo para el resto se incrementará y, por tanto, aumentará la probabilidad de errores y deuda ténica por falta de tiempo.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Falta de experiencia con WikiData</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No estamos muy familiarizados con WikiData y su estructura. Tenemos que aprender a hacer queries a la API de WikiData.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Desconocimiento de React</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nunca hemos trabajado con React.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Desconocimiento de algunas tecnologías utilizadas como NodeJS o React</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hasta el desarrollo de esta aplicación no habíamos trabajado con estas tecnologías y, por tanto, pueden ocasionar errores o retrasos durante el parendizaje de las mismas.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_deuda_técnica">11.2. Deuda Técnica</h3>
+<div class="paragraph">
+<p>Se ha ocasiaonado deuda técnica en el proyecto debido en gran medida a la falta de tiempo y al abandono de 4 miembros del equipo, 2 de ellos nunca se presentaron y los otros 2 abandonaron la asigntura durante el desarrollo. A continuación se inidican las principales decisiones tomadas que han ocasionado deuda técnica en este proyecto:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Deuda Técnica</th>
+<th class="tableblock halign-left valign-top">Explicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pruebas de carga</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No se han podido realizar pruebas de carga ya que por los factores anteriormente indicados, decidimos priorizar las pruebas unitarias y las de end to end frente a las de carga.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Desconocimiento de Node.js</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nunca hemos trabajado con Node.js.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requisitos opcionales</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Se ha priorizado aquellos requisitos obligatorios frente a los opcionales, pudiendo realizar solo uno de estos.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rendimiento de las preguntas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nos gustaría haber tenido el rendimiento como atributo de calidad pero debido al abandono de varios miembros del grupo se decidió dar prioridad a terminar el proyecto completo, que a mejorar otros aspectos como el rendimiento.</p></td>
 </tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="section-glossary">12. Glosario</h2>
+<h2 id="section-test">12. Pruebas realizadas</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A continuación se recogen los diferentes tipos de pruebas realizados para garantizar el correcto funcionamiento de la aplicación y cumplir con el límite de coverage del 80% que se requería para el proyecto.</p>
+</div>
+<div class="sect2">
+<h3 id="_pruebas_unitarias">12.1. Pruebas Unitarias</h3>
+<div class="paragraph">
+<p>Se han realizado un total de 43 pruebas unitarias repartidas entre los servicios y componentes de la aplicación. Se ha utilizado la librería Jest para realizar estas pruebas, además de otras más especializadas dependiendo del test como la librería de testing de React para los componentes o Axios para simular las llamadas a los endpoints.</p>
+</div>
+<div class="paragraph">
+<p>Con estos test se ha conseguido cubrir un 90'9% del código presente en la aplicación, proporcionando una alta fiabilidad del correcto funcionamiento de la misma.
+A continuación se muestra el resumen proporcionado por SonarCloud sobre la calidad de nuestro código:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/12-SonarCloud-Coverage.png" alt="12 SonarCloud Coverage" width="100%][sonar-cloud">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pruebas_e2e_end_to_end">12.2. Pruebas E2E (End to End)</h3>
+<div class="paragraph">
+<p>Se han realizado 5 pruebas E2E a las funciones más importantes de la aplicación: Login, register, Game y Record. Estas pruebas se han reallizado utilizando las librerías de Pupeteer y Jest-Cucumber, las cuales nos permiten probar su funcionalidad utilizando Chromium.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-glossary">13. Glosario</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -2163,14 +2282,6 @@ o reducir la deuda técnica.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>WikiData</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Base de conocimientos con una gran cantidad de datos. Extraeremos datos de WikiData a través de la API que nos proporciona. Construiremos las preguntas con estos datos.</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>MVC</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Modelo de arquitectura de software. Las aplicaciones que siguen este modelo se dividen en 3 capas, Modelo, Vista y Controlador.</em></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>GitHub</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Plataforma de desarrollo colaborativo. Todo el código del equipo, su trabajo realizado y sus reuniones se documentan aquí.</em></p></td>
 </tr>
@@ -2179,20 +2290,24 @@ o reducir la deuda técnica.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es un sistema de base de datos NoSQL, orientado a documentos. La base de datos de nuestra aplicación esta hecha con MongoDB.</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>React</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Biblioteca JavaScript diseñada para crear interfaces de usuario. La usaremos para hacer el front-end de la aplicación.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>MVC</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Modelo de arquitectura de software. Las aplicaciones que siguen este modelo se dividen en 3 capas, Modelo, Vista y Controlador.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Node.js</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es un entorno en tiempo de ejecución para la capa del servidor basado en JavaScript. La usaremos para gran parte de el back-end de la aplicación.</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>TypeScript</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es un lenguaje de programación que esencialmente añade tipos estáticos y objetos basados en clases. Lo usaremos como lenguaje de programación para nuestra aplicación.</em></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Query</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Conjunto de palabras o frase que se utiliza cómo término de búsqueda. Usaremos queries para conseguir información de la base de datos o de WikiData.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>React</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Biblioteca JavaScript diseñada para crear interfaces de usuario. La usaremos para hacer el front-end de la aplicación.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>WikiData</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Base de conocimientos con una gran cantidad de datos. Extraeremos datos de WikiData a través de la API que nos proporciona. Construiremos las preguntas con estos datos.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -2202,7 +2317,7 @@ o reducir la deuda técnica.</p>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-02-26 14:01:52 +0100
+Last updated 2024-04-28 13:57:53 +0200
 </div>
 </div>
 </body>
