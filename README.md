@@ -5,17 +5,16 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_wiq_es2a&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Arquisoft_wiq_es2a)
 
 ## Acceso
-Acceso a la documentación: [Documentación](https://arquisoft.github.io/wiq_es2a/)
-Acceso al juego: [20.117.111.8:3000](https://tinyurl.com/wiqes2a) 
+- Acceso a la documentación: [Documentación](https://arquisoft.github.io/wiq_es2a/)
+- Acceso al juego: [20.117.111.8:3000](https://tinyurl.com/wiqes2a) 
 
 ## Componentes del grupo
-![Static Badge](https://img.shields.io/badge/UO275955-Laura%20Cordero%20Castrillo-%232E8B57?style=for-the-badge&logo=github&logoColor=white)(https://github.com/lauracc97)
-![Static Badge](https://img.shields.io/badge/UO283182-Sandra%20Garc%C3%ADa%20Mor%C3%A1n-%23D87093?style=for-the-badge&logo=github&logoColor=white)(https://github.com/uo283182)
+[![Laura](https://img.shields.io/badge/UO275955-Laura%20Cordero%20Castrillo-%232E8B57?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lauracc97)
+
+[![Laura](https://img.shields.io/badge/UO283182-Sandra%20Garc%C3%ADa%20Mor%C3%A1n-%23D87093?style=for-the-badge&logo=github&logoColor=white)](https://github.com/uo283182)
 ### Antiguos miembros
 - Yeray Rodríguez Granda - UO284247
 - Pablo López Tamargo - UO287694
-
-20.117.111.8:3000 [Entra aquí para acceder](https://tinyurl.com/wiqes2a)
 
 This is a base repo for the [Software Architecture course](http://arquisoft.github.io/) in [2023/2024 edition](https://arquisoft.github.io/course2324.html). 
 
