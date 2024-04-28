@@ -43,7 +43,7 @@ Un usuario se registra para poder jugar.
 ----
 actor Usuario
 participant Aplicación
-database Pod as BBDD
+database BBDD
 Usuario-> Aplicación: registrarUsuario(usuario, contraseña)
 Aplicación-> BBDD: validarDatos(usuario,contraseña)
 BBDD--> Aplicación: confirmarValidez()
@@ -58,11 +58,11 @@ Un usuario que ya está registrado, inicia sesión con su usuario y contraseña 
 ----
 actor Usuario
 participant Aplicación
-database Pod as BBDD
+database BBDD
 Usuario-> Aplicación: iniciarSesion(usuario,contraseña)
 Aplicación-> BBDD: validarUsuario(usuario,contraseña)
 BBDD--> Aplicación: confirmarDatos()
-Aplicación--> Usuario: mostrarJuego()
+Aplicación--> Usuario: mostrarHome()
 ----
 === Ver historial
 Un usuario quiere ver su historial del juego.
@@ -70,7 +70,7 @@ Un usuario quiere ver su historial del juego.
 ----
 actor Usuario
 participant Aplicación
-database Pod as BBDD
+database BBDD
 Usuario-> Aplicación: verHistorialDeJuego()
 Aplicación-> BBDD: buscarHistorial(usuario)
 BBDD--> Aplicación: devolverHistorial()
@@ -82,17 +82,15 @@ Un usuario procede a jugar, se generan las preguntas y a continuación iniciará
 ----
 actor Usuario
 participant Aplicación
-database Pod as BBDD
 participant Wikidata
+database BBDD
 Usuario-> Aplicación: jugar()
-Aplicación-> Wikidata: generarPreguntas()
-Wikidata--> Aplicación: preguntasGeneradas
-Aplicación-> BBDD: guardarPreguntas(preguntasGeneradas)
-BBDD--> Aplicación: confirmarGuardado()
-loop Responder Preguntas
+loop Generar Preguntas
+  Aplicación-> Wikidata: generarPregunta()
+  Wikidata-> Aplicación: preguntasGenerada
   Usuario-> Aplicación: responder(pregunta, respuesta)
-  Aplicación-> BBDD: validarRespuesta(pregunta, respuesta)
-  BBDD--> Aplicación: resultado
   Aplicación--> Usuario: mostrarResultado(resultado)
 end
+Aplicación-> Usuario: mostrarResultadosFinales()
+Aplicación-> BBDD: guardarPartida()
 ----
