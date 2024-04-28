@@ -2,6 +2,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-glossary]]
 == Pruebas realizadas
+A continuación se recogen los diferentes tipos de pruebas realizados para garantizar el correcto funcionamiento de la aplicación y cumplir con el límite de coverage del 80% que se requería para el proyecto.
 
 === Pruebas Unitarias
 Se han realizado un total de 43 pruebas unitarias repartidas entre los servicios y componentes de la aplicación. Se ha utilizado la librería Jest para realizar estas pruebas, además de otras más especializadas dependiendo del test como la librería de testing de React para los componentes o Axios para simular las llamadas a los endpoints.
@@ -14,29 +15,3 @@ image::../images/12-SonarCloud-Coverage.png[width=100%][sonar-cloud]
 === Pruebas E2E (End to End)
 Se han realizado 5 pruebas E2E a las funciones más importantes de la aplicación: Login, register, Game y Record. Estas pruebas se han reallizado utilizando las librerías de Pupeteer y Jest-Cucumber, las cuales nos permiten probar su funcionalidad utilizando Chromium.
 
-[cols="e,2e" options="header"]
-|===
-| Término | Definición
-
-| GitHub
-| Plataforma de desarrollo colaborativo. Todo el código del equipo, su trabajo realizado y sus reuniones se documentan aquí.
-
-| MongoDB
-| Es un sistema de base de datos NoSQL, orientado a documentos. La base de datos de nuestra aplicación esta hecha con MongoDB.
-
-| MVC
-| Modelo de arquitectura de software. Las aplicaciones que siguen este modelo se dividen en 3 capas, Modelo, Vista y Controlador.
-
-| Node.js
-| Es un entorno en tiempo de ejecución para la capa del servidor basado en JavaScript. La usaremos para gran parte de el back-end de la aplicación.
-
-| Query
-| Conjunto de palabras o frase que se utiliza cómo término de búsqueda. Usaremos queries para conseguir información de la base de datos o de WikiData.
-
-| React
-| Biblioteca JavaScript diseñada para crear interfaces de usuario. La usaremos para hacer el front-end de la aplicación.
-
-| WikiData
-| Base de conocimientos con una gran cantidad de datos. Extraeremos datos de WikiData a través de la API que nos proporciona. Construiremos las preguntas con estos datos.
-
-|===
