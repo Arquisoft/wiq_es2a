@@ -19,7 +19,7 @@ Nuestro equipo de desarrollo ha sido contratado por la empresa HappySW para la c
 * Los usuarios podrán crear sus propia cuenta para acceder al historial de sus partidas.
 
 
-=== Vista de Requerimientos
+=== Vista de Requisitos
 
 [role="arc42help"]
 ****
@@ -46,7 +46,9 @@ A continuación se muestran los requisitos de alto nivel para el desarrollo del 
 |===
 |Requisito|Descripción
 
-| Creación de usuarios e historial | Un usuario se podrá registrar en la web y consultar los resultados de sus anteriores partidas.
+| Creación de usuarios | Para acceder al juego, el usuario tendrá que estar registrado en la aplicación.
+
+| Historial | Un usuario registrado podrá consultar los resultados de sus anteriores partidas a través de un historial.
 
 | Preguntas creadas automáticamente | A partir de los datos de Wikidata se crearán las preguntas del juego, asi como sus respuestas.
 
@@ -111,9 +113,10 @@ documentación
 
 [options="header",cols="1,2,2"]
 |===
-|Role/Name|Contact|Expectations
+|Rol|Contacto con la aplicación|Expectativas
 | Usuarios | Interacionan directamente con la aplicación | Esperamos que el usuario considere nuestra aplicación divertida, accesible y usable. Además de que las preguntas les parezcan interesantes y no repetitivas
 | Equipo de desarrollo | Son las personas encargadas de realizar el proyecto | Crear una aplicación sólida y mantenible en el tiempo, aprendiendo nuevas tecnologías
 | RTVE | Es la empresa contratante | Espera obtener una versión online experimental de un concurso de preguntas y respuestas similar a “Saber y Ganar”
-| HappySw | Es la empresa de desarrollo de software | Que el equipo de desarrollo realice un producto extraordinario para que la empresa contratante este satisfecha con el producto final
+| HappySw | Es la empresa de desarrollo de software | Que el equipo de desarrollo realice un producto de buena calidad para que la empresa contratante este satisfecha con el producto final
+| Profesores Arquitectura del Software|Personas encargadas de evaluar el proyecto|Esperan que el equipo de desarrollo cumpla con los requisitos obligatorios en la aplicación final|
 |===

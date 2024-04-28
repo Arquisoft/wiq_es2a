@@ -27,13 +27,14 @@ Si se requiere, se pueden subdividir en restricciones técnicas, organizacionale
 |===
 | Restricción | Explicación
 
-| API Wikidata | Las preguntas y soluciones a estas deben ser generadas a través de la API de Wikidata, que permite acceder a toda la información alojada en ella. Sin embargo, esta información puede ser poco fiable debido a que es de acceso público y puede ser modificada por cualquiera. También se debe tener en cuenta la estructura de Wikidata a la hora de acceder a los datos, ya que se basa en entidades y relaciones.
+| API Wikidata | Las preguntas y soluciones a estas deben ser generadas a través de la API de Wikidata, que permite acceder a toda la información alojada en ella. Sin embargo, esta información puede ser poco fiable debido a que es de acceso público y puede ser modificada por cualquiera. 
+También se debe tener en cuenta la estructura de Wikidata a la hora de acceder a los datos, ya que se basa en entidades y relaciones, además del tiempo de acceso a esta API la cual puede relentizar el juego.
 
 | Desplegar la aplicación en un servidor | La aplicación se debe desplegar en un servidor y que esta sea accesible desde un navegador. En este caso, para desplegar la aplicación se usa una máquina virtual creada en Azure, lo que puede suponer un problema si no se usa cuidadosamente ya que se puede agotar el crédito gratuito.
 
-| GitHub | Todo el código de la aplicación se alojará en GitHub y se usarán ramas para ejecutar cualquier tipo de cambio significativo a la apliación. Los commits deben tener nombres explicativos.
+| GitHub | Todo el código de la aplicación se alojará en GitHub y se usarán ramas para ejecutar cualquier tipo de cambio significativo a la apliación. Los commits deben tener nombres explicativos y podría haber conflictos en los merge.
 
-| Pruebas | Se crearán pruebas de distintos tipos. La aplicación debe pasar estas pruebas para asegurar su funcionamiento.
+| Pruebas | Se crearán pruebas de distintos tipos. La aplicación debe pasar estas pruebas para asegurar su funcionamiento, el fallo de alguna de las pruebas bloqueará el despliegue.
 
 |===
 
@@ -46,6 +47,8 @@ Si se requiere, se pueden subdividir en restricciones técnicas, organizacionale
 | Equipos de 4-6 personas | El trabajo será repartido entre 4-6 miembros del grupo. Estos deberán coordinarse para llevar a cabo el trabajo en conjunto.
 
 | Actas e Issues | Todas las decisiones y trabajo hecho se debe ver reflejado en el GitHub del grupo. Cada semana se deben hacer actas donde se tomen decisiones y se reparta el trabajo, que se verá reflejado en los issues.
+
+|Evaluaciones intermedias|Cada 3 semanas el proyecto será evaluado y se tomarán nota de los avances y correccciones que se deben hacer para la siguiente evaluación|
 
 |===
 

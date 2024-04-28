@@ -29,22 +29,34 @@ Refierase a los detalles en las secciones posteriores.
 ****
 
 === Decisiones Tecnológicas
-* Microsoft Azure: es una plataforma de computación en la nube que ofrece servicios de infraestructura, plataforma y software como servicio, para poder administrar servicios en línea.
-* MongoDB: es un sistema de bases de datos NoSQL, es decir, una base de datos orientada a documentos. Este almacena datos con formato similar JSON, que no tienen que cumplir con una estructura predefinida.
-* TypeScript: es un lenguaje de programación de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto tipado de JavaScript que compila a JavaScript puro y es compatible con todas las funcionalidades de este último.
-* WikiData: es una base de datos libre, colaborativa y multilingüe, que sirve como una base de datos secundaria y que recopila datos estructurados para dar soporte a Wikipedia, Wikimedia Commons...
-* Docker: se utiliza para hacer el despligue de la aplicación.
+* **Microsoft Azure**: es una plataforma de computación en la nube que ofrece servicios de infraestructura, plataforma y software como servicio, para poder administrar servicios en línea.
+* **MongoDB**: es un sistema de bases de datos NoSQL, es decir, una base de datos orientada a documentos. Este almacena datos con formato similar JSON, que no tienen que cumplir con una estructura predefinida.
+* **JavaScript**: es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se utiliza para crear páginas web dinámicas. 
+* **React**: es una biblioteca de JavaScript para construir interfaces de usuario.
+* **WikiData**: es una base de datos libre, colaborativa y multilingüe, que sirve como una base de datos secundaria y que recopila datos estructurados para dar soporte a Wikipedia, Wikimedia Commons...
+* **Docker**: se utiliza para hacer el despligue de la aplicación.
  
 
 === Motivaciones
 Hemos escogido TypeScript por su mayor parecido a Java, ya que nuestro equipo en su mayoría lo domina. En cuanto React nos basemos en que facilmente se puede crear interfaces. El resto de tecnologías son las más óptimas y las prestablecidas, en el proyecto. Realmente estamos a la espera de los resultados de estas decisiones, ya que en su mayoría son tecnologías desconocidas para el equipo. 
+* **Microsoft Azure**: la universidad nos proporciona crédito para Azure, por lo que no tendremos que pagar por el servicio y es una plataforma que ya conocemos por otras asignaturas del grado.
+* **MongoDB**: el formato de los datos de MongoDB nos facilita mucho el guardado de datos en la aplicación
+* **JavaScript**: aunque no lo dominamos completamente, es un lenguaje que nos era familiar y muy usado en el desarrollo web, además combinamos su uso con la biblioteca de React. 
+* **React**: esta biblioteca facilita el uso de los componentes de la aplicación y, además el proyecto inicial lo usaba por lo que no se ha tenido que construir la aplicación desde cero.
+* **WikiData**: su uso es un requisito obligatorio de esta aplicación pero su istema de consultas SPARQL ha resultado muy útil a la hora de obtener las preguntas de forma dinámica y actualizada para el juego.
+* **Docker**: ya configurado en el proyecto inicial por lo que pudimos crear contenedores de forma sencilla.
 
 === Decisiones sobre cómo alcanzar los objetivos clave de calidad
-* Usabilidad: Queremos una aplicación que no cause quebraderos de cabeza al usuario, que sea simple y eficiente. 
-* Seguridad: Autenticación de usuarios y encriptado de contraseñas. 
+* **Usabilidad**: Será una aplicación sencilla, sin demasiados distractores y con los enlaces necesarios para el funcionamiento correcto del juego únicamente. Se tratará de que resulte intuitiva y fácil de usar. 
+* **Seguridad**: Se configurarán los endpoints para que un usuario no autentificado pueda acceder a partes restringidas de la aplicación. Además los usuarios serán guardados con su contraseña encriptada. 
+* **Disponibilidad**: .
 * Utilizaremos el patrón MVC(Modelo, Vista, Controlador): Facilita la modularidad, la reutilización y el mantenimiento del código, provocando una aplicación eficiente.
 
 === Decisiones organizativas:
-* Reparto de tareas: Las tareas se reparten teniendo en cuenta las habilidades de cada uno de los integrantes del equipo.
-* Los miembros del equipo mantenemos comunicación por Whatsaap para las dudas que surjan.
+* Reparto de tareas: Las tareas se reparten teniendo en cuenta las habilidades de cada uno de los integrantes del equipo y su disponibilidad.
+* Los miembros del equipo mantenemos comunicación más directa a través de WhatsApp y Discord para las dudas que surjan u otras decisiones que haya que tomar en conjunto.
 * Si un miembro del equipo tiene problemas con su tarea, entre los integrantes del grupo se resolverá.
+* Durante el laboratorio de la asignatura, se realizarán reuniones en las que se expondrá el trabajo realizado y si alguno ha tenido algún problema con su tarea.
+* Si algún miembro decide abandonar el proyecto, se repartirán sus tareas pendientes entre los miembros restantes.
+
+[[section-views-and-perspectives]]
