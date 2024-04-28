@@ -23,9 +23,9 @@ describe('Login component', () => {
     </BrowserRouter>
     );
 
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const loginButton = screen.getByRole('button', { name: /Login/i });
+    const usernameInput = screen.getByLabelText(/Nombre de usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const loginButton = screen.getByRole('button', { name: /Iniciar sesión/i });
 
     // Simulamos la respuesta de la petición axios.post
     mockAxios.onPost('http://localhost:8000/login').reply(200, { token: 'testToken' });
@@ -39,7 +39,7 @@ describe('Login component', () => {
 
     // Esperamos que se muestre el SnackBar de loggin exitoso
     await waitFor(() => {
-      expect(screen.getByText(/Login successful/i)).toBeInTheDocument();
+      expect(screen.getByText(/Inicio de sesión existoso/i)).toBeInTheDocument();
     });
 
     // Verificar que el token ha sido almacenado en localStorage
@@ -57,12 +57,12 @@ describe('Login component', () => {
       </BrowserRouter>
       );
 
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const loginButton = screen.getByRole('button', { name: /Login/i });
+    const usernameInput = screen.getByLabelText(/Nombre de usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const loginButton = screen.getByRole('button', { name: /Iniciar sesión/i });
 
     // Simular que ha ocurrido un error en el login
-    mockAxios.onPost('http://localhost:8000/login').reply(401, { error: 'Unauthorized' });
+    mockAxios.onPost('http://localhost:8000/login').reply(401, { error: 'Credenciales inválidas' });
 
     // Simulamos la entrada incorrecta de un usuario
     fireEvent.change(usernameInput, { target: { value: 'testUserError' } });
@@ -73,7 +73,7 @@ describe('Login component', () => {
 
     // Texto del Snackbar de error
     await waitFor(() => {
-      expect(screen.getByText(/Error: Unauthorized/i)).toBeInTheDocument();
+      expect(screen.getByText(/Error: Credenciales inválidas/i)).toBeInTheDocument();
     });
 
     // Verificar que no hay token en localStorage
@@ -87,13 +87,13 @@ describe('Login component', () => {
       <App />
     </BrowserRouter>
     );
-    const button = screen.getByRole('button', { name: /Login/i });
+    const button = screen.getByRole('button', { name: /Iniciar sesión/i });
     fireEvent.click(button);
     const logoutButton = screen.queryByRole('button', { name: /Cerrar sesión/i });
     expect(logoutButton).toBeNull();
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const loginButton = screen.getByRole('button', { name: /Login/i });
+    const usernameInput = screen.getByLabelText(/Nombre de usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const loginButton = screen.getByRole('button', { name: /Iniciar sesión/i });
 
     mockAxios.onPost('http://localhost:8000/login').reply(200, { token: 'testToken' });
 

@@ -19,9 +19,9 @@ describe('AddUser component', () => {
       </BrowserRouter>
     );
 
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const addUserButton = screen.getByRole('button', { name: /Add User/i });
+    const usernameInput = screen.getByLabelText(/Nombre de usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const addUserButton = screen.getByRole('button', { name: /Registrarse/i });
 
     // Mock the axios.post request to simulate a successful response
     mockAxios.onPost('http://localhost:8000/adduser').reply(200);
@@ -35,7 +35,7 @@ describe('AddUser component', () => {
 
     // Wait for the Snackbar to be open
     await waitFor(() => {
-      expect(screen.getByText(/User added successfully/i)).toBeInTheDocument();
+      expect(screen.getByText(/Usuario añadido con éxito/i)).toBeInTheDocument();
     });
   });
 
@@ -46,9 +46,9 @@ describe('AddUser component', () => {
       </BrowserRouter>
     );
 
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const addUserButton = screen.getByRole('button', { name: /Add User/i });
+    const usernameInput = screen.getByLabelText(/Nombre de usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const addUserButton = screen.getByRole('button', { name: /Registrarse/i });
 
     // Mock the axios.post request to simulate an error response
     mockAxios.onPost('http://localhost:8000/adduser').reply(500, { error: 'Internal Server Error' });
@@ -73,9 +73,9 @@ describe('AddUser component', () => {
       </BrowserRouter>
     );
 
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const addUserButton = screen.getByRole('button', { name: /Add User/i });
+    const usernameInput = screen.getByLabelText(/Nombre de usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const addUserButton = screen.getByRole('button', { name: /Registrarse/i });
 
     // Mock the axios.post request to simulate an error response
     mockAxios.onPost('http://localhost:8000/adduser').reply(400, { error: 'El nombre de usuario no puede estar vacío' });
@@ -99,9 +99,9 @@ describe('AddUser component', () => {
       </BrowserRouter>
     );
 
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const addUserButton = screen.getByRole('button', { name: /Add User/i });
+    const usernameInput = screen.getByLabelText(/Nombre de usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const addUserButton = screen.getByRole('button', { name: /Registrarse/i });
 
     // Mock the axios.post request to simulate an error response
     mockAxios.onPost('http://localhost:8000/adduser').reply(400, { error: 'La contraseña no puede estar vacía' });
@@ -126,9 +126,9 @@ describe('AddUser component', () => {
       </BrowserRouter>
     );
 
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const addUserButton = screen.getByRole('button', { name: /Add User/i });
+    const usernameInput = screen.getByLabelText(/Nombre de usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const addUserButton = screen.getByRole('button', { name: /Registrarse/i });
 
     // Mock the axios.post request to simulate an error response
     mockAxios.onPost('http://localhost:8000/adduser').reply(400, { error: 'Este nombre de usuario está en uso' });
