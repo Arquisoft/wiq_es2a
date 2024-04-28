@@ -31,18 +31,18 @@ defineFeature(feature, test => {
     given('A registered user', async () => {
       username = "login1"
       password = "test"
-      await expect(page).toClick('button', { text: 'SignUp' })
+      await expect(page).toClick('button', { text: 'Registrarse' })
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
-      await expect(page).toClick('button', { text: 'Add User' });
-      await expect(page).toClick('a', { text: 'Already have an account? Login here.' });
-      await expect(page).toClick('button', { text: 'Login' })
+      await expect(page).toClick('button', { text: 'Registrarse' });
+      await expect(page).toClick('a', { text: '¿Ya tienes una cuenta? Inicia sesión aquí.' });
+      await expect(page).toClick('button', { text: 'Iniciar sesión' })
     });
 
     when('I fill the data in the form and press submit', async () => {
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
-      await expect(page).toClick('button', { text: 'Login' })
+      await expect(page).toClick('button', { text: 'Iniciar sesión' })
     });
 
     then('Home should be shown in the screen', async () => {

@@ -26,10 +26,10 @@ const HomeScreen = () => {
               <br></br>
               <div className="d-flex justify-content-center">
                   <div className="px-2">
-                      <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleLogin}>Login</button>
+                      <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleLogin}>Iniciar sesión</button>
                   </div>
                   <div className="px-2">
-                      <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleSignUp}>SignUp</button>
+                      <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleSignUp}>Registrarse</button>
                   </div>
               </div>
             </>
