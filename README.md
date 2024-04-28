@@ -1,3 +1,4 @@
+<img src="/docs/images/WIQLogo.png" width="70%" height="70%"/>
 # wiq_es2a
 
 [![Deploy on release](https://github.com/Arquisoft/wiq_es2a/actions/workflows/release.yml/badge.svg)](https://github.com/Arquisoft/wiq_es2a/actions/workflows/release.yml)
