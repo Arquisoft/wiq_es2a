@@ -56,51 +56,37 @@ Nota: Puede ser difícil asignar conceptos individuales a un tema específico de
 
 image:08-Crosscutting-Concepts-Structure-ES.png["Posibles temas para conceptos transversales"]
 ****
-
-Este es el modelo inicial de nuestra aplicación, pero evolucionará con el tiempo.
+ 
+Modelo de la aplicación:
 
 ----
-clase Usuario{
+clase Usuario {
     id: String
-    nombre: String
-    fecha_registro: String
+    username: String
+    password: String
+    createdAt: String
 }
 
-clase Partida{
+clase Record {
+    username: String
     id: String
-    puntuación: int
-    preguntas: Array<Pregunta>
-    preguntas_acertadas: int
-    preguntas_falladas: int
+    correctQuestions: int
+    totalQuestions: int
+    totalTime: int
+    doneAt: Date
 }
 
 clase Pregunta{
-    id: String
-    texto: String
-    respuestas: Array<Respuesta>
+    pregunta: String
+    correcta: String
+    incorrectas: Array<String>(3)
 }
-
-clase Respuesta{
-    id: String
-    texto: String
-    correcta: boolean
-}
-
-Usuario 1 ---> * Partida
-Partida 1 ---> (5..20) Pregunta
-Pregunta 1---> (2..4) Respuesta
 
 ----
 
 === Arquitectura principal
 
 Hemos decidido utilizar una arquitectura de microservicios, dividiendo la aplicación en módulos. Estos módulos a su vez, se estructurarán con el patrón MVC.
-
-
-=== Reglas al usar una tecnología específica:
-
-Realmente no sabemos demasiado sobre las tecnologías elegigidas, con la evolución del equipo mejoraremos esta sección.
-
 
 === Reglas de implementación
 
