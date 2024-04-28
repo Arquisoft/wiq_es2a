@@ -75,7 +75,7 @@ Por ejemplo, diagramas UML de despligue describiendo los canales a sistemas veci
 mapeo mostrando las relaciones entre los canales y las entradas/salidas.
 ****
 
-image::Technical_Context.png[Contexto técnico] 
+image::Technical_Context.svg[Contexto técnico] 
 
 |===
 | Tecnologías utilizadas | Decripción de uso 
