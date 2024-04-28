@@ -25,28 +25,25 @@ Deberían definirse claramente los términos, para que todas las partes relacion
 |===
 | Término | Definición
 
-| WikiData
-| Base de conocimientos con una gran cantidad de datos. Extraeremos datos de WikiData a través de la API que nos proporciona. Construiremos las preguntas con estos datos.
-
-| MVC
-| Modelo de arquitectura de software. Las aplicaciones que siguen este modelo se dividen en 3 capas, Modelo, Vista y Controlador.
-
 | GitHub
 | Plataforma de desarrollo colaborativo. Todo el código del equipo, su trabajo realizado y sus reuniones se documentan aquí.
 
 | MongoDB
 | Es un sistema de base de datos NoSQL, orientado a documentos. La base de datos de nuestra aplicación esta hecha con MongoDB.
 
-| React
-| Biblioteca JavaScript diseñada para crear interfaces de usuario. La usaremos para hacer el front-end de la aplicación.
+| MVC
+| Modelo de arquitectura de software. Las aplicaciones que siguen este modelo se dividen en 3 capas, Modelo, Vista y Controlador.
 
 | Node.js
 | Es un entorno en tiempo de ejecución para la capa del servidor basado en JavaScript. La usaremos para gran parte de el back-end de la aplicación.
 
-| TypeScript
-| Es un lenguaje de programación que esencialmente añade tipos estáticos y objetos basados en clases. Lo usaremos como lenguaje de programación para nuestra aplicación.
-
 | Query
 | Conjunto de palabras o frase que se utiliza cómo término de búsqueda. Usaremos queries para conseguir información de la base de datos o de WikiData.
+
+| React
+| Biblioteca JavaScript diseñada para crear interfaces de usuario. La usaremos para hacer el front-end de la aplicación.
+
+| WikiData
+| Base de conocimientos con una gran cantidad de datos. Extraeremos datos de WikiData a través de la API que nos proporciona. Construiremos las preguntas con estos datos.
 
 |===
