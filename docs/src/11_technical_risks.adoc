@@ -21,10 +21,11 @@ Lista de riesgos y/o deuda técnica, que podría incluir una medidas sugeridas p
 o reducir la deuda técnica.
 ****
 
-
 [options="header", cols="1,1"]
 |===
 | Riesgo | Explicación
+
+| Abandono de miembros del grupo | Cuantas menos personas seamos, más trabajo tendremos que realizar los demás miembros.
 
 | Trabajo en equipo | La falta de coodinación y comunicación puede llevar a malos resultados en el trabajo. Tampoco tenemos experiencia trabajando en una aplicación desde 0.
 
@@ -33,5 +34,16 @@ o reducir la deuda técnica.
 | Desconocimiento de React | Nunca hemos trabajado con React.
 
 | Desconocimiento de Node.js | Nunca hemos trabajado con Node.js.
+
+|===
+
+[options="header", cols="1,1"]
+|===
+
+| Deuda técnica | Explicación
+
+| Rendimiento de las preguntas | Nos gustaría haber tenido el rendimiento como atributo de calidad pero debido al abandono de varios miembros del grupo se decidió dar prioridad a terminar el proyecto completo, que a mejorar otros aspectos como el rendimiento.
+
+| Tests de carga | No hemos sido capaces de hacerlos, debido a ser solo dos personas, y que es la primera vez que nos pedían esto, y decidimos dar prioridad a los demás tests.
 
 |===

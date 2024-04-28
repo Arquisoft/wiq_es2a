@@ -73,8 +73,6 @@ Texto en forma libre o tabular.
 |*Descripción*|*Atributo de calidad*|*Escenario*
 |La aplicación tendrá una interfaz de usuario sencilla, con botones que indiquen que es cada cosa, y colores que harán que se entienda mejor|Usabilidad|El usuario quiere utilizar la aplicación con facilidad
 
-|La aplicación tendrá tiempos de ejecución cortos|Rendimiento|Cuando el usuario comience una partida en el juego habrá tiempos de espera cortos
-
 |La aplicación podrá ser usada en distintos dispositivos|Adaptabilidad|Un usuario podrá usar la aplicación en móvil, tablet u ordenador
 
 |La aplicación estará disponible el 95% del tiempo.|Disponibilidad|Un usuario accede a la aplicación a las 6 de la tarde y esta estará disponible
