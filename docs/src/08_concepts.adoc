@@ -61,7 +61,6 @@ Modelo de la aplicación:
 
 ----
 clase Usuario {
-    id: String
     username: String
     password: String
     createdAt: String
@@ -69,14 +68,13 @@ clase Usuario {
 
 clase Record {
     username: String
-    id: String
     correctQuestions: int
     totalQuestions: int
     totalTime: int
     doneAt: Date
 }
 
-clase Pregunta{
+clase Pregunta {
     pregunta: String
     correcta: String
     incorrectas: Array<String>(3)
