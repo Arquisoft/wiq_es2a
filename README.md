@@ -7,7 +7,7 @@
 
 ## Acceso
 - Acceso a la documentación: [Documentación](https://arquisoft.github.io/wiq_es2a/)
-- Acceso al juego: [20.117.111.8:3000](https://tinyurl.com/wiqes2a) 
+- Acceso al juego: [20.117.117.160:3000](20.117.117.160:3000) 
 
 ## Componentes del grupo
 [![Laura](https://img.shields.io/badge/UO275955-Laura%20Cordero%20Castrillo-%232E8B57?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lauracc97)
