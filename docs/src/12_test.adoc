@@ -1,6 +1,6 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
-[[section-glossary]]
+[[section-test]]
 == Pruebas realizadas
 A continuación se recogen los diferentes tipos de pruebas realizados para garantizar el correcto funcionamiento de la aplicación y cumplir con el límite de coverage del 80% que se requería para el proyecto.
 
