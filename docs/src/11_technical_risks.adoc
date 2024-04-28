@@ -23,15 +23,28 @@ o reducir la deuda técnica.
 
 
 [options="header", cols="1,1"]
+=== Riesgos
 |===
 | Riesgo | Explicación
 
 | Trabajo en equipo | La falta de coodinación y comunicación puede llevar a malos resultados en el trabajo. Tampoco tenemos experiencia trabajando en una aplicación desde 0.
 
+|Abandono de miembros del equipo | Si uno o más miembros abandonan el equipo de desarrollo, la carga de trabajo para el resto se incrementará y, por tanto, aumentará la probabilidad de errores y deuda ténica por falta de tiempo.
+
 | Falta de experiencia con WikiData | No estamos muy familiarizados con WikiData y su estructura. Tenemos que aprender a hacer queries a la API de WikiData.
 
-| Desconocimiento de React | Nunca hemos trabajado con React.
+| Desconocimiento de algunas tecnologías utilizadas como NodeJS o React| Hasta el desarrollo de esta aplicación no habíamos trabajado con estas tecnologías y, por tanto, pueden ocasionar errores o retrasos durante el parendizaje de las mismas.
 
-| Desconocimiento de Node.js | Nunca hemos trabajado con Node.js.
+|===
+
+=== Deuda Técnica
+Se ha ocasiaonado deuda técnica en el proyecto debido en gran medida a la falta de tiempo y al abandono de 4 miembros del equipo, 2 de ellos nunca se presentaron y los otros 2 abandonaron la asigntura durante el desarrollo. A continuación se inidican las principales decisiones tomadas que han ocasionado deuda técnica en este proyecto:
+
+|===
+| Deuda Técnica | Explicación
+
+| Pruebas de carga | No se han podido realizar pruebas de carga ya que por los factores anteriormente indicados, decidimos priorizar las pruebas unitarias y las de end to end frente a las de carga.
+
+| Requisitos opcionales | Se ha priorizado aquellos requisitos obligatorios frente a los opcionales, pudiendo realizar solo uno de estos.
 
 |===
