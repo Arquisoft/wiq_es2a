@@ -26,8 +26,6 @@ o reducir la deuda técnica.
 |===
 | Riesgo | Explicación
 
-| Abandono de miembros del grupo | Cuantas menos personas seamos, más trabajo tendremos que realizar los demás miembros.
-
 | Trabajo en equipo | La falta de coodinación y comunicación puede llevar a malos resultados en el trabajo. Tampoco tenemos experiencia trabajando en una aplicación desde 0.
 
 |Abandono de miembros del equipo | Si uno o más miembros abandonan el equipo de desarrollo, la carga de trabajo para el resto se incrementará y, por tanto, aumentará la probabilidad de errores y deuda ténica por falta de tiempo.
