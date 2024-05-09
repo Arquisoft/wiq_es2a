@@ -7,7 +7,8 @@
 
 ## Acceso
 - Acceso a la documentación: [Documentación](https://arquisoft.github.io/wiq_es2a/)
-- Acceso al juego: [20.163.56.218:3000](http://20.163.56.218:3000/)
+- Acceso al juego: [20.0.145.178:3000](http://20.0.145.178:3000/)
+- Acceso a la API: [20.0.145.178:8000/api-doc](http://20.0.145.178:8000/api-doc)
 - Presentación y Gameplay: [Link Onedrive](https://unioviedo-my.sharepoint.com/:f:/g/personal/uo275955_uniovi_es/ElD0I4jt5g1PqIR60m60vNQBqnuIRR9Sr5KkdFIhwGx-9g?e=DXx5lg)
 
 ## Componentes del grupo
